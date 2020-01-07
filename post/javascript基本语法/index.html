@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <script>
+        var yiliaConfig = {
+            fancybox:  true ,
+            animate:  false ,
+            isHome: false,
+            isPost: false,
+            isArchive: true,
+            isTag: false,
+            isCategory: false,
+            open_in_new:  false ,
+            rootUrl: "\/"
+        };
+    </script>
+
+    <title>JavaScript基本语法</title>
+    <link rel="icon" href="/favicon.png">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+    
+    
+    <link rel="stylesheet" href="/highlight/styles/darcula.css">
+    <script src="/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+
+<body>
+<div id="container">
+    <div class="left-col">
+        <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/liekong.jpg" class="animated zoomIn js-avatar">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">SkyZhou197</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">努力学习ing</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/./">主页</a></li>
+                        
+                            <li><a href="/./post/">所有文章</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="email"><a class="email" target="_blank" href="mailto:zhouhaomin019@gmail.com" title="email"></a></li>
+                            
+                                <li id="github"><a class="github" target="_blank" href="https://github.com/SkyZhou197" title="github"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.baidu.com">baidu</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://developer.mozilla.org/zh-CN/">mdn</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">我很喜欢前端,真的很有意思</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+        <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">SkyZhou197</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/liekong.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">SkyZhou197</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">努力学习ing</p>
+            
+            <nav class="header-menu">
+                <ul>
+                    
+                    <li><a href="/./">主页</a></li>
+                    
+                    <li><a href="/./post/">所有文章</a></li>
+                    
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                            <li id="email"><a class="email" target="_blank" href="mailto:zhouhaomin019@gmail.com" title="email"></a></li>
+                            
+                            <li id="github"><a class="github" target="_blank" href="https://github.com/SkyZhou197" title="github"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>
+    </div>
+</nav>
+
+        <div class="body-wrap">
+            <article id="post-js-android" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+    <div class="article-meta">
+        <a href="http://zhouhaomin.top/post/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="article-date">
+            <time datetime="2019-11-29 15:13:23 &#43;0800 CST" itemprop="datePublished">2019-11-29</time>
+        </a>
+    </div>
+
+    <div class="article-inner">
+        
+        <input type="hidden" class="isFancy">
+        
+
+        <header class="article-header">
+
+
+            <h1 class="article-title" itemprop="name">
+                <a class="article-title" href="http://zhouhaomin.top/post/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">JavaScript基本语法</a>
+            </h1>
+
+
+        </header>
+
+        <div class="article-info article-info-post">
+
+            
+
+            
+
+            <div class="clearfix"></div>
+        </div>
+
+
+        <div class="article-entry" itemprop="articleBody">
+
+            
+
+<h1 id="今天学习一下-javascript-的基本语法">今天学习一下 JavaScript 的基本语法</h1>
+
+<h2 id="首先了解什么是语句和表达式">首先了解什么是语句和表达式</h2>
+
+<p>JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。</p>
+
+<p>语句（statement）是为了完成某种任务而进行的操作，比如下面就是一行赋值语句。</p>
+
+<pre><code>var a = 1 + 3
+</code></pre>
+
+<p>这条语句先用 var 命令，声明了变量 a，然后将 1 + 3 的运算结果赋值给变量 a。
+1 + 3 叫做表达式（expression），指一个为了得到返回值的计算式。语句和表达式的区别在于，前者主要为了进行某种操作，一般情况下不需要返回值；后者则是为了得到返回值，一定会返回一个值。凡是 JavaScript 语言中预期为值的地方，都可以使用表达式。比如，赋值语句的等号右边，预期是一个值，因此可以放置各种表达式。语句以分号结尾，一个分号就表示一个语句结束。多个语句可以写在一行内。</p>
+
+<h2 id="标识符的规则">标识符的规则</h2>
+
+<p>标识符（identifier）指的是用来识别各种值的合法名称。最常见的标识符就是变量名，以及后面要提到的函数名。JavaScript 语言的标识符对大小写敏感，所以 a 和 A 是两个不同的标识符。JavaScript 有一些保留字，不能用作标识符。</p>
+
+<p>标识符有一套命名规则，不符合规则的就是非法标识符。JavaScript 引擎遇到非法标识符，就会报错。第一个字符，可以是任意 Unicode 字母（包括英文字母和其他语言的字母），以及美元符号（\$）和下划线（_）。第二个字符及后面的字符，除了 Unicode 字母、美元符号和下划线，还可以用数字 0-9。</p>
+
+<p>下面这些都是合法的标识符:</p>
+
+<pre><code>arg0
+_tmp
+$elem
+π
+</code></pre>
+
+<p>下面这些则是不合法的标识符:</p>
+
+<pre><code>1a  // 第一个字符不能是数字
+23  // 同上
+***  // 标识符不能包含星号
+a+b  // 标识符不能包含加号
+-d  // 标识符不能包含减号或连词线
+</code></pre>
+
+<h2 id="介绍-if-else-语句">介绍 if else 语句</h2>
+
+<p>if 结构先判断一个表达式的布尔值，然后根据布尔值的真伪，执行不同的语句。所谓布尔值，指的是 JavaScript 的两个特殊值，true 表示真，false 表示伪。
+布尔值往往由一个条件表达式产生的，必须放在圆括号中，表示对表达式求值。如果表达式的求值结果为 true，就执行紧跟在后面的语句；如果结果为 false，则跳过紧跟在后面的语句。
+if 代码块后面，还可以跟一个 else 代码块，表示不满足条件时，所要执行的代码。对同一个变量进行多次判断时，多个 if&hellip;else 语句可以连写在一起。
+下面代码判断变量 m 是否等于 3，如果等于就执行 if 代码块，否则执行 else 代码块。</p>
+
+<pre><code>if (m === 3) {
+  // 满足条件时，执行的语句
+} else {
+  // 不满足条件时，执行的语句
+}
+</code></pre>
+
+<h2 id="介绍-while-for-语句">介绍 while for 语句</h2>
+
+<p>While 语句包括一个循环条件和一段代码块，只要条件为真，就不断循环执行代码块。while 语句的循环条件是一个表达式，必须放在圆括号中。代码块部分，如果只有一条语句，可以省略大括号，否则就必须加上大括号。
+for 语句是循环命令的另一种形式，可以指定循环的起点、终点和终止条件。for 语句后面的括号里面，有三个表达式:</p>
+
+<ol>
+<li>初始化表达式（initialize）：确定循环变量的初始值，只在循环开始时执行一次。</li>
+<li>条件表达式（test）：每轮循环开始时，都要执行这个条件表达式，只有值为真，才继续进行循环。</li>
+
+<li><p>递增表达式（increment）：每轮循环的最后一个操作，通常用来递增循环变量。</p>
+
+<pre><code class="language-javascript">var x = 3;
+var i = 0;
+
+while (i &lt; x) {
+console.log(i);
+i++;
+}
+</code></pre></li>
+</ol>
+
+<p>上面代码的初始化表达式是 var i = 0，即初始化一个变量 i；测试表达式是 i &lt; x，即只要 i 小于 x，就会执行循环；递增表达式是 i++，即每次循环结束后，i 增大 1。</p>
+
+<h2 id="介绍-break-continue-以及-label-用法">介绍 break、continue 以及 label 用法</h2>
+
+<p>break 语句和 continue 语句都具有跳转作用，可以让代码不按既有的顺序执行。简单来说 break 就是用于跳出代码块或退出所有循环，continue 则是退出当前一次循环，返回循环结构的头部，开始下一轮循环。</p>
+
+<p>JavaScript 语言允许，语句的前面有标签（label），相当于定位符，用于跳转到程序的任意位置，标签的格式如下:</p>
+
+<pre><code>label:
+  语句
+</code></pre>
+
+<p>标签可以是任意的标识符，但不能是保留字，语句部分可以是任意语句。标签通常与 break 语句和 continue 语句配合使用，跳出特定的循环。</p>
+
+<pre><code class="language-javascript">top: for (var i = 0; i &lt; 3; i++) {
+  for (var j = 0; j &lt; 3; j++) {
+    if (i === 1 &amp;&amp; j === 1) break top;
+    console.log(&quot;i=&quot; + i + &quot;, j=&quot; + j);
+  }
+}
+// i=0, j=0
+// i=0, j=1
+// i=0, j=2
+// i=1, j=0
+</code></pre>
+
+<p>上面代码为一个双重循环区块，break 命令后面加上了 top 标签（注意，top 不用加引号），满足条件时，直接跳出双层循环。如果 break 语句后面不使用标签，则只能跳出内层循环，进入下一次的外层循环。</p>
+
+
+        </div>
+
+    </div>
+
+    
+    <nav id="article-nav">
+
+        
+        <div id="article-nav-newer" class="article-nav-title">
+            <a href="/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/">
+                JS对象基本用法
+            </a>
+        </div>
+        
+
+        
+        <div id="article-nav-older" class="article-nav-title">
+            <a href="/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/">
+                JavaScript的诞生
+            </a>
+        </div>
+        
+
+    </nav>
+    
+
+
+</article>
+
+<div id="toc" class="toc-article" >
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc">
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#今天学习一下-javascript-的基本语法">今天学习一下 JavaScript 的基本语法</a>
+<ul>
+<li><a href="#首先了解什么是语句和表达式">首先了解什么是语句和表达式</a></li>
+<li><a href="#标识符的规则">标识符的规则</a></li>
+<li><a href="#介绍-if-else-语句">介绍 if else 语句</a></li>
+<li><a href="#介绍-while-for-语句">介绍 while for 语句</a></li>
+<li><a href="#介绍-break-continue-以及-label-用法">介绍 break、continue 以及 label 用法</a></li>
+</ul></li>
+</ul>
+</nav>
+    </ol>
+</div>
+<style>
+    
+    .left-col .switch-btn {
+        display: none;
+    }
+
+    .left-col .switch-area {
+        display: none;
+    }
+    
+
+
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录" >
+
+<script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function () {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    
+    
+    
+        
+    
+</script>
+
+
+<div class="share">
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+        <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config = {
+            "common": {
+                "bdSnsKey": {},
+                "bdText": "",
+                "bdMini": "2",
+                "bdMiniList": false,
+                "bdPic": "",
+                "bdStyle": "0",
+                "bdSize": "24"
+            }, "share": {}
+        };
+        with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+    </script>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="scroll" id="post-nav-button">
+
+    
+    <a href="/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" title="上一篇: JS对象基本用法">
+        <i class="fa fa-angle-left"></i>
+    </a>
+    
+
+
+    <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+
+    
+    <a href="/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/" title="下一篇: JavaScript的诞生">
+        <i class="fa fa-angle-right"></i>
+    </a>
+    
+
+</div>
+
+
+<ul class="post-list toc-article">
+    
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/js%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E6%96%B9%E6%B3%95/" target="_blank">JS数组去重方法</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/vue%E4%B8%AD%E7%9A%84computed%E5%92%8Cwatch/" target="_blank">Vue中的computed和watch</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/" target="_blank">Vue数据响应式</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/%E5%88%9D%E8%AF%86vue/" target="_blank">初识Vue</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/%E6%B5%85%E6%9E%90mvc/" target="_blank">浅析MVC</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/" target="_blank">jQuery设计思想</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" target="_blank">JS函数的执行时机</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" target="_blank">JS对象基本用法</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" target="_blank">JavaScript基本语法</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/" target="_blank">JavaScript的诞生</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/%E6%B5%85%E6%9E%90url/" target="_blank">浅析URL</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" target="_blank">CSS知识总结</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" target="_blank">HTMl常用标签</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank">如何用hugo搭建个人博客</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/html%E5%85%A5%E5%AD%A6%E7%AC%94%E8%AE%B01/" target="_blank">HTML入学笔记1</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/" target="_blank">开博大吉</a></li>
+    
+</ul>
+
+<script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    $(".post-list").addClass("toc-article");
+    $(".post-list-item a").attr("target", "_blank");
+    $("#post-nav-button > a:nth-child(2)").click(function () {
+        $(".fa-bars, .fa-times").toggle();
+        $(".post-list").toggle(300);
+        if ($(".toc").length > 0) {
+            $("#toc, #tocButton").toggle(200, function () {
+                if ($(".switch-area").is(":visible")) {
+                    $("#toc, .switch-btn, .switch-area").toggle();
+                    $("#tocButton").attr("value", valueHide);
+                }
+            })
+        }
+        else {
+            $(".switch-btn, .switch-area").fadeToggle(300);
+        }
+    })
+</script>
+
+
+<script>
+
+</script>
+
+
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2020 SkyZhou197
+            </div>
+            <div class="footer-right">
+                <a href="http://gohugo.io/" target="_blank">Hugo</a>  Theme <a href="https://github.com/NightFarmer/hugo-theme-yelee" target="_blank">Yelee</a> by NightFarmer
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数:
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量:
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="/js/GithubRepoWidget.js"></script>
+<script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum =  5 ;
+                var backgroundimg = "url(\/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+</div>
+</body>
+</html>

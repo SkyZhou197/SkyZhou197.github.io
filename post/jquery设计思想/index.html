@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <script>
+        var yiliaConfig = {
+            fancybox:  true ,
+            animate:  false ,
+            isHome: false,
+            isPost: false,
+            isArchive: true,
+            isTag: false,
+            isCategory: false,
+            open_in_new:  false ,
+            rootUrl: "\/"
+        };
+    </script>
+
+    <title>jQuery设计思想</title>
+    <link rel="icon" href="/favicon.png">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+    
+    
+    <link rel="stylesheet" href="/highlight/styles/darcula.css">
+    <script src="/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+
+
+<body>
+<div id="container">
+    <div class="left-col">
+        <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/liekong.jpg" class="animated zoomIn js-avatar">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">SkyZhou197</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">努力学习ing</p>
+        
+
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/./">主页</a></li>
+                        
+                            <li><a href="/./post/">所有文章</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="email"><a class="email" target="_blank" href="mailto:zhouhaomin019@gmail.com" title="email"></a></li>
+                            
+                                <li id="github"><a class="github" target="_blank" href="https://github.com/SkyZhou197" title="github"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
+
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
+
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.baidu.com">baidu</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://developer.mozilla.org/zh-CN/">mdn</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">我很喜欢前端,真的很有意思</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+        <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">SkyZhou197</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/liekong.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">SkyZhou197</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">努力学习ing</p>
+            
+            <nav class="header-menu">
+                <ul>
+                    
+                    <li><a href="/./">主页</a></li>
+                    
+                    <li><a href="/./post/">所有文章</a></li>
+                    
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                            <li id="email"><a class="email" target="_blank" href="mailto:zhouhaomin019@gmail.com" title="email"></a></li>
+                            
+                            <li id="github"><a class="github" target="_blank" href="https://github.com/SkyZhou197" title="github"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>
+    </div>
+</nav>
+
+        <div class="body-wrap">
+            <article id="post-js-android" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+    <div class="article-meta">
+        <a href="http://zhouhaomin.top/post/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/" class="article-date">
+            <time datetime="2019-12-09 16:27:57 &#43;0800 CST" itemprop="datePublished">2019-12-09</time>
+        </a>
+    </div>
+
+    <div class="article-inner">
+        
+        <input type="hidden" class="isFancy">
+        
+
+        <header class="article-header">
+
+
+            <h1 class="article-title" itemprop="name">
+                <a class="article-title" href="http://zhouhaomin.top/post/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/">jQuery设计思想</a>
+            </h1>
+
+
+        </header>
+
+        <div class="article-info article-info-post">
+
+            
+
+            
+
+            <div class="clearfix"></div>
+        </div>
+
+
+        <div class="article-entry" itemprop="articleBody">
+
+            
+
+<h1 id="多方面浅析-jquery-基本功能">多方面浅析 jQuery 基本功能</h1>
+
+<p>jQuery是目前使用最广泛的javascript函数库。对于网页开发者来说，学会jQuery可以让你了解业界最通用的技术，为将来学习更高级的库打下基础，并且确实可以很轻松地做出许多复杂的效果。下面来从几个方面介绍jQuery的功能。</p>
+
+<h2 id="jquery如何获取元素">jQuery如何获取元素</h2>
+
+<p>jQuery的基本设计思想和主要用法是选择某个网页元素，然后对其进行某种操作。获取元素是使用jQuery的第一步，通常是将一个选择表达式，放进构造函数jQuery()（简写为$），然后得到被选中的元素。
+选择表达式可以是CSS选择器，也可以是jQuery特有的表达式</p>
+
+<h2 id="jquery的链式操作是怎样的">jQuery的链式操作是怎样的</h2>
+
+<p>最终选中网页元素以后，可以对它进行一系列操作，并且所有操作可以连接在一起，以链条的形式写出来。如：</p>
+
+<pre><code class="language-javascript">$('div').find('h3').eq(2).html('Hello');
+</code></pre>
+
+<p>分解开来，就是下面这样：</p>
+
+<pre><code class="language-javascript">$('div') //找到div元素
+    .find('h3') //选择其中的h3元素
+    .eq(2) //选择第3个h3元素
+    .html('Hello'); //将它的内容改为Hello
+</code></pre>
+
+<p>链式操作的原理在于每一步的jQuery操作，返回的都是一个jQuery对象，所以不同操作可以连在一起。
+jQuery还提供了.end()方法，使得结果集可以后退一步：</p>
+
+<pre><code class="language-javascript">$('div')
+    .find('h3')
+    .eq(2)
+    .html('Hello')
+    .end() //退回到选中所有的h3元素的那一步
+    .eq(0) //选中第一个h3元素
+    .html('World'); //将它的内容改为World
+</code></pre>
+
+<h2 id="jquery如何创建元素">jQuery如何创建元素</h2>
+
+<p>创建新元素的方法非常简单，只要把新元素直接传入jQuery的构造函数就行了：</p>
+
+<pre><code class="language-javascript">$('&lt;p&gt;Hello&lt;/p&gt;');
+    $('&lt;li class=&quot;new&quot;&gt;new list item&lt;/li&gt;');
+    $('ul').append('&lt;li&gt;list item&lt;/li&gt;');
+</code></pre>
+
+<p>除了创建元素之外jQuery还提供其他几种操作元素的重要方法,比如复制元素使用.clone()。删除元素使用.remove()和.detach()。两者的区别在于，前者不保留被删除元素的事件，后者保留，有利于重新插入文档时使用。清空元素内容（但是不删除该元素）使用.empty()。</p>
+
+<h2 id="jquery如何移动元素">jQuery如何移动元素</h2>
+
+<p>jQuery提供两组方法，来操作元素在网页中的位置移动。一组方法是直接移动该元素，另一组方法是移动其他元素，使得目标元素达到我们想要的位置。
+假定我们选中了一个div元素，需要把它移动到p元素后面。
+第一种方法是使用.insertAfter()，把div元素移动p元素后面：</p>
+
+<pre><code class="language-javascript">$('div').insertAfter($('p'));
+</code></pre>
+
+<p>第二种方法是使用.after()，把p元素加到div元素前面：</p>
+
+<pre><code class="language-javascript">$('p').after($('div'));
+</code></pre>
+
+<p>表面上看，这两种方法的效果是一样的，唯一的不同似乎只是操作视角的不同。但是实际上，它们有一个重大差别，那就是返回的元素不一样。第一种方法返回div元素，第二种方法返回p元素。
+使用这种模式的操作方法，一共有四对：
+* .insertAfter()和.after()：在现存元素的外部，从后面插入元素
+* .insertBefore()和.before()：在现存元素的外部，从前面插入元素
+* .appendTo()和.append()：在现存元素的内部，从后面插入元素
+* .prependTo()和.prepend()：在现存元素的内部，从前面插入元素</p>
+
+<h2 id="jquery如何对元素取值和赋值">jQuery如何对元素取值和赋值</h2>
+
+<p>jQuery使用同一个函数，来完成取值（getter）和赋值（setter），即&rdquo;取值器&rdquo;与&rdquo;赋值器&rdquo;合一。到底是取值还是赋值，由函数的参数决定。</p>
+
+<pre><code class="language-javascript">$('h1').html(); //html()没有参数，表示取出h1的值
+$('h1').html('Hello'); //html()有参数Hello，表示对h1进行赋值
+</code></pre>
+
+<p>常见的取值和赋值函数如下：
+* .html() 取出或设置html内容
+* .text() 取出或设置text内容
+* .attr() 取出或设置某个属性的值
+* .width() 取出或设置某个元素的宽度
+* .height() 取出或设置某个元素的高度
+* .val() 取出某个表单元素的值</p>
+
+<p>需要注意的是，如果结果集包含多个元素，那么赋值的时候，将对其中所有的元素赋值；取值的时候，则是只取出第一个元素的值（.text()例外，它取出所有元素的text内容）。</p>
+
+
+        </div>
+
+    </div>
+
+    
+    <nav id="article-nav">
+
+        
+        <div id="article-nav-newer" class="article-nav-title">
+            <a href="/post/%E6%B5%85%E6%9E%90mvc/">
+                浅析MVC
+            </a>
+        </div>
+        
+
+        
+        <div id="article-nav-older" class="article-nav-title">
+            <a href="/post/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/">
+                JS函数的执行时机
+            </a>
+        </div>
+        
+
+    </nav>
+    
+
+
+</article>
+
+<div id="toc" class="toc-article" >
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc">
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#多方面浅析-jquery-基本功能">多方面浅析 jQuery 基本功能</a>
+<ul>
+<li><a href="#jquery如何获取元素">jQuery如何获取元素</a></li>
+<li><a href="#jquery的链式操作是怎样的">jQuery的链式操作是怎样的</a></li>
+<li><a href="#jquery如何创建元素">jQuery如何创建元素</a></li>
+<li><a href="#jquery如何移动元素">jQuery如何移动元素</a></li>
+<li><a href="#jquery如何对元素取值和赋值">jQuery如何对元素取值和赋值</a></li>
+</ul></li>
+</ul>
+</nav>
+    </ol>
+</div>
+<style>
+    
+    .left-col .switch-btn {
+        display: none;
+    }
+
+    .left-col .switch-area {
+        display: none;
+    }
+    
+
+
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录" >
+
+<script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function () {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    
+    
+    
+        
+    
+</script>
+
+
+<div class="share">
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+        <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config = {
+            "common": {
+                "bdSnsKey": {},
+                "bdText": "",
+                "bdMini": "2",
+                "bdMiniList": false,
+                "bdPic": "",
+                "bdStyle": "0",
+                "bdSize": "24"
+            }, "share": {}
+        };
+        with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+    </script>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="scroll" id="post-nav-button">
+
+    
+    <a href="/post/%E6%B5%85%E6%9E%90mvc/" title="上一篇: 浅析MVC">
+        <i class="fa fa-angle-left"></i>
+    </a>
+    
+
+
+    <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+
+    
+    <a href="/post/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" title="下一篇: JS函数的执行时机">
+        <i class="fa fa-angle-right"></i>
+    </a>
+    
+
+</div>
+
+
+<ul class="post-list toc-article">
+    
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/js%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E6%96%B9%E6%B3%95/" target="_blank">JS数组去重方法</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/vue%E4%B8%AD%E7%9A%84computed%E5%92%8Cwatch/" target="_blank">Vue中的computed和watch</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/" target="_blank">Vue数据响应式</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/%E5%88%9D%E8%AF%86vue/" target="_blank">初识Vue</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/%E6%B5%85%E6%9E%90mvc/" target="_blank">浅析MVC</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/" target="_blank">jQuery设计思想</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" target="_blank">JS函数的执行时机</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" target="_blank">JS对象基本用法</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" target="_blank">JavaScript基本语法</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/" target="_blank">JavaScript的诞生</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/%E6%B5%85%E6%9E%90url/" target="_blank">浅析URL</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" target="_blank">CSS知识总结</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" target="_blank">HTMl常用标签</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank">如何用hugo搭建个人博客</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/html%E5%85%A5%E5%AD%A6%E7%AC%94%E8%AE%B01/" target="_blank">HTML入学笔记1</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/" target="_blank">开博大吉</a></li>
+    
+</ul>
+
+<script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    $(".post-list").addClass("toc-article");
+    $(".post-list-item a").attr("target", "_blank");
+    $("#post-nav-button > a:nth-child(2)").click(function () {
+        $(".fa-bars, .fa-times").toggle();
+        $(".post-list").toggle(300);
+        if ($(".toc").length > 0) {
+            $("#toc, #tocButton").toggle(200, function () {
+                if ($(".switch-area").is(":visible")) {
+                    $("#toc, .switch-btn, .switch-area").toggle();
+                    $("#tocButton").attr("value", valueHide);
+                }
+            })
+        }
+        else {
+            $(".switch-btn, .switch-area").fadeToggle(300);
+        }
+    })
+</script>
+
+
+<script>
+
+</script>
+
+
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2020 SkyZhou197
+            </div>
+            <div class="footer-right">
+                <a href="http://gohugo.io/" target="_blank">Hugo</a>  Theme <a href="https://github.com/NightFarmer/hugo-theme-yelee" target="_blank">Yelee</a> by NightFarmer
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数:
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量:
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="/js/GithubRepoWidget.js"></script>
+<script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum =  5 ;
+                var backgroundimg = "url(\/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+</div>
+</body>
+</html>

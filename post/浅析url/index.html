@@ -18,7 +18,7 @@
         };
     </script>
 
-    <title>Tags</title>
+    <title>浅析URL</title>
     <link rel="icon" href="/favicon.png">
 
     <link rel="stylesheet" href="/css/style.css">
@@ -199,194 +199,283 @@
 </nav>
 
         <div class="body-wrap">
+            <article id="post-js-android" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+    <div class="article-meta">
+        <a href="http://zhouhaomin.top/post/%E6%B5%85%E6%9E%90url/" class="article-date">
+            <time datetime="2019-11-25 08:21:12 &#43;0800 CST" itemprop="datePublished">2019-11-25</time>
+        </a>
+    </div>
+
+    <div class="article-inner">
+        
+        <input type="hidden" class="isFancy">
+        
+
+        <header class="article-header">
 
 
-            <article id="page-undefined" class="article article-type-page" itemscope="" itemprop="blogPost">
-
-                <div class="article-meta">
-                    <a href="/tags/index.html" class="article-date">
-                        <time datetime="2016-03-05T19:07:17.000Z" itemprop="datePublished">2016-03-06</time>
-                    </a>
-                </div>
-
-                <div class="article-inner">
-
-                    <input type="hidden" class="isFancy">
+            <h1 class="article-title" itemprop="name">
+                <a class="article-title" href="http://zhouhaomin.top/post/%E6%B5%85%E6%9E%90url/">浅析URL</a>
+            </h1>
 
 
-                    <header class="article-header">
+        </header>
+
+        <div class="article-info article-info-post">
+
+            
+
+            
+
+            <div class="clearfix"></div>
+        </div>
 
 
-                        <h1 class="article-title" itemprop="name">
-                            分类 &amp; 标签
-                        </h1>
+        <div class="article-entry" itemprop="articleBody">
+
+            
+
+<h1 id="大家好-我们最近学习了-http-知识-现在回顾一下">大家好，我们最近学习了 HTTP 知识，现在回顾一下</h1>
+
+<p>首先介绍 URL 的内容, URL 全称为 Uniform Resource Locator,也就是统一资源定位符，或称统一资源定位器、定位地址、URL 地址。它最初是由李爵士发明用来作为万维网的地址是因特网上标准的资源的地址，如同在网络上的门牌。
+URL 由协议、域名或 IP、端口号、路径、查询字符串、锚点构成:</p>
+
+<ul>
+<li>协议即 HTTP 基于 TCP 和 IP 两个协议</li>
+<li>域名或 IP 约定了如何定位一台设备以及如何封装数据报文来和其他设备交流</li>
+<li>端口号(port)即一台机器可以提供很多服务，每个服务对应的一个号码</li>
+<li>路径可以做到请求不同的页面</li>
+<li>查询字符串可以做到同一个页面，不同内容</li>
+<li>锚点可以做到同一个内容，不同位置</li>
+</ul>
+
+<p>其次介绍一下 IP 的知识, IP 全称 Internet Protocal，即互联网协议，可以用来定位一台设备。只要我们在互联网中，就至少有一个独特的 IP。
+IP 分为内网和外网，一般是通过路由器来得到的。对我们家里的路由器来说，只要连上网络服务商的服务器就会有一个外网 IP，而路由器会在家中创建一个内网。内网和外网就像两个隔绝的空间，无法互通，唯一的联通点就是路由器，所以路由器也可以称作是网关。
+以下是几个特殊的 IP:</p>
+
+<ul>
+<li>127.0.0.1 表示自己</li>
+<li>localhost 通过 hosts 指定为自己</li>
+<li>0.0.0.0 不表示任何设备</li>
+</ul>
+
+<p>我们可以通过终端使用 ping ＋ 域名 的操作得到该域名网站的 IP，如 ping baidu.com 命令可以的到百度的 IP</p>
+
+<p>最后介绍一下域名的知识
+域名就是对 IP 的别称，分为两种:</p>
+
+<ol>
+<li>一个域名可以对应不同 IP，叫做均衡负载，防止一台机器扛不住。</li>
+<li>一个 IP 对应一个域名，叫做共享主机，穷开发者才会这么做。</li>
+</ol>
+
+<p>域名和 IP 是通过 DNS(全称 Domain Name System，即域名系统)对应起来的。</p>
 
 
-                    </header>
+        </div>
 
-                    <div class="article-info article-info-post">
+    </div>
 
+    
+    <nav id="article-nav">
 
-                        <div class="clearfix"></div>
-                    </div>
+        
+        <div id="article-nav-newer" class="article-nav-title">
+            <a href="/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/">
+                JavaScript的诞生
+            </a>
+        </div>
+        
 
+        
+        <div id="article-nav-older" class="article-nav-title">
+            <a href="/post/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">
+                CSS知识总结
+            </a>
+        </div>
+        
 
-                    <div class="article-entry" itemprop="articleBody">
-
-
-                        <style>
-                            .article-meta {
-                                display: none;
-                            }
-
-                            #container .article .article-title {
-                                padding-right: 0;
-                            }
-
-                            .article-header {
-                                padding: 0;
-                                padding-top: 26px;
-                                border-left: none;
-                                text-align: center;
-                            }
-
-                            .article-header:hover {
-                                border-left: none;
-                            }
-
-                            .article-title {
-                                font-size: 1.6em
-                            }
-
-                            .article-meta {
-                                display: none;
-                            }
-
-                            .article-entry hr {
-                                margin: 0;
-                            }
-
-                            #container .article-info-post.article-info {
-                                display: none;
-                            }
-
-                            #container .article .article-title {
-                                padding: 0;
-                            }
-                        </style>
+    </nav>
+    
 
 
-                        
-                        <hr>
-                        <br>
-                        
-                            
-                                    
-                            
-                                    
-                            
-                                                              
-                                    
-                            
-                                    
-                            
-                                                              
-                                    
-                            
-                                                              
-                                    
-                            
-                                                              
-                                    
-                            
-                                                              
-                                    
-                        
+</article>
+
+<div id="toc" class="toc-article" >
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc">
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#大家好-我们最近学习了-http-知识-现在回顾一下">大家好，我们最近学习了 HTTP 知识，现在回顾一下</a></li>
+</ul>
+</nav>
+    </ol>
+</div>
+<style>
+    
+    .left-col .switch-btn {
+        display: none;
+    }
+
+    .left-col .switch-area {
+        display: none;
+    }
+    
 
 
-                        
-                        
-                            
-                            
-                        
-                        
+</style>
 
-                        
-                        
+<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录" >
 
+<script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
 
-                        
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
 
-                        <style>
-                            .category-list li {
-                                display: inline-block;
-                                margin: 0 1em .5em 0;
-                                padding: 4px;
-                                border: 1px solid lightgray;
-                                font-size: 1.2em;
-                            }
+    $("#tocButton").click(function () {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
 
-                            .category-list a {
-                                color: gray;
-                            }
-
-                            .category-list-item:hover a {
-                                color: gray;
-                                text-decoration: none;
-                            }
-
-                            .category-list-count {
-                                margin-left: 2px;
-                                font-size: .9em;
-                            }
-
-                            .article-entry ul li:before {
-                                display: none;
-                            }
-
-                            .article-inner {
-                                text-align: center;
-                            }
-
-                            .tags {
-                                max-width: 40em;
-                                margin: 2em auto;
-                                margin-top: 0em;
-                            }
-
-                            .tags a {
-                                margin-right: 1em;
-                                line-height: 65px;
-                                border-bottom: 1px solid gray;
-                                white-space: nowrap;
-                            }
-
-                            .tags a:hover {
-                                border-bottom: 2px solid black;
-                                text-decoration: none;
-                                font-style: italic;
-                            }
-
-                            #count > span {
-                                margin: auto .2em;
-                                font-weight: bold;
-                            }
-                        </style>
-
-                        
-                        <script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
-
-                        <script>
-                            $('#count').appendTo('.count');
-                        </script>
+    
+    
+    
+        
+    
+</script>
 
 
-                    </div>
+<div class="share">
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+        <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config = {
+            "common": {
+                "bdSnsKey": {},
+                "bdText": "",
+                "bdMini": "2",
+                "bdMiniList": false,
+                "bdPic": "",
+                "bdStyle": "0",
+                "bdSize": "24"
+            }, "share": {}
+        };
+        with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+    </script>
+</div>
 
-                </div>
 
 
-            </article>
+
+
+
+
+
+
+<div class="scroll" id="post-nav-button">
+
+    
+    <a href="/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/" title="上一篇: JavaScript的诞生">
+        <i class="fa fa-angle-left"></i>
+    </a>
+    
+
+
+    <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+
+    
+    <a href="/post/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" title="下一篇: CSS知识总结">
+        <i class="fa fa-angle-right"></i>
+    </a>
+    
+
+</div>
+
+
+<ul class="post-list toc-article">
+    
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/js%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E6%96%B9%E6%B3%95/" target="_blank">JS数组去重方法</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/vue%E4%B8%AD%E7%9A%84computed%E5%92%8Cwatch/" target="_blank">Vue中的computed和watch</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/" target="_blank">Vue数据响应式</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/%E5%88%9D%E8%AF%86vue/" target="_blank">初识Vue</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/%E6%B5%85%E6%9E%90mvc/" target="_blank">浅析MVC</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/" target="_blank">jQuery设计思想</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" target="_blank">JS函数的执行时机</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/" target="_blank">JS对象基本用法</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" target="_blank">JavaScript基本语法</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/" target="_blank">JavaScript的诞生</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/%E6%B5%85%E6%9E%90url/" target="_blank">浅析URL</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" target="_blank">CSS知识总结</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" target="_blank">HTMl常用标签</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" target="_blank">如何用hugo搭建个人博客</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/html%E5%85%A5%E5%AD%A6%E7%AC%94%E8%AE%B01/" target="_blank">HTML入学笔记1</a></li>
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/" target="_blank">开博大吉</a></li>
+    
+</ul>
+
+<script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    $(".post-list").addClass("toc-article");
+    $(".post-list-item a").attr("target", "_blank");
+    $("#post-nav-button > a:nth-child(2)").click(function () {
+        $(".fa-bars, .fa-times").toggle();
+        $(".post-list").toggle(300);
+        if ($(".toc").length > 0) {
+            $("#toc, #tocButton").toggle(200, function () {
+                if ($(".switch-area").is(":visible")) {
+                    $("#toc, .switch-btn, .switch-area").toggle();
+                    $("#tocButton").attr("value", valueHide);
+                }
+            })
+        }
+        else {
+            $(".switch-btn, .switch-area").fadeToggle(300);
+        }
+    })
+</script>
+
+
+<script>
+
+</script>
+
+
         </div>
         <footer id="footer">
     <div class="outer">
