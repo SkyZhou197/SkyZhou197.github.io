@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on 昊旻的博客</title>
+    <title>Posts on 周昊旻的博客</title>
     <link>http://zhouhaomin.top/posts/</link>
-    <description>Recent content in Posts on 昊旻的博客</description>
+    <description>Recent content in Posts on 周昊旻的博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-Hans</language>
+    <language>zh-ch</language>
     <lastBuildDate>Sun, 05 Jan 2020 08:35:17 +0800</lastBuildDate>
     
 	<atom:link href="http://zhouhaomin.top/posts/index.xml" rel="self" type="application/rss+xml" />

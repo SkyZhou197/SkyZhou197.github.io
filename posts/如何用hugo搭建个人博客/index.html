@@ -1,126 +1,248 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
-  <head>
+<html>
+<head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>昊旻的博客  | 如何用hugo搭建个人博客</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.59.1" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <script>
+        var yiliaConfig = {
+            fancybox:  true ,
+            animate:  false ,
+            isHome: false,
+            isPost: false,
+            isArchive: true,
+            isTag: false,
+            isCategory: false,
+            open_in_new:  false ,
+            rootUrl: "\/"
+        };
+    </script>
+
+    <title>如何用hugo搭建个人博客</title>
+    <link rel="icon" href="/favicon.png">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
     
     
-      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
-    
-
-    
-
-    
-      
-    
-
-    
-    
-    <meta property="og:title" content="如何用hugo搭建个人博客" />
-<meta property="og:description" content="大家好!今天我来介绍一下如何使用 hugo 搭建个人博客 首先我们来介绍一下搭建博客需要用到的生成器 hugo：
- GO 语言实现的一个博客生成器 世界上最快的博客生成器  了解了 hugo 是什么之后我们学习一下如何安装它：
- Mac 安装方式：
- brew install hugo hugo version  Windows 安装方式：
- 去 Hugo releases 页面下载 64 位压缩包 解压，把 hugo.exe 放到 D:\Software\hugo\hugo.exe 把 D:\Software\hugo\加到 PATH 重启终端，运行 hugo version 查看版本   安装了 hugo 之后我们就可以快速搭建出一个属于我们自己的个人博客啦：
- 进入 Hugo 官网，点击 Quick Stark 快速开始 从 Step2 开始抄代码，直到 Step7 得到一个 public 目录，这就是我们的博客站点 hugo server -D 可以预览草稿 hugo server 可以预览非草稿  预览网站可能遇见的问题：" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://zhouhaomin.top/posts/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" />
-<meta property="article:published_time" content="2019-11-14T20:27:49+08:00" />
-<meta property="article:modified_time" content="2019-11-14T20:27:49+08:00" />
-<meta itemprop="name" content="如何用hugo搭建个人博客">
-<meta itemprop="description" content="大家好!今天我来介绍一下如何使用 hugo 搭建个人博客 首先我们来介绍一下搭建博客需要用到的生成器 hugo：
- GO 语言实现的一个博客生成器 世界上最快的博客生成器  了解了 hugo 是什么之后我们学习一下如何安装它：
- Mac 安装方式：
- brew install hugo hugo version  Windows 安装方式：
- 去 Hugo releases 页面下载 64 位压缩包 解压，把 hugo.exe 放到 D:\Software\hugo\hugo.exe 把 D:\Software\hugo\加到 PATH 重启终端，运行 hugo version 查看版本   安装了 hugo 之后我们就可以快速搭建出一个属于我们自己的个人博客啦：
- 进入 Hugo 官网，点击 Quick Stark 快速开始 从 Step2 开始抄代码，直到 Step7 得到一个 public 目录，这就是我们的博客站点 hugo server -D 可以预览草稿 hugo server 可以预览非草稿  预览网站可能遇见的问题：">
+    <link rel="stylesheet" href="/highlight/styles/darcula.css">
+    <script src="/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
 
 
-<meta itemprop="datePublished" content="2019-11-14T20:27:49&#43;08:00" />
-<meta itemprop="dateModified" content="2019-11-14T20:27:49&#43;08:00" />
-<meta itemprop="wordCount" content="126">
+<body>
+<div id="container">
+    <div class="left-col">
+        <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/liekong.jpg" class="animated zoomIn js-avatar">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">SkyZhou197</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">努力学习ing</p>
+        
+
+        
 
 
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="如何用hugo搭建个人博客"/>
-<meta name="twitter:description" content="大家好!今天我来介绍一下如何使用 hugo 搭建个人博客 首先我们来介绍一下搭建博客需要用到的生成器 hugo：
- GO 语言实现的一个博客生成器 世界上最快的博客生成器  了解了 hugo 是什么之后我们学习一下如何安装它：
- Mac 安装方式：
- brew install hugo hugo version  Windows 安装方式：
- 去 Hugo releases 页面下载 64 位压缩包 解压，把 hugo.exe 放到 D:\Software\hugo\hugo.exe 把 D:\Software\hugo\加到 PATH 重启终端，运行 hugo version 查看版本   安装了 hugo 之后我们就可以快速搭建出一个属于我们自己的个人博客啦：
- 进入 Hugo 官网，点击 Quick Stark 快速开始 从 Step2 开始抄代码，直到 Step7 得到一个 public 目录，这就是我们的博客站点 hugo server -D 可以预览草稿 hugo server 可以预览非草稿  预览网站可能遇见的问题："/>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
 
-  </head>
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
 
-  <body class="ma0 avenir bg-near-white">
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
 
-    
-   
-  
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
 
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="http://zhouhaomin.top/" class="f3 fw2 hover-white no-underline white-90 dib">
-      昊旻的博客
-    </a>
-    <div class="flex-l items-center">
-      
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/./">主页</a></li>
+                        
+                            <li><a href="/./post/">所有文章</a></li>
+                        
+                            <li><a href="/./tags/">标签云</a></li>
+                        
+                            <li><a href="/./about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="email"><a class="email" target="_blank" href="mailto:zhouhaomin019@gmail.com" title="email"></a></li>
+                            
+                                <li id="github"><a class="github" target="_blank" href="https://github.com/SkyZhou197" title="github"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
 
-      
-      
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
 
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.baidu.com">baidu</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://developer.mozilla.org/zh-CN/">mdn</a>
+                    
+                    </div>
+                </section>
+                
 
-
-
-
-
-
-
-
-
-
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">我很喜欢前端,真的很有意思</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
 
     </div>
-  </div>
+    <div class="mid-col">
+        <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">SkyZhou197</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/liekong.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">SkyZhou197</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">努力学习ing</p>
+            
+            <nav class="header-menu">
+                <ul>
+                    
+                    <li><a href="/./">主页</a></li>
+                    
+                    <li><a href="/./post/">所有文章</a></li>
+                    
+                    <li><a href="/./tags/">标签云</a></li>
+                    
+                    <li><a href="/./about/">关于我</a></li>
+                    
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                            <li id="email"><a class="email" target="_blank" href="mailto:zhouhaomin019@gmail.com" title="email"></a></li>
+                            
+                            <li id="github"><a class="github" target="_blank" href="https://github.com/SkyZhou197" title="github"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>
+    </div>
 </nav>
 
+        <div class="body-wrap">
+            <article id="post-js-android" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+    <div class="article-meta">
+        <a href="http://zhouhaomin.top/posts/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="article-date">
+            <time datetime="2019-11-14 20:27:49 &#43;0800 CST" itemprop="datePublished">2019-11-14</time>
+        </a>
     </div>
-  </header>
+
+    <div class="article-inner">
+        
+        <input type="hidden" class="isFancy">
+        
+
+        <header class="article-header">
 
 
+            <h1 class="article-title" itemprop="name">
+                <a class="article-title" href="http://zhouhaomin.top/posts/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">如何用hugo搭建个人博客</a>
+            </h1>
 
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
 
-    <header class="mt4 w-100">
-      <p class="f6 b helvetica tracked">
-          
-        POSTS
-      </p>
-      <h1 class="f1 athelas mb1">如何用hugo搭建个人博客</h1>
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2019-11-14T20:27:49&#43;08:00">November 14, 2019</time>
-      
-      
-    </header>
+        </header>
 
-    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+        <div class="article-info article-info-post">
+
+            
+
+            
+
+            <div class="clearfix"></div>
+        </div>
+
+
+        <div class="article-entry" itemprop="articleBody">
+
+            
 
 <h1 id="大家好-今天我来介绍一下如何使用-hugo-搭建个人博客">大家好!今天我来介绍一下如何使用 hugo 搭建个人博客</h1>
 
@@ -200,50 +322,237 @@
 
 <p>完成了以上内容后我们打开 x.github.io.git 的 GitHub Pages,
 这样属于我们自己的个人博客就搭建成功了~</p>
-<ul class="pa0">
-  
-</ul>
-<div class="mt6">
-      
-      
-      </div>
-    </section>
-
-    <aside class="w-30-l mt6-l">
 
 
+        </div>
 
-
-</aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://zhouhaomin.top/" >
-    &copy;  昊旻的博客 2020 
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-
-</div>
-  </div>
-</footer>
+    </div>
 
     
 
-  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+</article>
+
+<div id="toc" class="toc-article" >
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc">
+        <nav id="TableOfContents">
+<ul>
+<li><a href="#大家好-今天我来介绍一下如何使用-hugo-搭建个人博客">大家好!今天我来介绍一下如何使用 hugo 搭建个人博客</a></li>
+</ul>
+</nav>
+    </ol>
+</div>
+<style>
+    
+
+    #tocButton{
+        display: none;
+    }
+    #toc{
+        display: none;
+    }
+
+    
 
 
-  </body>
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录" >
+
+<script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function () {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    
+    
+    
+        
+    
+</script>
+
+
+<div class="share">
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+        <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config = {
+            "common": {
+                "bdSnsKey": {},
+                "bdText": "",
+                "bdMini": "2",
+                "bdMiniList": false,
+                "bdPic": "",
+                "bdStyle": "0",
+                "bdSize": "24"
+            }, "share": {}
+        };
+        with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+    </script>
+</div>
+
+
+
+
+
+
+
+
+
+
+<ul class="post-list toc-article">
+    
+    
+</ul>
+
+<script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    $(".post-list").addClass("toc-article");
+    $(".post-list-item a").attr("target", "_blank");
+    $("#post-nav-button > a:nth-child(2)").click(function () {
+        $(".fa-bars, .fa-times").toggle();
+        $(".post-list").toggle(300);
+        if ($(".toc").length > 0) {
+            $("#toc, #tocButton").toggle(200, function () {
+                if ($(".switch-area").is(":visible")) {
+                    $("#toc, .switch-btn, .switch-area").toggle();
+                    $("#tocButton").attr("value", valueHide);
+                }
+            })
+        }
+        else {
+            $(".switch-btn, .switch-area").fadeToggle(300);
+        }
+    })
+</script>
+
+
+<script>
+
+</script>
+
+
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2020 SkyZhou197
+            </div>
+            <div class="footer-right">
+                <a href="http://gohugo.io/" target="_blank">Hugo</a>  Theme <a href="https://github.com/NightFarmer/hugo-theme-yelee" target="_blank">Yelee</a> by NightFarmer
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数:
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量:
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="/js/GithubRepoWidget.js"></script>
+<script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum =  5 ;
+                var backgroundimg = "url(\/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+</div>
+</body>
 </html>

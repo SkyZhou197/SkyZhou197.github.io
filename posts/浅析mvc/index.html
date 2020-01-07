@@ -1,123 +1,248 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
-  <head>
+<html>
+<head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>昊旻的博客  | 浅析MVC</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="generator" content="Hugo 0.59.1" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <script>
+        var yiliaConfig = {
+            fancybox:  true ,
+            animate:  false ,
+            isHome: false,
+            isPost: false,
+            isArchive: true,
+            isTag: false,
+            isCategory: false,
+            open_in_new:  false ,
+            rootUrl: "\/"
+        };
+    </script>
+
+    <title>浅析MVC</title>
+    <link rel="icon" href="/favicon.png">
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
     
     
-      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
-    
-
-    
-
-    
-      
-    
-
-    
-    
-    <meta property="og:title" content="浅析MVC" />
-<meta property="og:description" content="MVC 是一种设计模式 简单介绍 MVC(Model-View-Controller) 首先是 Model 对象,用于封装与应用程序的业务逻辑相关的数据以及对数据的处理方法。
-const m = { 数据{ 将数据转为字符串本地储存，页面刷新无法清除数据 } 对数据进行增删改查 }  其次是 View 对象，内容一般与视图相关，描绘的是 model 的当前状态。当模型的数据发生变化，视图相应地得到刷新自己的机会。
-const v = { 引入一个初始值为空的元素, 写入需要实现的html代码, 初始化, 将数据渲染为页面{ 判断初始值为空的元素的状态，根据不同的状态选择对应的方式进行渲染 } }  最后是 Controller，当完成前两部分之后剩下的内容我们都可以放到这里来，它处理用户的行为和数据 model 上的改变
-const c = { 初始化， 寻找重要元素，调用对应的函数 }  EventBus 的常用 API 通常使用继承的方法来使用 EventBus
-class EventBus { 将_EventBus写到原型链上面，即初始化 on(事件名，函数) { //监听函数 返回this._eventBus.on()的值 } trigger(事件名，数据) { //触发事件 返回this._eventBus.trigger()的值 } off(事件名，函数) { //取消监听 返回this._eventBus.off()的值 } }  表驱动编程 表驱动法(Table-Driven Approach),简单讲是指用查表的方法获取值，可以减少重复代码，使代码更加简洁。在程序中，数据的添加是非常简单，低成本和低风险的；而逻辑的添加是复杂，高成本和高风险的。表驱动方法可以让逻辑和数据分离，使用的关系表也可以更换。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://zhouhaomin.top/posts/%E6%B5%85%E6%9E%90mvc/" />
-<meta property="article:published_time" content="2019-12-20T19:19:55+08:00" />
-<meta property="article:modified_time" content="2019-12-20T19:19:55+08:00" />
-<meta itemprop="name" content="浅析MVC">
-<meta itemprop="description" content="MVC 是一种设计模式 简单介绍 MVC(Model-View-Controller) 首先是 Model 对象,用于封装与应用程序的业务逻辑相关的数据以及对数据的处理方法。
-const m = { 数据{ 将数据转为字符串本地储存，页面刷新无法清除数据 } 对数据进行增删改查 }  其次是 View 对象，内容一般与视图相关，描绘的是 model 的当前状态。当模型的数据发生变化，视图相应地得到刷新自己的机会。
-const v = { 引入一个初始值为空的元素, 写入需要实现的html代码, 初始化, 将数据渲染为页面{ 判断初始值为空的元素的状态，根据不同的状态选择对应的方式进行渲染 } }  最后是 Controller，当完成前两部分之后剩下的内容我们都可以放到这里来，它处理用户的行为和数据 model 上的改变
-const c = { 初始化， 寻找重要元素，调用对应的函数 }  EventBus 的常用 API 通常使用继承的方法来使用 EventBus
-class EventBus { 将_EventBus写到原型链上面，即初始化 on(事件名，函数) { //监听函数 返回this._eventBus.on()的值 } trigger(事件名，数据) { //触发事件 返回this._eventBus.trigger()的值 } off(事件名，函数) { //取消监听 返回this._eventBus.off()的值 } }  表驱动编程 表驱动法(Table-Driven Approach),简单讲是指用查表的方法获取值，可以减少重复代码，使代码更加简洁。在程序中，数据的添加是非常简单，低成本和低风险的；而逻辑的添加是复杂，高成本和高风险的。表驱动方法可以让逻辑和数据分离，使用的关系表也可以更换。">
+    <link rel="stylesheet" href="/highlight/styles/darcula.css">
+    <script src="/highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
 
 
-<meta itemprop="datePublished" content="2019-12-20T19:19:55&#43;08:00" />
-<meta itemprop="dateModified" content="2019-12-20T19:19:55&#43;08:00" />
-<meta itemprop="wordCount" content="80">
+<body>
+<div id="container">
+    <div class="left-col">
+        <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/liekong.jpg" class="animated zoomIn js-avatar">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">SkyZhou197</a></h1>
+        </hgroup>
+
+        
+        <p class="header-subtitle">努力学习ing</p>
+        
+
+        
 
 
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="浅析MVC"/>
-<meta name="twitter:description" content="MVC 是一种设计模式 简单介绍 MVC(Model-View-Controller) 首先是 Model 对象,用于封装与应用程序的业务逻辑相关的数据以及对数据的处理方法。
-const m = { 数据{ 将数据转为字符串本地储存，页面刷新无法清除数据 } 对数据进行增删改查 }  其次是 View 对象，内容一般与视图相关，描绘的是 model 的当前状态。当模型的数据发生变化，视图相应地得到刷新自己的机会。
-const v = { 引入一个初始值为空的元素, 写入需要实现的html代码, 初始化, 将数据渲染为页面{ 判断初始值为空的元素的状态，根据不同的状态选择对应的方式进行渲染 } }  最后是 Controller，当完成前两部分之后剩下的内容我们都可以放到这里来，它处理用户的行为和数据 model 上的改变
-const c = { 初始化， 寻找重要元素，调用对应的函数 }  EventBus 的常用 API 通常使用继承的方法来使用 EventBus
-class EventBus { 将_EventBus写到原型链上面，即初始化 on(事件名，函数) { //监听函数 返回this._eventBus.on()的值 } trigger(事件名，数据) { //触发事件 返回this._eventBus.trigger()的值 } off(事件名，函数) { //取消监听 返回this._eventBus.off()的值 } }  表驱动编程 表驱动法(Table-Driven Approach),简单讲是指用查表的方法获取值，可以减少重复代码，使代码更加简洁。在程序中，数据的添加是非常简单，低成本和低风险的；而逻辑的添加是复杂，高成本和高风险的。表驱动方法可以让逻辑和数据分离，使用的关系表也可以更换。"/>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
 
-  </head>
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
 
-  <body class="ma0 avenir bg-near-white">
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
 
-    
-   
-  
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
 
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="http://zhouhaomin.top/" class="f3 fw2 hover-white no-underline white-90 dib">
-      昊旻的博客
-    </a>
-    <div class="flex-l items-center">
-      
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/./">主页</a></li>
+                        
+                            <li><a href="/./post/">所有文章</a></li>
+                        
+                            <li><a href="/./tags/">标签云</a></li>
+                        
+                            <li><a href="/./about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <li id="email"><a class="email" target="_blank" href="mailto:zhouhaomin019@gmail.com" title="email"></a></li>
+                            
+                                <li id="github"><a class="github" target="_blank" href="https://github.com/SkyZhou197" title="github"></a></li>
+                            
+                        </ul>
+                    </nav>
+                </section>
 
-      
-      
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        
+                    </div>
+                </section>
+                
 
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.baidu.com">baidu</a>
+                    
+                      <a target="_blank" class="main-nav-link switch-friends-link" href="https://developer.mozilla.org/zh-CN/">mdn</a>
+                    
+                    </div>
+                </section>
+                
 
-
-
-
-
-
-
-
-
-
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">我很喜欢前端,真的很有意思</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
 
     </div>
-  </div>
+    <div class="mid-col">
+        <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">SkyZhou197</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/liekong.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">SkyZhou197</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">努力学习ing</p>
+            
+            <nav class="header-menu">
+                <ul>
+                    
+                    <li><a href="/./">主页</a></li>
+                    
+                    <li><a href="/./post/">所有文章</a></li>
+                    
+                    <li><a href="/./tags/">标签云</a></li>
+                    
+                    <li><a href="/./about/">关于我</a></li>
+                    
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                            <li id="email"><a class="email" target="_blank" href="mailto:zhouhaomin019@gmail.com" title="email"></a></li>
+                            
+                            <li id="github"><a class="github" target="_blank" href="https://github.com/SkyZhou197" title="github"></a></li>
+                            
+                        </ul>
+            </nav>
+        </header>
+    </div>
 </nav>
 
+        <div class="body-wrap">
+            <article id="post-js-android" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+    <div class="article-meta">
+        <a href="http://zhouhaomin.top/posts/%E6%B5%85%E6%9E%90mvc/" class="article-date">
+            <time datetime="2019-12-20 19:19:55 &#43;0800 CST" itemprop="datePublished">2019-12-20</time>
+        </a>
     </div>
-  </header>
+
+    <div class="article-inner">
+        
+        <input type="hidden" class="isFancy">
+        
+
+        <header class="article-header">
 
 
+            <h1 class="article-title" itemprop="name">
+                <a class="article-title" href="http://zhouhaomin.top/posts/%E6%B5%85%E6%9E%90mvc/">浅析MVC</a>
+            </h1>
 
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
 
-    <header class="mt4 w-100">
-      <p class="f6 b helvetica tracked">
-          
-        POSTS
-      </p>
-      <h1 class="f1 athelas mb1">浅析MVC</h1>
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2019-12-20T19:19:55&#43;08:00">December 20, 2019</time>
-      
-      
-    </header>
+        </header>
 
-    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+        <div class="article-info article-info-post">
+
+            
+
+            
+
+            <div class="clearfix"></div>
+        </div>
+
+
+        <div class="article-entry" itemprop="articleBody">
+
+            
 
 <h2 id="mvc-是一种设计模式">MVC 是一种设计模式</h2>
 
@@ -195,50 +320,244 @@ class EventBus { 将_EventBus写到原型链上面，即初始化 on(事件名�
 <p>学习 MVC 是第一次接触模块化，毫无疑问模块化就是把原来整页整页的代码划分成一个个模块。模块化的目的是为了降低程序复杂度，使程序设计、调试和维护等操作简单化。改变某个子功能只需相应改变相应模块即可。</p>
 
 <p>我想这样做的好处有很多，比如不同模块的代码负责不同的网页部分，当发现一部分网页出现问题时，可以精准的找到错误的地方；再比如当一个项目比较大的时候，需要多个人员参与开发，那么每个人负责自己的模块就可以大大提高团队的效率，缩短产品研发与制造周期；同理当后来的开发者想要对原有的代码进行改进时，模块化也可以极大提高工作的效率。</p>
-<ul class="pa0">
-  
-</ul>
-<div class="mt6">
-      
-      
-      </div>
-    </section>
-
-    <aside class="w-30-l mt6-l">
 
 
+        </div>
 
-
-</aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://zhouhaomin.top/" >
-    &copy;  昊旻的博客 2020 
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-
-</div>
-  </div>
-</footer>
+    </div>
 
     
 
-  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+</article>
+
+<div id="toc" class="toc-article" >
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc">
+        <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#mvc-是一种设计模式">MVC 是一种设计模式</a></li>
+<li><a href="#简单介绍-mvc-model-view-controller">简单介绍 MVC(Model-View-Controller)</a></li>
+<li><a href="#eventbus-的常用-api">EventBus 的常用 API</a></li>
+<li><a href="#表驱动编程">表驱动编程</a></li>
+<li><a href="#模块化">模块化</a></li>
+</ul></li>
+</ul>
+</nav>
+    </ol>
+</div>
+<style>
+    
+
+    #tocButton{
+        display: none;
+    }
+    #toc{
+        display: none;
+    }
+
+    
 
 
-  </body>
+</style>
+
+<input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录" >
+
+<script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+
+    $("#tocButton").click(function () {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+
+    
+    
+    
+        
+    
+</script>
+
+
+<div class="share">
+    <div class="bdsharebuttonbox">
+        <a href="#" class="bds_more" data-cmd="more"></a>
+        <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+        <a href="#" class="bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+        <a href="#" class="bds_copy" data-cmd="copy" title="复制网址"></a>
+        <a href="#" class="bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+        <a href="#" class="bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+    </div>
+    <script>
+        window._bd_share_config = {
+            "common": {
+                "bdSnsKey": {},
+                "bdText": "",
+                "bdMini": "2",
+                "bdMiniList": false,
+                "bdPic": "",
+                "bdStyle": "0",
+                "bdSize": "24"
+            }, "share": {}
+        };
+        with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = '//bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];
+    </script>
+</div>
+
+
+
+
+
+
+
+
+
+
+<ul class="post-list toc-article">
+    
+    
+</ul>
+
+<script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script>
+    $(".post-list").addClass("toc-article");
+    $(".post-list-item a").attr("target", "_blank");
+    $("#post-nav-button > a:nth-child(2)").click(function () {
+        $(".fa-bars, .fa-times").toggle();
+        $(".post-list").toggle(300);
+        if ($(".toc").length > 0) {
+            $("#toc, #tocButton").toggle(200, function () {
+                if ($(".switch-area").is(":visible")) {
+                    $("#toc, .switch-btn, .switch-area").toggle();
+                    $("#tocButton").attr("value", valueHide);
+                }
+            })
+        }
+        else {
+            $(".switch-btn, .switch-area").fadeToggle(300);
+        }
+    })
+</script>
+
+
+<script>
+
+</script>
+
+
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2020 SkyZhou197
+            </div>
+            <div class="footer-right">
+                <a href="http://gohugo.io/" target="_blank">Hugo</a>  Theme <a href="https://github.com/NightFarmer/hugo-theme-yelee" target="_blank">Yelee</a> by NightFarmer
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >本站到访数:
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量:
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="/js/GithubRepoWidget.js"></script>
+<script src="//7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            var iPad = window.navigator.userAgent.indexOf('iPad');
+            if (iPad > -1 || $(".left-col").css("display") === "none") {
+                var bgColorList = ["#9db3f4", "#414141", "#e5a859", "#f5dfc6", "#c084a0", "#847e72", "#cd8390", "#996731"];
+                var bgColor = Math.ceil(Math.random() * (bgColorList.length - 1));
+                $("body").css({"background-color": bgColorList[bgColor], "background-size": "cover"});
+            }
+            else {
+                var backgroundnum =  5 ;
+                var backgroundimg = "url(\/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+                $("body").css({"background": backgroundimg, "background-attachment": "fixed", "background-size": "cover"});
+            }
+        })
+    </script>
+
+
+
+
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+<script>
+    (function(){
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+</div>
+</body>
 </html>
