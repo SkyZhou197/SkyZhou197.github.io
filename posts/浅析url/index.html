@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>昊旻的博客  | 浅析URL</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.1" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="浅析URL" />
+<meta property="og:description" content="大家好，我们最近学习了 HTTP 知识，现在回顾一下 首先介绍 URL 的内容, URL 全称为 Uniform Resource Locator,也就是统一资源定位符，或称统一资源定位器、定位地址、URL 地址。它最初是由李爵士发明用来作为万维网的地址是因特网上标准的资源的地址，如同在网络上的门牌。 URL 由协议、域名或 IP、端口号、路径、查询字符串、锚点构成:
+ 协议即 HTTP 基于 TCP 和 IP 两个协议 域名或 IP 约定了如何定位一台设备以及如何封装数据报文来和其他设备交流 端口号(port)即一台机器可以提供很多服务，每个服务对应的一个号码 路径可以做到请求不同的页面 查询字符串可以做到同一个页面，不同内容 锚点可以做到同一个内容，不同位置  其次介绍一下 IP 的知识, IP 全称 Internet Protocal，即互联网协议，可以用来定位一台设备。只要我们在互联网中，就至少有一个独特的 IP。 IP 分为内网和外网，一般是通过路由器来得到的。对我们家里的路由器来说，只要连上网络服务商的服务器就会有一个外网 IP，而路由器会在家中创建一个内网。内网和外网就像两个隔绝的空间，无法互通，唯一的联通点就是路由器，所以路由器也可以称作是网关。 以下是几个特殊的 IP:
+ 127.0.0.1 表示自己 localhost 通过 hosts 指定为自己 0.0.0.0 不表示任何设备  我们可以通过终端使用 ping ＋ 域名 的操作得到该域名网站的 IP，如 ping baidu.com 命令可以的到百度的 IP
+最后介绍一下域名的知识 域名就是对 IP 的别称，分为两种:
+ 一个域名可以对应不同 IP，叫做均衡负载，防止一台机器扛不住。 一个 IP 对应一个域名，叫做共享主机，穷开发者才会这么做。  域名和 IP 是通过 DNS(全称 Domain Name System，即域名系统)对应起来的。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhouhaomin.top/posts/%E6%B5%85%E6%9E%90url/" />
+<meta property="article:published_time" content="2019-11-25T08:21:12+08:00" />
+<meta property="article:modified_time" content="2019-11-25T08:21:12+08:00" />
+<meta itemprop="name" content="浅析URL">
+<meta itemprop="description" content="大家好，我们最近学习了 HTTP 知识，现在回顾一下 首先介绍 URL 的内容, URL 全称为 Uniform Resource Locator,也就是统一资源定位符，或称统一资源定位器、定位地址、URL 地址。它最初是由李爵士发明用来作为万维网的地址是因特网上标准的资源的地址，如同在网络上的门牌。 URL 由协议、域名或 IP、端口号、路径、查询字符串、锚点构成:
+ 协议即 HTTP 基于 TCP 和 IP 两个协议 域名或 IP 约定了如何定位一台设备以及如何封装数据报文来和其他设备交流 端口号(port)即一台机器可以提供很多服务，每个服务对应的一个号码 路径可以做到请求不同的页面 查询字符串可以做到同一个页面，不同内容 锚点可以做到同一个内容，不同位置  其次介绍一下 IP 的知识, IP 全称 Internet Protocal，即互联网协议，可以用来定位一台设备。只要我们在互联网中，就至少有一个独特的 IP。 IP 分为内网和外网，一般是通过路由器来得到的。对我们家里的路由器来说，只要连上网络服务商的服务器就会有一个外网 IP，而路由器会在家中创建一个内网。内网和外网就像两个隔绝的空间，无法互通，唯一的联通点就是路由器，所以路由器也可以称作是网关。 以下是几个特殊的 IP:
+ 127.0.0.1 表示自己 localhost 通过 hosts 指定为自己 0.0.0.0 不表示任何设备  我们可以通过终端使用 ping ＋ 域名 的操作得到该域名网站的 IP，如 ping baidu.com 命令可以的到百度的 IP
+最后介绍一下域名的知识 域名就是对 IP 的别称，分为两种:
+ 一个域名可以对应不同 IP，叫做均衡负载，防止一台机器扛不住。 一个 IP 对应一个域名，叫做共享主机，穷开发者才会这么做。  域名和 IP 是通过 DNS(全称 Domain Name System，即域名系统)对应起来的。">
+
+
+<meta itemprop="datePublished" content="2019-11-25T08:21:12&#43;08:00" />
+<meta itemprop="dateModified" content="2019-11-25T08:21:12&#43;08:00" />
+<meta itemprop="wordCount" content="76">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="浅析URL"/>
+<meta name="twitter:description" content="大家好，我们最近学习了 HTTP 知识，现在回顾一下 首先介绍 URL 的内容, URL 全称为 Uniform Resource Locator,也就是统一资源定位符，或称统一资源定位器、定位地址、URL 地址。它最初是由李爵士发明用来作为万维网的地址是因特网上标准的资源的地址，如同在网络上的门牌。 URL 由协议、域名或 IP、端口号、路径、查询字符串、锚点构成:
+ 协议即 HTTP 基于 TCP 和 IP 两个协议 域名或 IP 约定了如何定位一台设备以及如何封装数据报文来和其他设备交流 端口号(port)即一台机器可以提供很多服务，每个服务对应的一个号码 路径可以做到请求不同的页面 查询字符串可以做到同一个页面，不同内容 锚点可以做到同一个内容，不同位置  其次介绍一下 IP 的知识, IP 全称 Internet Protocal，即互联网协议，可以用来定位一台设备。只要我们在互联网中，就至少有一个独特的 IP。 IP 分为内网和外网，一般是通过路由器来得到的。对我们家里的路由器来说，只要连上网络服务商的服务器就会有一个外网 IP，而路由器会在家中创建一个内网。内网和外网就像两个隔绝的空间，无法互通，唯一的联通点就是路由器，所以路由器也可以称作是网关。 以下是几个特殊的 IP:
+ 127.0.0.1 表示自己 localhost 通过 hosts 指定为自己 0.0.0.0 不表示任何设备  我们可以通过终端使用 ping ＋ 域名 的操作得到该域名网站的 IP，如 ping baidu.com 命令可以的到百度的 IP
+最后介绍一下域名的知识 域名就是对 IP 的别称，分为两种:
+ 一个域名可以对应不同 IP，叫做均衡负载，防止一台机器扛不住。 一个 IP 对应一个域名，叫做共享主机，穷开发者才会这么做。  域名和 IP 是通过 DNS(全称 Domain Name System，即域名系统)对应起来的。"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://zhouhaomin.top/" class="f3 fw2 hover-white no-underline white-90 dib">
+      昊旻的博客
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">浅析URL</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-11-25T08:21:12&#43;08:00">November 25, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h1 id="大家好-我们最近学习了-http-知识-现在回顾一下">大家好，我们最近学习了 HTTP 知识，现在回顾一下</h1>
+
+<p>首先介绍 URL 的内容, URL 全称为 Uniform Resource Locator,也就是统一资源定位符，或称统一资源定位器、定位地址、URL 地址。它最初是由李爵士发明用来作为万维网的地址是因特网上标准的资源的地址，如同在网络上的门牌。
+URL 由协议、域名或 IP、端口号、路径、查询字符串、锚点构成:</p>
+
+<ul>
+<li>协议即 HTTP 基于 TCP 和 IP 两个协议</li>
+<li>域名或 IP 约定了如何定位一台设备以及如何封装数据报文来和其他设备交流</li>
+<li>端口号(port)即一台机器可以提供很多服务，每个服务对应的一个号码</li>
+<li>路径可以做到请求不同的页面</li>
+<li>查询字符串可以做到同一个页面，不同内容</li>
+<li>锚点可以做到同一个内容，不同位置</li>
+</ul>
+
+<p>其次介绍一下 IP 的知识, IP 全称 Internet Protocal，即互联网协议，可以用来定位一台设备。只要我们在互联网中，就至少有一个独特的 IP。
+IP 分为内网和外网，一般是通过路由器来得到的。对我们家里的路由器来说，只要连上网络服务商的服务器就会有一个外网 IP，而路由器会在家中创建一个内网。内网和外网就像两个隔绝的空间，无法互通，唯一的联通点就是路由器，所以路由器也可以称作是网关。
+以下是几个特殊的 IP:</p>
+
+<ul>
+<li>127.0.0.1 表示自己</li>
+<li>localhost 通过 hosts 指定为自己</li>
+<li>0.0.0.0 不表示任何设备</li>
+</ul>
+
+<p>我们可以通过终端使用 ping ＋ 域名 的操作得到该域名网站的 IP，如 ping baidu.com 命令可以的到百度的 IP</p>
+
+<p>最后介绍一下域名的知识
+域名就是对 IP 的别称，分为两种:</p>
+
+<ol>
+<li>一个域名可以对应不同 IP，叫做均衡负载，防止一台机器扛不住。</li>
+<li>一个 IP 对应一个域名，叫做共享主机，穷开发者才会这么做。</li>
+</ol>
+
+<p>域名和 IP 是通过 DNS(全称 Domain Name System，即域名系统)对应起来的。</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://zhouhaomin.top/" >
+    &copy;  昊旻的博客 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

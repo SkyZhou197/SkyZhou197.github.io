@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>昊旻的博客  | 初识Vue</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.1" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="初识Vue" />
+<meta property="og:description" content=" 初识Vue Vue实例的作用  封装了对DOM和data的所有操作 操作DOM，即监听事件，改变DOM等 操作data，即增删改查 注意没有封装ajax，应当使用axios的ajax功能  Vue完整版和运行时版的区别 Vue完整版和运行时版的本质区别就在于有无编译器compiler，有就是完整版，又称为vue.js，没有就是运行时版，称为vue.runtime.js。编译器约占40%的体积，所以传输给用户都是不用编译器的。
+使用cdn引入时，使用对应的名称即可，生成环境的后缀为 .min.js
+有关视图方面，完整版是写在HTML里或者写在template选项中 ，非完整版则是写在render函数里用h来创建标签的，h是vue创建者尤雨溪写好传给render的。
+在webpack和@vue/cil引入的时候，完整版需要额外配置，非完整版默认使用即可。
+最佳实践：总是使用非完整版，然后配合vue-loader和vue文件：
+ 保证用户体验，用户下载的JS文件体积更小，但只支持h函数。
+ 保证开发体验，开发者可以直接在vue文件中写HTML标签，而不写h函数。 vue-loader可以把vue文件里的HTML转为h函数。 vue.js错用成vue.runtime.js会无法将HTML编辑成视图，反过来错用会使代码体积变大。  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhouhaomin.top/posts/%E5%88%9D%E8%AF%86vue/" />
+<meta property="article:published_time" content="2019-12-24T15:44:41+08:00" />
+<meta property="article:modified_time" content="2019-12-24T15:44:41+08:00" />
+<meta itemprop="name" content="初识Vue">
+<meta itemprop="description" content=" 初识Vue Vue实例的作用  封装了对DOM和data的所有操作 操作DOM，即监听事件，改变DOM等 操作data，即增删改查 注意没有封装ajax，应当使用axios的ajax功能  Vue完整版和运行时版的区别 Vue完整版和运行时版的本质区别就在于有无编译器compiler，有就是完整版，又称为vue.js，没有就是运行时版，称为vue.runtime.js。编译器约占40%的体积，所以传输给用户都是不用编译器的。
+使用cdn引入时，使用对应的名称即可，生成环境的后缀为 .min.js
+有关视图方面，完整版是写在HTML里或者写在template选项中 ，非完整版则是写在render函数里用h来创建标签的，h是vue创建者尤雨溪写好传给render的。
+在webpack和@vue/cil引入的时候，完整版需要额外配置，非完整版默认使用即可。
+最佳实践：总是使用非完整版，然后配合vue-loader和vue文件：
+ 保证用户体验，用户下载的JS文件体积更小，但只支持h函数。
+ 保证开发体验，开发者可以直接在vue文件中写HTML标签，而不写h函数。 vue-loader可以把vue文件里的HTML转为h函数。 vue.js错用成vue.runtime.js会无法将HTML编辑成视图，反过来错用会使代码体积变大。  ">
+
+
+<meta itemprop="datePublished" content="2019-12-24T15:44:41&#43;08:00" />
+<meta itemprop="dateModified" content="2019-12-24T15:44:41&#43;08:00" />
+<meta itemprop="wordCount" content="18">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="初识Vue"/>
+<meta name="twitter:description" content=" 初识Vue Vue实例的作用  封装了对DOM和data的所有操作 操作DOM，即监听事件，改变DOM等 操作data，即增删改查 注意没有封装ajax，应当使用axios的ajax功能  Vue完整版和运行时版的区别 Vue完整版和运行时版的本质区别就在于有无编译器compiler，有就是完整版，又称为vue.js，没有就是运行时版，称为vue.runtime.js。编译器约占40%的体积，所以传输给用户都是不用编译器的。
+使用cdn引入时，使用对应的名称即可，生成环境的后缀为 .min.js
+有关视图方面，完整版是写在HTML里或者写在template选项中 ，非完整版则是写在render函数里用h来创建标签的，h是vue创建者尤雨溪写好传给render的。
+在webpack和@vue/cil引入的时候，完整版需要额外配置，非完整版默认使用即可。
+最佳实践：总是使用非完整版，然后配合vue-loader和vue文件：
+ 保证用户体验，用户下载的JS文件体积更小，但只支持h函数。
+ 保证开发体验，开发者可以直接在vue文件中写HTML标签，而不写h函数。 vue-loader可以把vue文件里的HTML转为h函数。 vue.js错用成vue.runtime.js会无法将HTML编辑成视图，反过来错用会使代码体积变大。  "/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://zhouhaomin.top/" class="f3 fw2 hover-white no-underline white-90 dib">
+      昊旻的博客
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">初识Vue</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-12-24T15:44:41&#43;08:00">December 24, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h1 id="初识vue">初识Vue</h1>
+
+<h2 id="vue实例的作用">Vue实例的作用</h2>
+
+<ol>
+<li>封装了对DOM和data的所有操作</li>
+<li>操作DOM，即监听事件，改变DOM等</li>
+<li>操作data，即增删改查</li>
+<li>注意没有封装ajax，应当使用axios的ajax功能</li>
+</ol>
+
+<h2 id="vue完整版和运行时版的区别">Vue完整版和运行时版的区别</h2>
+
+<p>Vue完整版和运行时版的本质区别就在于有无编译器compiler，有就是完整版，又称为vue.js，没有就是运行时版，称为vue.runtime.js。编译器约占40%的体积，所以传输给用户都是不用编译器的。</p>
+
+<p>使用cdn引入时，使用对应的名称即可，生成环境的后缀为 .min.js</p>
+
+<p>有关视图方面，完整版是写在HTML里或者写在template选项中 ，非完整版则是写在render函数里用h来创建标签的，h是vue创建者尤雨溪写好传给render的。</p>
+
+<p>在webpack和@vue/cil引入的时候，完整版需要额外配置，非完整版默认使用即可。</p>
+
+<p>最佳实践：总是使用非完整版，然后配合vue-loader和vue文件：</p>
+
+<ol>
+<li>保证用户体验，用户下载的JS文件体积更小，但只支持h函数。<br /></li>
+<li>保证开发体验，开发者可以直接在vue文件中写HTML标签，而不写h函数。</li>
+<li>vue-loader可以把vue文件里的HTML转为h函数。</li>
+<li>vue.js错用成vue.runtime.js会无法将HTML编辑成视图，反过来错用会使代码体积变大。</li>
+</ol>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://zhouhaomin.top/" >
+    &copy;  昊旻的博客 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

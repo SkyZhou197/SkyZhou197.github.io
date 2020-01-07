@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on 昊旻的博客</title>
+    <link>http://zhouhaomin.top/posts/</link>
+    <description>Recent content in Posts on 昊旻的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-Hans</language>
+    <lastBuildDate>Sun, 05 Jan 2020 08:35:17 +0800</lastBuildDate>
+    
+	<atom:link href="http://zhouhaomin.top/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JS数组去重方法</title>
+      <link>http://zhouhaomin.top/posts/js%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Sun, 05 Jan 2020 08:35:17 +0800</pubDate>
+      
+      <guid>http://zhouhaomin.top/posts/js%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E6%96%B9%E6%B3%95/</guid>
+      <description>简单介绍几种数组去重的方法 在真实的项目中碰到的数组去重，一般都是后台去处理，很少让前端处理数组去重。虽然日常项目用到的概率比较低，但还是需要了解一下
+数组去重的方法 一、利用ES6 Set去重 function unique (arr) { return Array.from(new Set(arr)) } var arr = [1,1,&#39;true&#39;,&#39;true&#39;,true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,&#39;NaN&#39;, 0, 0, &#39;a&#39;, &#39;a&#39;,{},{}]; console.log(unique(arr)) //[1, &amp;quot;true&amp;quot;, true, 15, false, undefined, null, NaN, &amp;quot;NaN&amp;quot;, 0, &amp;quot;a&amp;quot;, {}, {}]  不考虑兼容性，这种去重的方法代码最少。这种方法还无法去掉“{}”空对象，后面的高阶方法会添加去掉重复“{}”的方法。
+二、利用for嵌套for，然后splice去重 function unique(arr){ for(var i=0; i&amp;lt;arr.length; i++){ for(var j=i+1; j&amp;lt;arr.length; j++){ if(arr[i]===arr[j]){ //第一个等同于第二个，splice方法删除第二个 arr.splice(j,1); j--; } } } return arr; } var arr = [1,1,&#39;true&#39;,&#39;true&#39;,true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,&#39;NaN&#39;, 0, 0, &#39;a&#39;, &#39;a&#39;,{},{}]; console.</description>
+    </item>
+    
+    <item>
+      <title>Vue中的computed和watch</title>
+      <link>http://zhouhaomin.top/posts/vue%E4%B8%AD%E7%9A%84computed%E5%92%8Cwatch/</link>
+      <pubDate>Fri, 27 Dec 2019 17:09:05 +0800</pubDate>
+      
+      <guid>http://zhouhaomin.top/posts/vue%E4%B8%AD%E7%9A%84computed%E5%92%8Cwatch/</guid>
+      <description> computed - 计算属性 用途：被计算出来的属性就是计算属性，使用时可以不加括号。
+缓存：如果依赖的属性没有变化，就不会重新计算。getter/setter默认不会做缓存，Vue做了特殊的处理。
+watch - 侦听 用途：当数据变化时，执行一个函数。
+注意：
+ watch 不能在箭头函数中使用 this immediate 表示第一次渲染的时候是否要执行这个函数 deep 表示在监听 object 的时候是否要看 object 里面东西的变化  语法1
+watch:{ o1: () =&amp;gt; {}, //o1此处不要使用this，这里的this是全局对象 o2: function(value, oldValue){}, o3(){}, o4: [f1, f2], o5: &#39;methodName&#39;, o6: {handler:fn, deep:true, immediate:true},&#39;object.a&#39;: function(){} }  语法2
+vm.$watch(&#39;xxx&#39;, fn, {deep: .., immediate: ..} //其中&#39;xxx&#39;可以改为一个返回字符串的函数  </description>
+    </item>
+    
+    <item>
+      <title>Vue数据响应式</title>
+      <link>http://zhouhaomin.top/posts/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/</link>
+      <pubDate>Fri, 27 Dec 2019 14:48:00 +0800</pubDate>
+      
+      <guid>http://zhouhaomin.top/posts/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/</guid>
+      <description> Vue 数据响应式 Vue 最独特的特性之一，是其非侵入性的响应式系统。数据模型仅仅是普通的 JavaScript 对象。而当你修改它们时，视图 会进行更新。
+当一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对象所有的属性，并使用 Object.defineProperty,其作用如下:
+ 可以给对象添加属性 value 可以给对象添加 getter/setter getter/setter 用于对属性的读写进行监控。  vm = new Vue({data:myData}) 的作用:
+ 会让 vm 成为 myData 的代理(proxy) 会让 myData 的所有属性收到监控，在属性变化后会重新渲染。  当我们使用 Object.defineProperty 时，若未给出初始数据，可以使用和下列相类似的两种方法
+Vue.set(this.object,&#39;m&#39;,100) this.$set(this.object,&#39;m&#39;,100)  作用如下：
+ 新增 key 自动创建代理和监听(如果还没有创建) 触发 UI 更新(不是立刻)  data 中有数组存在时，可以使用 vue 已经改变如下七个 API，可以自动监听和处理，调用之后更新 UI：
+ push() pop() shift() unshift() splice() sort() reverse()  </description>
+    </item>
+    
+    <item>
+      <title>初识Vue</title>
+      <link>http://zhouhaomin.top/posts/%E5%88%9D%E8%AF%86vue/</link>
+      <pubDate>Tue, 24 Dec 2019 15:44:41 +0800</pubDate>
+      
+      <guid>http://zhouhaomin.top/posts/%E5%88%9D%E8%AF%86vue/</guid>
+      <description> 初识Vue Vue实例的作用  封装了对DOM和data的所有操作 操作DOM，即监听事件，改变DOM等 操作data，即增删改查 注意没有封装ajax，应当使用axios的ajax功能  Vue完整版和运行时版的区别 Vue完整版和运行时版的本质区别就在于有无编译器compiler，有就是完整版，又称为vue.js，没有就是运行时版，称为vue.runtime.js。编译器约占40%的体积，所以传输给用户都是不用编译器的。
+使用cdn引入时，使用对应的名称即可，生成环境的后缀为 .min.js
+有关视图方面，完整版是写在HTML里或者写在template选项中 ，非完整版则是写在render函数里用h来创建标签的，h是vue创建者尤雨溪写好传给render的。
+在webpack和@vue/cil引入的时候，完整版需要额外配置，非完整版默认使用即可。
+最佳实践：总是使用非完整版，然后配合vue-loader和vue文件：
+ 保证用户体验，用户下载的JS文件体积更小，但只支持h函数。
+ 保证开发体验，开发者可以直接在vue文件中写HTML标签，而不写h函数。 vue-loader可以把vue文件里的HTML转为h函数。 vue.js错用成vue.runtime.js会无法将HTML编辑成视图，反过来错用会使代码体积变大。  </description>
+    </item>
+    
+    <item>
+      <title>浅析MVC</title>
+      <link>http://zhouhaomin.top/posts/%E6%B5%85%E6%9E%90mvc/</link>
+      <pubDate>Fri, 20 Dec 2019 19:19:55 +0800</pubDate>
+      
+      <guid>http://zhouhaomin.top/posts/%E6%B5%85%E6%9E%90mvc/</guid>
+      <description>MVC 是一种设计模式 简单介绍 MVC(Model-View-Controller) 首先是 Model 对象,用于封装与应用程序的业务逻辑相关的数据以及对数据的处理方法。
+const m = { 数据{ 将数据转为字符串本地储存，页面刷新无法清除数据 } 对数据进行增删改查 }  其次是 View 对象，内容一般与视图相关，描绘的是 model 的当前状态。当模型的数据发生变化，视图相应地得到刷新自己的机会。
+const v = { 引入一个初始值为空的元素, 写入需要实现的html代码, 初始化, 将数据渲染为页面{ 判断初始值为空的元素的状态，根据不同的状态选择对应的方式进行渲染 } }  最后是 Controller，当完成前两部分之后剩下的内容我们都可以放到这里来，它处理用户的行为和数据 model 上的改变
+const c = { 初始化， 寻找重要元素，调用对应的函数 }  EventBus 的常用 API 通常使用继承的方法来使用 EventBus
+class EventBus { 将_EventBus写到原型链上面，即初始化 on(事件名，函数) { //监听函数 返回this._eventBus.on()的值 } trigger(事件名，数据) { //触发事件 返回this._eventBus.trigger()的值 } off(事件名，函数) { //取消监听 返回this._eventBus.off()的值 } }  表驱动编程 表驱动法(Table-Driven Approach),简单讲是指用查表的方法获取值，可以减少重复代码，使代码更加简洁。在程序中，数据的添加是非常简单，低成本和低风险的；而逻辑的添加是复杂，高成本和高风险的。表驱动方法可以让逻辑和数据分离，使用的关系表也可以更换。</description>
+    </item>
+    
+    <item>
+      <title>jQuery设计思想</title>
+      <link>http://zhouhaomin.top/posts/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/</link>
+      <pubDate>Mon, 09 Dec 2019 16:27:57 +0800</pubDate>
+      
+      <guid>http://zhouhaomin.top/posts/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/</guid>
+      <description>多方面浅析 jQuery 基本功能 jQuery是目前使用最广泛的javascript函数库。对于网页开发者来说，学会jQuery可以让你了解业界最通用的技术，为将来学习更高级的库打下基础，并且确实可以很轻松地做出许多复杂的效果。下面来从几个方面介绍jQuery的功能。
+jQuery如何获取元素 jQuery的基本设计思想和主要用法是选择某个网页元素，然后对其进行某种操作。获取元素是使用jQuery的第一步，通常是将一个选择表达式，放进构造函数jQuery()（简写为$），然后得到被选中的元素。 选择表达式可以是CSS选择器，也可以是jQuery特有的表达式
+jQuery的链式操作是怎样的 最终选中网页元素以后，可以对它进行一系列操作，并且所有操作可以连接在一起，以链条的形式写出来。如：
+$(&#39;div&#39;).find(&#39;h3&#39;).eq(2).html(&#39;Hello&#39;);  分解开来，就是下面这样：
+$(&#39;div&#39;) //找到div元素 .find(&#39;h3&#39;) //选择其中的h3元素 .eq(2) //选择第3个h3元素 .html(&#39;Hello&#39;); //将它的内容改为Hello  链式操作的原理在于每一步的jQuery操作，返回的都是一个jQuery对象，所以不同操作可以连在一起。 jQuery还提供了.end()方法，使得结果集可以后退一步：
+$(&#39;div&#39;) .find(&#39;h3&#39;) .eq(2) .html(&#39;Hello&#39;) .end() //退回到选中所有的h3元素的那一步 .eq(0) //选中第一个h3元素 .html(&#39;World&#39;); //将它的内容改为World  jQuery如何创建元素 创建新元素的方法非常简单，只要把新元素直接传入jQuery的构造函数就行了：
+$(&#39;&amp;lt;p&amp;gt;Hello&amp;lt;/p&amp;gt;&#39;); $(&#39;&amp;lt;li class=&amp;quot;new&amp;quot;&amp;gt;new list item&amp;lt;/li&amp;gt;&#39;); $(&#39;ul&#39;).append(&#39;&amp;lt;li&amp;gt;list item&amp;lt;/li&amp;gt;&#39;);  除了创建元素之外jQuery还提供其他几种操作元素的重要方法,比如复制元素使用.clone()。删除元素使用.remove()和.detach()。两者的区别在于，前者不保留被删除元素的事件，后者保留，有利于重新插入文档时使用。清空元素内容（但是不删除该元素）使用.empty()。
+jQuery如何移动元素 jQuery提供两组方法，来操作元素在网页中的位置移动。一组方法是直接移动该元素，另一组方法是移动其他元素，使得目标元素达到我们想要的位置。 假定我们选中了一个div元素，需要把它移动到p元素后面。 第一种方法是使用.insertAfter()，把div元素移动p元素后面：
+$(&#39;div&#39;).insertAfter($(&#39;p&#39;));  第二种方法是使用.after()，把p元素加到div元素前面：
+$(&#39;p&#39;).after($(&#39;div&#39;));  表面上看，这两种方法的效果是一样的，唯一的不同似乎只是操作视角的不同。但是实际上，它们有一个重大差别，那就是返回的元素不一样。第一种方法返回div元素，第二种方法返回p元素。 使用这种模式的操作方法，一共有四对： * .insertAfter()和.after()：在现存元素的外部，从后面插入元素 * .insertBefore()和.before()：在现存元素的外部，从前面插入元素 * .appendTo()和.append()：在现存元素的内部，从后面插入元素 * .prependTo()和.prepend()：在现存元素的内部，从前面插入元素
+jQuery如何对元素取值和赋值 jQuery使用同一个函数，来完成取值（getter）和赋值（setter），即&amp;rdquo;取值器&amp;rdquo;与&amp;rdquo;赋值器&amp;rdquo;合一。到底是取值还是赋值，由函数的参数决定。
+$(&#39;h1&#39;).html(); //html()没有参数，表示取出h1的值 $(&#39;h1&#39;).html(&#39;Hello&#39;); //html()有参数Hello，表示对h1进行赋值  常见的取值和赋值函数如下： * .</description>
+    </item>
+    
+    <item>
+      <title>JS函数的执行时机</title>
+      <link>http://zhouhaomin.top/posts/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</link>
+      <pubDate>Mon, 02 Dec 2019 17:31:16 +0800</pubDate>
+      
+      <guid>http://zhouhaomin.top/posts/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/</guid>
+      <description>今天学习了 JS 函数的执行时机 每个 JS 函数都有调用时机，学习时我们要多借助例子学习，下面看几个例子： 例 1：问打印出多少？
+let a = 1 function fn(){ console.log(a) }  答：不知，因为没有调用代码。
+例 2：问打印出多少？
+let a = 1 function fn(){ console.log(a) } fn()  答：1
+例 3：问打印出多少？
+let a = 1 function fn(){ setTimeout(() =&amp;gt; { console.log(a) },0) } fn() a = 2  答：2
+从上面几个例子中我们可以了解到 JS 函数的调用时机不同，结果就会不同。
+例 4：问打印出多少？
+let i = 0 for(i = 0; i&amp;lt;6; i++){ setTimeout(()=&amp;gt;{ console.log(i) },0) }  答：6 个 6 原因是这段代码是先执行 i 的循环，等到循环结束得到 i=6，此时再去执行 console.</description>
+    </item>
+    
+    <item>
+      <title>JS对象基本用法</title>
+      <link>http://zhouhaomin.top/posts/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</link>
+      <pubDate>Sat, 30 Nov 2019 09:26:33 +0800</pubDate>
+      
+      <guid>http://zhouhaomin.top/posts/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/</guid>
+      <description>我们学到了 JS 对象的基本用法，主要在于增删改查方面 有关声明对象的两种语法 对象可以是无序的数据集合或者是键值对的集合，写法如下：
+ let obj = {&amp;lsquo;name&amp;rsquo;:&amp;lsquo;frank&amp;rsquo; ,&amp;lsquo;age&amp;rsquo;:&amp;lsquo;18&amp;rsquo;} let obj = new Object({&amp;lsquo;name&amp;rsquo;:&amp;lsquo;frank&amp;rsquo;}) consol.log({&amp;lsquo;name&amp;rsquo;:&amp;lsquo;frank&amp;rsquo; ,&amp;lsquo;age&amp;rsquo;:&amp;lsquo;18&amp;rsquo;})  细节：
+ 键名是字符串，不是标识符，可以包含任意字符。 引号可以省略，省略之后只能写标识符。 就算引号省略了，键名也还是字符串。  下面就来介绍有关 JS 对象属性的增删改查 首先是删除属性 delete obj.xxx 或 delete obj[&amp;lsquo;xxx&amp;rsquo;] 即可删除 obj 的 xxx 属性，要注意区分属性值为 undefined 和不含属性名。
+不含属性名 &amp;lsquo;xxx&amp;rsquo; in obj === false 含有属性名，但值为 undefined &amp;lsquo;xxx&amp;rsquo; in obj &amp;amp;&amp;amp; obj.xxx ===undefined
+注意 obj.xxx === undefined 不能断定&amp;rsquo;xxx&amp;rsquo;是否为 obj 的属性。
+接下来是查看属性（读属性） 查看自身所有属性
+ Object.keys(obj) 查看自身加共有属性 console.dir(obj) 或者自己依次用 Object.</description>
+    </item>
+    
+    <item>
+      <title>JavaScript基本语法</title>
+      <link>http://zhouhaomin.top/posts/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Fri, 29 Nov 2019 15:13:23 +0800</pubDate>
+      
+      <guid>http://zhouhaomin.top/posts/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/</guid>
+      <description>今天学习一下 JavaScript 的基本语法 首先了解什么是语句和表达式 JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。
+语句（statement）是为了完成某种任务而进行的操作，比如下面就是一行赋值语句。
+var a = 1 + 3  这条语句先用 var 命令，声明了变量 a，然后将 1 + 3 的运算结果赋值给变量 a。 1 + 3 叫做表达式（expression），指一个为了得到返回值的计算式。语句和表达式的区别在于，前者主要为了进行某种操作，一般情况下不需要返回值；后者则是为了得到返回值，一定会返回一个值。凡是 JavaScript 语言中预期为值的地方，都可以使用表达式。比如，赋值语句的等号右边，预期是一个值，因此可以放置各种表达式。语句以分号结尾，一个分号就表示一个语句结束。多个语句可以写在一行内。
+标识符的规则 标识符（identifier）指的是用来识别各种值的合法名称。最常见的标识符就是变量名，以及后面要提到的函数名。JavaScript 语言的标识符对大小写敏感，所以 a 和 A 是两个不同的标识符。JavaScript 有一些保留字，不能用作标识符。
+标识符有一套命名规则，不符合规则的就是非法标识符。JavaScript 引擎遇到非法标识符，就会报错。第一个字符，可以是任意 Unicode 字母（包括英文字母和其他语言的字母），以及美元符号（\$）和下划线（_）。第二个字符及后面的字符，除了 Unicode 字母、美元符号和下划线，还可以用数字 0-9。
+下面这些都是合法的标识符:
+arg0 _tmp $elem π  下面这些则是不合法的标识符:
+1a // 第一个字符不能是数字 23 // 同上 *** // 标识符不能包含星号 a+b // 标识符不能包含加号 -d // 标识符不能包含减号或连词线  介绍 if else 语句 if 结构先判断一个表达式的布尔值，然后根据布尔值的真伪，执行不同的语句。所谓布尔值，指的是 JavaScript 的两个特殊值，true 表示真，false 表示伪。 布尔值往往由一个条件表达式产生的，必须放在圆括号中，表示对表达式求值。如果表达式的求值结果为 true，就执行紧跟在后面的语句；如果结果为 false，则跳过紧跟在后面的语句。 if 代码块后面，还可以跟一个 else 代码块，表示不满足条件时，所要执行的代码。对同一个变量进行多次判断时，多个 if&amp;hellip;else 语句可以连写在一起。 下面代码判断变量 m 是否等于 3，如果等于就执行 if 代码块，否则执行 else 代码块。</description>
+    </item>
+    
+    <item>
+      <title>JavaScript的诞生</title>
+      <link>http://zhouhaomin.top/posts/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/</link>
+      <pubDate>Mon, 25 Nov 2019 17:11:45 +0800</pubDate>
+      
+      <guid>http://zhouhaomin.top/posts/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/</guid>
+      <description>今天我们终于开始学习 JavaScript 了，在正式学习之前我们先了解一下它的历史 首先我们简单介绍一下 JavaScript： JavaScript（通常缩写为JS）是一种高级的、解释型的编程语言。JavaScript是一门基于原型、函数先行的语言，是一门多范式的语言，它支持面向对象编程，命令式编程，以及函数式编程。它提供语法来操控文本、数组、日期以及正则表达式等，不支持I/O，比如网络、存储和图形等，但这些都可以由它的宿主环境提供支持。它已经由ECMA（欧洲电脑制造商协会）通过ECMAScript实现语言的标准化。它被世界上的绝大多数网站所使用，也被世界主流浏览器支持。
+虽然JavaScript与Java这门语言不管是在名字上，或是在语法上都有很多相似性，但这两门编程语言从设计之初就有很大的不同，JavaScript的语言设计主要受到了Self（一种基于原型的编程语言）和Scheme（一门函数式编程语言）的影响。在语法结构上它又与C语言有很多相似（例如if条件语句、switch语句、while循环、do-while循环等）。
+在客户端，JavaScript在传统意义上被实现为一种解释语言，但在最近，它已经可以被即时编译（JIT）执行。随着最新的HTML5和CSS3语言标准的推行它还可用于游戏、桌面和移动应用程序的开发和在服务器端网络环境运行，如Node.js。
+接下来介绍一下 JavaScript 的发展历史： 1994年，网景公司（Netscape）发布了Navigator浏览器0.9版。这是历史上第一个比较成熟的网络浏览器，轰动一时。但是，这个版本的浏览器只能用来浏览，不具备与访问者互动的能力。比如，如果网页上有一栏&amp;rdquo;用户名&amp;rdquo;要求填写，浏览器就无法判断访问者是否真的填写了，只有让服务器端判断。如果没有填写，服务器端就返回错误，要求用户重新填写，这太浪费时间和服务器资源了。
+因此，网景公司急需一种网页脚本语言，使得浏览器可以与网页互动。工程师布兰登·艾克负责开发这种新语言。他觉得，没必要设计得很复杂，这种语言只要能够完成一些简单操作就够了，比如判断用户有没有填写表单。而为了应付公司安排的任务，他只用10天时间就把Javascript设计出来了。
+最初该语言被命名为Mocha，1995年9月在Netscape Navigator 2.0的Beta版中改名为LiveScript，同年12月，Netscape Navigator 2.0 Beta 3中部署时被重命名为JavaScript，当时网景公司与昇阳电脑公司组成的开发联盟为了让这门语言搭上Java这个编程语言“热词”，因此将其临时改名为JavaScript，日后这成为大众对这门语言有诸多误解的原因之一。
+JavaScript推出后在浏览器上大获成功，微软公司在不久后就为Internet Explorer 3浏览器推出了JScript，以与处于市场领导地位的网景产品同台竞争。JScript也是一种JavaScript实现，这两个JavaScript语言版本在浏览器端共存意味着语言标准化的缺失，发展初期，JavaScript的标准并未确定，同期有网景的JavaScript，微软的JScript双峰并峙。除此之外，微软也在网页技术上加入了不少专属对象，使不少网页使用非微软平台及浏览器无法正常显示，导致在浏览器大战期间网页设计者通常会把“用Netscape可达到最佳效果”或“用IE可达到最佳效果”的标志放在主页。随着Internet Explorer 4的发布，微软引入了动态HTML的概念，但语言实现和不同专有化的文档对象模型的差异仍然存在，成为网络上普及使用JavaScript的阻碍。
+1996年11月，网景正式向ECMA（欧洲计算机制造商协会）提交语言标准。1997年6月，ECMA以JavaScript语言为基础制定了ECMAScript标准规范ECMA-262。JavaScript成为了ECMAScript最著名的实现之一。
+介绍一下JS存在设计缺陷的原因:  设计阶段过于仓促，只用了十天时间，本意只是为了解决简单的网页互动 Javascript同时结合了函数式编程和面向对象编程的特点，直到今天为止，Javascript仍然是世界上唯一使用Prototype继承模型的主要语言。这使得它没有设计先例可以参考。 Javascript的发展非常快，而在Javascript推出一年半之后，国际标准就问世了。设计缺陷还没有充分暴露就成了标准。  说到这里就要了解一下ECMAScript 标准的制定：  1997年6月，第一版ECMAScript 发布 1999年12月，第三版发布，这个版本使用最广 第四版流产 2009年12月，第五版发布，增加了一些功能 2015年6月，第六版发布，新浏览器都支持这一版本 之后每年发布一版，版本号以年份命名  JS是历史的选择，一开始浏览器支持很多东西：Java、Flash、VBScript,但是只有JS活到了最后。 在第六版ECMAScript发布之后，JS的缺陷也有很多可以避免了，这门语言变得越来越好用。</description>
+    </item>
+    
+    <item>
+      <title>浅析URL</title>
+      <link>http://zhouhaomin.top/posts/%E6%B5%85%E6%9E%90url/</link>
+      <pubDate>Mon, 25 Nov 2019 08:21:12 +0800</pubDate>
+      
+      <guid>http://zhouhaomin.top/posts/%E6%B5%85%E6%9E%90url/</guid>
+      <description>大家好，我们最近学习了 HTTP 知识，现在回顾一下 首先介绍 URL 的内容, URL 全称为 Uniform Resource Locator,也就是统一资源定位符，或称统一资源定位器、定位地址、URL 地址。它最初是由李爵士发明用来作为万维网的地址是因特网上标准的资源的地址，如同在网络上的门牌。 URL 由协议、域名或 IP、端口号、路径、查询字符串、锚点构成:
+ 协议即 HTTP 基于 TCP 和 IP 两个协议 域名或 IP 约定了如何定位一台设备以及如何封装数据报文来和其他设备交流 端口号(port)即一台机器可以提供很多服务，每个服务对应的一个号码 路径可以做到请求不同的页面 查询字符串可以做到同一个页面，不同内容 锚点可以做到同一个内容，不同位置  其次介绍一下 IP 的知识, IP 全称 Internet Protocal，即互联网协议，可以用来定位一台设备。只要我们在互联网中，就至少有一个独特的 IP。 IP 分为内网和外网，一般是通过路由器来得到的。对我们家里的路由器来说，只要连上网络服务商的服务器就会有一个外网 IP，而路由器会在家中创建一个内网。内网和外网就像两个隔绝的空间，无法互通，唯一的联通点就是路由器，所以路由器也可以称作是网关。 以下是几个特殊的 IP:
+ 127.0.0.1 表示自己 localhost 通过 hosts 指定为自己 0.0.0.0 不表示任何设备  我们可以通过终端使用 ping ＋ 域名 的操作得到该域名网站的 IP，如 ping baidu.com 命令可以的到百度的 IP
+最后介绍一下域名的知识 域名就是对 IP 的别称，分为两种:
+ 一个域名可以对应不同 IP，叫做均衡负载，防止一台机器扛不住。 一个 IP 对应一个域名，叫做共享主机，穷开发者才会这么做。  域名和 IP 是通过 DNS(全称 Domain Name System，即域名系统)对应起来的。</description>
+    </item>
+    
+    <item>
+      <title>CSS知识总结</title>
+      <link>http://zhouhaomin.top/posts/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Mon, 25 Nov 2019 07:41:34 +0800</pubDate>
+      
+      <guid>http://zhouhaomin.top/posts/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/</guid>
+      <description>大家好，今天我们来进行 CSS 知识总结，主要介绍了 CSS 动画的知识 首先介绍一下浏览器渲染原理，其步骤如下：  根据 HTML 构建 HTMl 树(DOM) 根据 CSS 构建 CSS 树(CSSOM) 将两棵树合并成一棵渲染树(render tree) Layout 布局(文档流、盒模型、计算大小和位置) Paint 绘制(把边框颜色、文字颜色、阴影等画出来) Compose 合成(根据层叠关系展示画面)  其次介绍一下 CSS 动画的两种做法(transition 和 animation)。 transition 过渡，作用是补充关键帧，语法如下：
+ transition:属性名 时长 过渡方式 延迟 如 transition:left 200ms linear 可以用逗号分隔两个不同属性 如 transition:left 200ms,top 400ms 可以用 all 代表所有属性 如 transition:all 200ms 过渡方式有:linear | ease | ease-in | ease-out | ease-in-out 等  过渡必须要有起始，一般只有一次或两次动画(如 hover 和非 hover 状态的过渡) 而对于中间点，我们有两种办法:</description>
+    </item>
+    
+    <item>
+      <title>HTMl常用标签</title>
+      <link>http://zhouhaomin.top/posts/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</link>
+      <pubDate>Fri, 15 Nov 2019 10:06:00 +0800</pubDate>
+      
+      <guid>http://zhouhaomin.top/posts/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/</guid>
+      <description>大家好，今天我们学习了HTML常用的几个标签 1. a 标签的用法 首先我们了解下 a 标签：链接通过 a 标签表示，用户点击后，浏览器会跳转到指定的网址。 今天主要学习了它的三个属性： 1. href属性:给出链接指向的网址。它的值应该是一个 URL 或者锚点。 2. target属性:指定如何展示打开的链接。它可以是在指定的窗口打开，也可以在iframe标签里面打开。 3. download属性:表明当前链接用于下载，而不是跳转到另一个 URL。
+其次是 a 的 href 的取值：
+ 网址 : 建议使用//google.com 路径 : /a/b/c以及a/b/c 伪协议 : javascript:代码; 或 mailto:邮箱 或 tel：手机号 id : href=#xxx  2. img 标签的用法 今天我们学习的 img 标签用法如下：img 标签用于插入图片。它是单独使用的，没有闭合标签。
+ 作用 : 发出get请求，展示一张图片。 属性 : alt(设定图片的文字说明)/height(指定图片显示时的高度)/ width(指定图片显示时的宽度和高度)/src(图片的来源) 事件 : onload/onerror 响应式 : max-width:100%  3. table 标签的用法 我们再来回顾一下 table 标签的用法，相关的标签有：</description>
+    </item>
+    
+    <item>
+      <title>如何用hugo搭建个人博客</title>
+      <link>http://zhouhaomin.top/posts/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Thu, 14 Nov 2019 20:27:49 +0800</pubDate>
+      
+      <guid>http://zhouhaomin.top/posts/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <description>大家好!今天我来介绍一下如何使用 hugo 搭建个人博客 首先我们来介绍一下搭建博客需要用到的生成器 hugo：
+ GO 语言实现的一个博客生成器 世界上最快的博客生成器  了解了 hugo 是什么之后我们学习一下如何安装它：
+ Mac 安装方式：
+ brew install hugo hugo version  Windows 安装方式：
+ 去 Hugo releases 页面下载 64 位压缩包 解压，把 hugo.exe 放到 D:\Software\hugo\hugo.exe 把 D:\Software\hugo\加到 PATH 重启终端，运行 hugo version 查看版本   安装了 hugo 之后我们就可以快速搭建出一个属于我们自己的个人博客啦：
+ 进入 Hugo 官网，点击 Quick Stark 快速开始 从 Step2 开始抄代码，直到 Step7 得到一个 public 目录，这就是我们的博客站点 hugo server -D 可以预览草稿 hugo server 可以预览非草稿  预览网站可能遇见的问题：</description>
+    </item>
+    
+    <item>
+      <title>HTML入学笔记1</title>
+      <link>http://zhouhaomin.top/posts/html%E5%85%A5%E5%AD%A6%E7%AC%94%E8%AE%B01/</link>
+      <pubDate>Thu, 14 Nov 2019 15:39:33 +0800</pubDate>
+      
+      <guid>http://zhouhaomin.top/posts/html%E5%85%A5%E5%AD%A6%E7%AC%94%E8%AE%B01/</guid>
+      <description>大家好 今天做 HTML 入门的第一次笔记
+HTML 的全名为“超文本标记语言”（HyperText Markup Language），上个世纪 90 年代由欧洲核子研究中心的物理学家蒂姆·伯纳斯-李（Tim Berners-Lee）发明。
+HTMl 起手应当写 emmet 感叹号。网页的第一个标签通常是&amp;lt;!Doctype&amp;gt;，表示文档类型，告诉浏览器如何解析网页。 一般来说只要像下面，简单声明 doctype 为 html,浏览器就会按照 HTML5 的规则处理网页。
+&amp;lt;!Doctype html&amp;gt;  常用的表章节的标签有：
+ header 标签可以用在多个场景，既可以表示整个网页的头部，也可以表示一篇文章或者一个区块的头部。 footer 标签表示网页、文章或章节的尾部。如果用于整张网页的尾部，就称为“页尾”，通常包含版权信息或者其他相关信息。 main 标签表示页面的主体内容，一个页面只能有一个 main 标签。 article 标签表示页面里面一段完整的内容，即使页面的其他部分不存在，也具有独立使用的意义，通常用来表示一篇文章或者一个论坛帖子。它可以有自己的标题（h1 到 h6）。 aside 标签用来放置与网页或文章主要内容间接相关的部分。网页级别的 aside，可以用来放置侧边栏，但不一定就在页面的侧边；文章级别的 aside，可以用来放置评论或注释。 section 标签表示一个含有主题的独立部分，通常用在文档里面表示一个章节，比如 article 可以包含多个 section。section 总是多个一起使用，一个页面不能只有一个 section。 HTML 提供了 6 个标签，用来表示文章的标题。按照标题的等级，一共分成六级。   h1：一级标题 h2：二级标题 h3：三级标题 h4：四级标题 h5：五级标题 h6：六级标题  h1 是最高级别的标题，h6 是最低级别的标题。下一级标题都是上一级标题的子标题，比如，一个 h1 后面可以有多个 h2，每个 h2 后面又可以有多个 h3。</description>
+    </item>
+    
+    <item>
+      <title>开博大吉</title>
+      <link>http://zhouhaomin.top/posts/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</link>
+      <pubDate>Wed, 13 Nov 2019 15:39:33 +0800</pubDate>
+      
+      <guid>http://zhouhaomin.top/posts/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/</guid>
+      <description>大家好 我的博客开通了，希望我能写出好文章给大家看</description>
+    </item>
+    
+  </channel>
+</rss>

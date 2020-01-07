@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>昊旻的博客 </title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.1" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+      <link href="/index.xml" rel="alternate" type="application/rss+xml" title="昊旻的博客" />
+      <link href="/index.xml" rel="feed" type="application/rss+xml" title="昊旻的博客" />
+      
+    
+    
+    <meta property="og:title" content="昊旻的博客" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://zhouhaomin.top/" />
+
+<meta property="og:updated_time" content="2020-01-05T08:35:17+08:00" />
+<meta itemprop="name" content="昊旻的博客">
+<meta itemprop="description" content="">
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="昊旻的博客"/>
+<meta name="twitter:description" content=""/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://zhouhaomin.top/" class="f3 fw2 hover-white no-underline white-90 dib">
+      昊旻的博客
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          昊旻的博客
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray">
+    
+  </article>
+  
+  
+  
+  
+  
+  
+  
+    
+    
+
+    <div class="pa3 pa4-ns w-100 w-70-ns center">
+      
+       
+          <h1 class="flex-none">
+            Recent Posts
+          </h1>
+        
+
+      
+
+      <section class="w-100 mw8">
+        
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="http://zhouhaomin.top/posts/js%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E6%96%B9%E6%B3%95/" class="color-inherit dim link">
+            JS数组去重方法
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          简单介绍几种数组去重的方法 在真实的项目中碰到的数组去重，一般都是后台去处理，很少让前端处理数组去重。虽然日常项目用到的概率比较低，但还是需要了解一下
+数组去重的方法 一、利用ES6 Set去重 function unique (arr) { return Array.from(new Set(arr)) } var arr = [1,1,'true','true',true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,'NaN', 0, 0, 'a', 'a',{},{}]; console.log(unique(arr)) //[1, &quot;true&quot;, true, 15, false, undefined, null, NaN, &quot;NaN&quot;, 0, &quot;a&quot;, {}, {}]  不考虑兼容性，这种去重的方法代码最少。这种方法还无法去掉“{}”空对象，后面的高阶方法会添加去掉重复“{}”的方法。
+二、利用for嵌套for，然后splice去重 function unique(arr){ for(var i=0; i&lt;arr.length; i++){ for(var j=i+1; j&lt;arr.length; j++){ if(arr[i]===arr[j]){ //第一个等同于第二个，splice方法删除第二个 arr.splice(j,1); j--; } } } return arr; } var arr = [1,1,'true','true',true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,'NaN', 0, 0, 'a', 'a',{},{}]; console.
+        </div>
+          <a href="http://zhouhaomin.top/posts/js%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E6%96%B9%E6%B3%95/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="http://zhouhaomin.top/posts/vue%E4%B8%AD%E7%9A%84computed%E5%92%8Cwatch/" class="color-inherit dim link">
+            Vue中的computed和watch
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+           computed - 计算属性 用途：被计算出来的属性就是计算属性，使用时可以不加括号。
+缓存：如果依赖的属性没有变化，就不会重新计算。getter/setter默认不会做缓存，Vue做了特殊的处理。
+watch - 侦听 用途：当数据变化时，执行一个函数。
+注意：
+ watch 不能在箭头函数中使用 this immediate 表示第一次渲染的时候是否要执行这个函数 deep 表示在监听 object 的时候是否要看 object 里面东西的变化  语法1
+watch:{ o1: () =&gt; {}, //o1此处不要使用this，这里的this是全局对象 o2: function(value, oldValue){}, o3(){}, o4: [f1, f2], o5: 'methodName', o6: {handler:fn, deep:true, immediate:true},'object.a': function(){} }  语法2
+vm.$watch('xxx', fn, {deep: .., immediate: ..} //其中'xxx'可以改为一个返回字符串的函数  
+        </div>
+          <a href="http://zhouhaomin.top/posts/vue%E4%B8%AD%E7%9A%84computed%E5%92%8Cwatch/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="relative w-100 mb4">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l no-underline dark-gray">
+    <div class="flex flex-column flex-row-ns">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="http://zhouhaomin.top/posts/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/" class="color-inherit dim link">
+            Vue数据响应式
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+           Vue 数据响应式 Vue 最独特的特性之一，是其非侵入性的响应式系统。数据模型仅仅是普通的 JavaScript 对象。而当你修改它们时，视图 会进行更新。
+当一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对象所有的属性，并使用 Object.defineProperty,其作用如下:
+ 可以给对象添加属性 value 可以给对象添加 getter/setter getter/setter 用于对属性的读写进行监控。  vm = new Vue({data:myData}) 的作用:
+ 会让 vm 成为 myData 的代理(proxy) 会让 myData 的所有属性收到监控，在属性变化后会重新渲染。  当我们使用 Object.defineProperty 时，若未给出初始数据，可以使用和下列相类似的两种方法
+Vue.set(this.object,'m',100) this.$set(this.object,'m',100)  作用如下：
+ 新增 key 自动创建代理和监听(如果还没有创建) 触发 UI 更新(不是立刻)  data 中有数组存在时，可以使用 vue 已经改变如下七个 API，可以自动监听和处理，调用之后更新 UI：
+ push() pop() shift() unshift() splice() sort() reverse()  
+        </div>
+          <a href="http://zhouhaomin.top/posts/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+      </section>
+
+      
+      <section class="w-100">
+        <h1 class="f3">More</h1>
+        
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="http://zhouhaomin.top/posts/%E5%88%9D%E8%AF%86vue/" class="link black dim">
+              初识Vue
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="http://zhouhaomin.top/posts/%E6%B5%85%E6%9E%90mvc/" class="link black dim">
+              浅析MVC
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="http://zhouhaomin.top/posts/jquery%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3/" class="link black dim">
+              jQuery设计思想
+            </a>
+          </h2>
+        
+          <h2 class="f5 fw4 mb4 dib mr3">
+            <a href="http://zhouhaomin.top/posts/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" class="link black dim">
+              JS函数的执行时机
+            </a>
+          </h2>
+        
+
+        
+        
+          <a href="http://zhouhaomin.top/posts/" class="link db f6 pa2 br3 bg-mid-gray white dim w4 tc">All Posts</a>
+        
+        </section>
+      
+
+      </div>
+  
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://zhouhaomin.top/" >
+    &copy;  昊旻的博客 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>昊旻的博客  | JS函数的执行时机</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.1" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="JS函数的执行时机" />
+<meta property="og:description" content="今天学习了 JS 函数的执行时机 每个 JS 函数都有调用时机，学习时我们要多借助例子学习，下面看几个例子： 例 1：问打印出多少？
+let a = 1 function fn(){ console.log(a) }  答：不知，因为没有调用代码。
+例 2：问打印出多少？
+let a = 1 function fn(){ console.log(a) } fn()  答：1
+例 3：问打印出多少？
+let a = 1 function fn(){ setTimeout(() =&gt; { console.log(a) },0) } fn() a = 2  答：2
+从上面几个例子中我们可以了解到 JS 函数的调用时机不同，结果就会不同。
+例 4：问打印出多少？
+let i = 0 for(i = 0; i&lt;6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) }  答：6 个 6 原因是这段代码是先执行 i 的循环，等到循环结束得到 i=6，此时再去执行 console." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhouhaomin.top/posts/js%E5%87%BD%E6%95%B0%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E6%9C%BA/" />
+<meta property="article:published_time" content="2019-12-02T17:31:16+08:00" />
+<meta property="article:modified_time" content="2019-12-02T17:31:16+08:00" />
+<meta itemprop="name" content="JS函数的执行时机">
+<meta itemprop="description" content="今天学习了 JS 函数的执行时机 每个 JS 函数都有调用时机，学习时我们要多借助例子学习，下面看几个例子： 例 1：问打印出多少？
+let a = 1 function fn(){ console.log(a) }  答：不知，因为没有调用代码。
+例 2：问打印出多少？
+let a = 1 function fn(){ console.log(a) } fn()  答：1
+例 3：问打印出多少？
+let a = 1 function fn(){ setTimeout(() =&gt; { console.log(a) },0) } fn() a = 2  答：2
+从上面几个例子中我们可以了解到 JS 函数的调用时机不同，结果就会不同。
+例 4：问打印出多少？
+let i = 0 for(i = 0; i&lt;6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) }  答：6 个 6 原因是这段代码是先执行 i 的循环，等到循环结束得到 i=6，此时再去执行 console.">
+
+
+<meta itemprop="datePublished" content="2019-12-02T17:31:16&#43;08:00" />
+<meta itemprop="dateModified" content="2019-12-02T17:31:16&#43;08:00" />
+<meta itemprop="wordCount" content="112">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JS函数的执行时机"/>
+<meta name="twitter:description" content="今天学习了 JS 函数的执行时机 每个 JS 函数都有调用时机，学习时我们要多借助例子学习，下面看几个例子： 例 1：问打印出多少？
+let a = 1 function fn(){ console.log(a) }  答：不知，因为没有调用代码。
+例 2：问打印出多少？
+let a = 1 function fn(){ console.log(a) } fn()  答：1
+例 3：问打印出多少？
+let a = 1 function fn(){ setTimeout(() =&gt; { console.log(a) },0) } fn() a = 2  答：2
+从上面几个例子中我们可以了解到 JS 函数的调用时机不同，结果就会不同。
+例 4：问打印出多少？
+let i = 0 for(i = 0; i&lt;6; i&#43;&#43;){ setTimeout(()=&gt;{ console.log(i) },0) }  答：6 个 6 原因是这段代码是先执行 i 的循环，等到循环结束得到 i=6，此时再去执行 console."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://zhouhaomin.top/" class="f3 fw2 hover-white no-underline white-90 dib">
+      昊旻的博客
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">JS函数的执行时机</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-12-02T17:31:16&#43;08:00">December 2, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h1 id="今天学习了-js-函数的执行时机">今天学习了 JS 函数的执行时机</h1>
+
+<p>每个 JS 函数都有调用时机，学习时我们要多借助例子学习，下面看几个例子：
+例 1：问打印出多少？</p>
+
+<pre><code>let a = 1
+function fn(){
+    console.log(a)
+}
+
+</code></pre>
+
+<p>答：不知，因为没有调用代码。</p>
+
+<p>例 2：问打印出多少？</p>
+
+<pre><code>let a = 1
+function fn(){
+    console.log(a)
+}
+fn()
+</code></pre>
+
+<p>答：1</p>
+
+<p>例 3：问打印出多少？</p>
+
+<pre><code>let a = 1
+function fn(){
+    setTimeout(() =&gt; {
+        console.log(a)
+    },0)
+}
+
+fn()
+a = 2
+</code></pre>
+
+<p>答：2</p>
+
+<p>从上面几个例子中我们可以了解到 JS 函数的调用时机不同，结果就会不同。</p>
+
+<p>例 4：问打印出多少？</p>
+
+<pre><code>let i = 0
+for(i = 0; i&lt;6; i++){
+setTimeout(()=&gt;{
+console.log(i)
+},0)
+}
+
+</code></pre>
+
+<p>答：6 个 6
+原因是这段代码是先执行 i 的循环，等到循环结束得到 i=6，此时再去执行 console.log(a) 代码，
+所以会得到 6 个 6。使用人性化的比喻就是把手头的事情(执行 i 的 for 循环)完成就立刻去做另一
+件事情(console.log(a))</p>
+
+<p>那用什么方法可以使例 4 的代码打印出 0、1、2、3、4、5 呢？只要像下面这样写就可以了.</p>
+
+<pre><code>for(let i = 0; i&lt;6; i++){
+setTimeout(()=&gt;{
+console.log(i)
+},0)
+}
+</code></pre>
+
+<p>原因是 JS 在 for 和 let 一起用的时候会加东西，每次循环的时候就多创建一个 i,这样就得到了 6 个 i，setTimeout 就没有意义了，每次打印的都是不同的 i。</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://zhouhaomin.top/" >
+    &copy;  昊旻的博客 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

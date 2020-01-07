@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>昊旻的博客  | HTML入学笔记1</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.59.1" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="HTML入学笔记1" />
+<meta property="og:description" content="大家好 今天做 HTML 入门的第一次笔记
+HTML 的全名为“超文本标记语言”（HyperText Markup Language），上个世纪 90 年代由欧洲核子研究中心的物理学家蒂姆·伯纳斯-李（Tim Berners-Lee）发明。
+HTMl 起手应当写 emmet 感叹号。网页的第一个标签通常是&lt;!Doctype&gt;，表示文档类型，告诉浏览器如何解析网页。 一般来说只要像下面，简单声明 doctype 为 html,浏览器就会按照 HTML5 的规则处理网页。
+&lt;!Doctype html&gt;  常用的表章节的标签有：
+ header 标签可以用在多个场景，既可以表示整个网页的头部，也可以表示一篇文章或者一个区块的头部。 footer 标签表示网页、文章或章节的尾部。如果用于整张网页的尾部，就称为“页尾”，通常包含版权信息或者其他相关信息。 main 标签表示页面的主体内容，一个页面只能有一个 main 标签。 article 标签表示页面里面一段完整的内容，即使页面的其他部分不存在，也具有独立使用的意义，通常用来表示一篇文章或者一个论坛帖子。它可以有自己的标题（h1 到 h6）。 aside 标签用来放置与网页或文章主要内容间接相关的部分。网页级别的 aside，可以用来放置侧边栏，但不一定就在页面的侧边；文章级别的 aside，可以用来放置评论或注释。 section 标签表示一个含有主题的独立部分，通常用在文档里面表示一个章节，比如 article 可以包含多个 section。section 总是多个一起使用，一个页面不能只有一个 section。 HTML 提供了 6 个标签，用来表示文章的标题。按照标题的等级，一共分成六级。   h1：一级标题 h2：二级标题 h3：三级标题 h4：四级标题 h5：五级标题 h6：六级标题  h1 是最高级别的标题，h6 是最低级别的标题。下一级标题都是上一级标题的子标题，比如，一个 h1 后面可以有多个 h2，每个 h2 后面又可以有多个 h3。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://zhouhaomin.top/posts/html%E5%85%A5%E5%AD%A6%E7%AC%94%E8%AE%B01/" />
+<meta property="article:published_time" content="2019-11-14T15:39:33+08:00" />
+<meta property="article:modified_time" content="2019-11-14T15:39:33+08:00" />
+<meta itemprop="name" content="HTML入学笔记1">
+<meta itemprop="description" content="大家好 今天做 HTML 入门的第一次笔记
+HTML 的全名为“超文本标记语言”（HyperText Markup Language），上个世纪 90 年代由欧洲核子研究中心的物理学家蒂姆·伯纳斯-李（Tim Berners-Lee）发明。
+HTMl 起手应当写 emmet 感叹号。网页的第一个标签通常是&lt;!Doctype&gt;，表示文档类型，告诉浏览器如何解析网页。 一般来说只要像下面，简单声明 doctype 为 html,浏览器就会按照 HTML5 的规则处理网页。
+&lt;!Doctype html&gt;  常用的表章节的标签有：
+ header 标签可以用在多个场景，既可以表示整个网页的头部，也可以表示一篇文章或者一个区块的头部。 footer 标签表示网页、文章或章节的尾部。如果用于整张网页的尾部，就称为“页尾”，通常包含版权信息或者其他相关信息。 main 标签表示页面的主体内容，一个页面只能有一个 main 标签。 article 标签表示页面里面一段完整的内容，即使页面的其他部分不存在，也具有独立使用的意义，通常用来表示一篇文章或者一个论坛帖子。它可以有自己的标题（h1 到 h6）。 aside 标签用来放置与网页或文章主要内容间接相关的部分。网页级别的 aside，可以用来放置侧边栏，但不一定就在页面的侧边；文章级别的 aside，可以用来放置评论或注释。 section 标签表示一个含有主题的独立部分，通常用在文档里面表示一个章节，比如 article 可以包含多个 section。section 总是多个一起使用，一个页面不能只有一个 section。 HTML 提供了 6 个标签，用来表示文章的标题。按照标题的等级，一共分成六级。   h1：一级标题 h2：二级标题 h3：三级标题 h4：四级标题 h5：五级标题 h6：六级标题  h1 是最高级别的标题，h6 是最低级别的标题。下一级标题都是上一级标题的子标题，比如，一个 h1 后面可以有多个 h2，每个 h2 后面又可以有多个 h3。">
+
+
+<meta itemprop="datePublished" content="2019-11-14T15:39:33&#43;08:00" />
+<meta itemprop="dateModified" content="2019-11-14T15:39:33&#43;08:00" />
+<meta itemprop="wordCount" content="121">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="HTML入学笔记1"/>
+<meta name="twitter:description" content="大家好 今天做 HTML 入门的第一次笔记
+HTML 的全名为“超文本标记语言”（HyperText Markup Language），上个世纪 90 年代由欧洲核子研究中心的物理学家蒂姆·伯纳斯-李（Tim Berners-Lee）发明。
+HTMl 起手应当写 emmet 感叹号。网页的第一个标签通常是&lt;!Doctype&gt;，表示文档类型，告诉浏览器如何解析网页。 一般来说只要像下面，简单声明 doctype 为 html,浏览器就会按照 HTML5 的规则处理网页。
+&lt;!Doctype html&gt;  常用的表章节的标签有：
+ header 标签可以用在多个场景，既可以表示整个网页的头部，也可以表示一篇文章或者一个区块的头部。 footer 标签表示网页、文章或章节的尾部。如果用于整张网页的尾部，就称为“页尾”，通常包含版权信息或者其他相关信息。 main 标签表示页面的主体内容，一个页面只能有一个 main 标签。 article 标签表示页面里面一段完整的内容，即使页面的其他部分不存在，也具有独立使用的意义，通常用来表示一篇文章或者一个论坛帖子。它可以有自己的标题（h1 到 h6）。 aside 标签用来放置与网页或文章主要内容间接相关的部分。网页级别的 aside，可以用来放置侧边栏，但不一定就在页面的侧边；文章级别的 aside，可以用来放置评论或注释。 section 标签表示一个含有主题的独立部分，通常用在文档里面表示一个章节，比如 article 可以包含多个 section。section 总是多个一起使用，一个页面不能只有一个 section。 HTML 提供了 6 个标签，用来表示文章的标题。按照标题的等级，一共分成六级。   h1：一级标题 h2：二级标题 h3：三级标题 h4：四级标题 h5：五级标题 h6：六级标题  h1 是最高级别的标题，h6 是最低级别的标题。下一级标题都是上一级标题的子标题，比如，一个 h1 后面可以有多个 h2，每个 h2 后面又可以有多个 h3。"/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="http://zhouhaomin.top/" class="f3 fw2 hover-white no-underline white-90 dib">
+      昊旻的博客
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">HTML入学笔记1</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2019-11-14T15:39:33&#43;08:00">November 14, 2019</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l">
+
+<h1 id="大家好">大家好</h1>
+
+<p>今天做 HTML 入门的第一次笔记</p>
+
+<p>HTML 的全名为“超文本标记语言”（HyperText Markup Language），上个世纪 90 年代由欧洲核子研究中心的物理学家蒂姆·伯纳斯-李（Tim Berners-Lee）发明。</p>
+
+<p>HTMl 起手应当写 emmet 感叹号。网页的第一个标签通常是&lt;!Doctype&gt;，表示文档类型，告诉浏览器如何解析网页。
+一般来说只要像下面，简单声明 doctype 为 html,浏览器就会按照 HTML5 的规则处理网页。</p>
+
+<pre><code>&lt;!Doctype html&gt;
+</code></pre>
+
+<p>常用的表章节的标签有：</p>
+
+<ol>
+<li>header 标签可以用在多个场景，既可以表示整个网页的头部，也可以表示一篇文章或者一个区块的头部。</li>
+<li>footer 标签表示网页、文章或章节的尾部。如果用于整张网页的尾部，就称为“页尾”，通常包含版权信息或者其他相关信息。</li>
+<li>main 标签表示页面的主体内容，一个页面只能有一个 main 标签。</li>
+<li>article 标签表示页面里面一段完整的内容，即使页面的其他部分不存在，也具有独立使用的意义，通常用来表示一篇文章或者一个论坛帖子。它可以有自己的标题（h1 到 h6）。</li>
+<li>aside 标签用来放置与网页或文章主要内容间接相关的部分。网页级别的 aside，可以用来放置侧边栏，但不一定就在页面的侧边；文章级别的 aside，可以用来放置评论或注释。</li>
+<li>section 标签表示一个含有主题的独立部分，通常用在文档里面表示一个章节，比如 article 可以包含多个 section。section 总是多个一起使用，一个页面不能只有一个 section。</li>
+<li>HTML 提供了 6 个标签，用来表示文章的标题。按照标题的等级，一共分成六级。</li>
+</ol>
+
+<ul>
+<li>h1：一级标题</li>
+<li>h2：二级标题</li>
+<li>h3：三级标题</li>
+<li>h4：四级标题</li>
+<li>h5：五级标题</li>
+<li>h6：六级标题</li>
+</ul>
+
+<p>h1 是最高级别的标题，h6 是最低级别的标题。下一级标题都是上一级标题的子标题，比如，一个 h1 后面可以有多个 h2，每个 h2 后面又可以有多个 h3。</p>
+
+<p>全局属性（global attributes）是所有元素都可以使用的属性。常见的全局属性有：</p>
+
+<ul>
+<li>id 属性，是元素在网页内的唯一标识符。</li>
+<li>class 属性，用来对网页元素进行分类。</li>
+<li>title 属性，用来为元素添加附加说明。</li>
+<li>style 属性，用来指定当前元素的 CSS 样式。</li>
+<li>contenteditable 属性，允许用户修改内容。</li>
+<li>tabindex 属性，它的值是一个整数，表示用户按下 Tab 键的时候，网页焦点转移的顺序。不同的属性值有不同的含义。</li>
+<li>hidden 属性，是一个布尔属性，表示当前的网页元素不再跟页面相关，因此浏览器不会渲染这个元素，所以就不会在网页中看到它。</li>
+</ul>
+
+<p>常用内容标签的介绍：</p>
+
+<ol>
+<li>ol 标签是一个有序列表容器（ordered list），会在内部的列表项前面产生数字编号。列表项的顺序有意义时，比如排名，就会采用这个标签。ol 标签内部可以嵌套 ol 标签或 ul 标签，形成多级列表。</li>
+<li>ul 标签是一个无序列表容器（unordered list），会在内部的列表项前面产生实心小圆点，作为列表符号。列表项的顺序无意义时，采用这个标签。</li>
+<li>dl 标签是一个块级元素，表示一组术语的列表（description list）。术语名（description term）由 dt 标签定义，术语解释（description detail）由 dd 标签定义。dl 常用来定义词汇表。</li>
+<li>pre 是一个块级元素，表示保留原来的格式（preformatted），即浏览器会保留该标签内部原始的换行和空格。浏览器默认以等宽字体显示标签内容。</li>
+<li>strong 是一个行内元素，表示它包含的内容本身具有很强的重要性，需要引起注意。浏览器会以粗体显示内容。</li>
+<li>em 是一个行内标签，表示语气上的强调（emphasize），浏览器会以斜体显示它包含的内容。</li>
+<li>code 标签是一个行内元素，表示标签内容是计算机代码，浏览器默认会以等宽字体显示。</li>
+</ol>
+
+<p>我的 HTMl 入门笔记就记录到这里，开始学习 HTMl 了！</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="http://zhouhaomin.top/" >
+    &copy;  昊旻的博客 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
