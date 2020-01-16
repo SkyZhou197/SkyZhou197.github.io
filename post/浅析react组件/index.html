@@ -18,7 +18,7 @@
         };
     </script>
 
-    <title>开博大吉</title>
+    <title>浅析react组件</title>
     <link rel="icon" href="/favicon.png">
 
     <link rel="stylesheet" href="/css/style.css">
@@ -202,8 +202,8 @@
             <article id="post-js-android" class="article article-type-post" itemscope="" itemprop="blogPost">
 
     <div class="article-meta">
-        <a href="http://zhouhaomin.top/post/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/" class="article-date">
-            <time datetime="2019-11-13 15:39:33 &#43;0800 CST" itemprop="datePublished">2019-11-13</time>
+        <a href="http://zhouhaomin.top/post/%E6%B5%85%E6%9E%90react%E7%BB%84%E4%BB%B6/" class="article-date">
+            <time datetime="2020-01-14 08:29:13 &#43;0800 CST" itemprop="datePublished">2020-01-14</time>
         </a>
     </div>
 
@@ -216,7 +216,7 @@
 
 
             <h1 class="article-title" itemprop="name">
-                <a class="article-title" href="http://zhouhaomin.top/post/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/">开博大吉</a>
+                <a class="article-title" href="http://zhouhaomin.top/post/%E6%B5%85%E6%9E%90react%E7%BB%84%E4%BB%B6/">浅析react组件</a>
             </h1>
 
 
@@ -236,9 +236,108 @@
 
             
 
-<h1 id="大家好">大家好</h1>
+<h1 id="入门react组件">入门react组件</h1>
 
-<p>我的博客开通了，希望我能写出好文章给大家看</p>
+<h2 id="元素与组件">元素与组件</h2>
+
+<p>目前可以简单理解为一个返回React元素的函数就是组件</p>
+
+<pre><code class="language-JS">const div = React.createElement('div',...)
+//这个是一个React元素(d小写)
+const Div = React.createElement('div',...)
+//这个是一个React组件(D大写)
+</code></pre>
+
+<h2 id="函数组件与类组件">函数组件与类组件</h2>
+
+<h3 id="一-类组件">一、类组件</h3>
+
+<pre><code class="language-JS">class Welcome extends React.Component{
+    return(){
+        return &lt;h1&gt;Hello,{this.props.name}&lt;/h1&gt;
+    }
+}
+&lt;Welcome name=&quot;xxx&quot;/&gt;
+</code></pre>
+
+<p>代码中的<Welcome />会被翻译为React.createElement(Welcome)
+即<div />会被翻译为React.createElement(&lsquo;div&rsquo;)</p>
+
+<h3 id="react-createelement的逻辑">React.createElement的逻辑</h3>
+
+<ul>
+<li>如果传入一个字符串&rsquo;div&rsquo;，会创建一个div</li>
+<li>如果传入一个函数，则会调用该函数，获取其返回值</li>
+<li>如果传入一个类，则在类前面加上一个new(这会导致执行constructor)，获取一个组件对象，然后调用对象的render方法，获取其返回值</li>
+</ul>
+
+<h3 id="二-函数组件">二、函数组件</h3>
+
+<pre><code class="language-JS">function Welcome(props){
+    return &lt;hi&gt;Hello,{props.name}&lt;/h1&gt;;
+}
+&lt;Welcome name=&quot;xxx&quot;/&gt;
+</code></pre>
+
+<h2 id="添加数据">添加数据</h2>
+
+<p>添加props(外部数据)</p>
+
+<ul>
+<li>类组件直接读取属性 this.props.xxx</li>
+<li>函数组件直接读取参数 props.xxx</li>
+</ul>
+
+<p>添加state(内部数据)</p>
+
+<ul>
+<li>类组件用this.state读，this.setState写</li>
+<li>函数组件用useState返回数组，第一项读，第二项写</li>
+</ul>
+
+<h2 id="注意事项">注意事项</h2>
+
+<ol>
+<li>类组件的setState会异步更新UI,state 不会马上改变，立刻读state会失败，推荐state(函数)</li>
+<li>类组件不推荐使用this.setState(this.state)，react希望我们不要修改旧的state(不可变数据)</li>
+<li>函数组件和类组件相似也要通过setX(新值)来更新UI</li>
+<li>函数组件没有this，一律用参数和变量</li>
+</ol>
+
+<h2 id="类组件的事件绑定">类组件的事件绑定</h2>
+
+<p>以简单的加一按钮为例</p>
+
+<pre><code class="language-JS">&lt;button conClick={()=&gt;this.addN()}&gt;n+1&lt;/button&gt;
+//可以
+&lt;button conClick={this.addN()}&gt;n+1&lt;/button&gt;
+//不行，这里会使this,addN里的this变为window
+&lt;button conClick={this.addN.bind(this)}&gt;n+1&lt;/button&gt;
+//可以，返回了一个绑定了当前this的新函数，但是太麻烦
+</code></pre>
+
+<p>最终我们可以使用下列的代码来写类组件的事件绑定</p>
+
+<pre><code class="language-JS">class Welcome extends React.component{
+    addN = ()=&gt; this.setState(({n:this.state + 1}))
+    render(){
+        return &lt;button conClick={this.addN}&gt;n+1&lt;button&gt;
+    }
+}
+</code></pre>
+
+<pre><code class="language-JS">class Welcome extends React.component{
+    constructor(){
+        this.addN = ()=&gt; this.setState({n:this.state + 1})
+    }
+    render(){
+        return &lt;button conClick={this.addN}&gt;n+1&lt;button&gt;
+    }
+}
+</code></pre>
+
+<p>这两种写法完全等价，每个Welcome组件都有自己的addN。
+使用类组件就是用这种写法，可以使用函数组件来避免this，更简单一点。</p>
 
 
         </div>
@@ -249,14 +348,14 @@
     <nav id="article-nav">
 
         
-        <div id="article-nav-newer" class="article-nav-title">
-            <a href="/post/html%E5%85%A5%E5%AD%A6%E7%AC%94%E8%AE%B01/">
-                HTML入学笔记1
-            </a>
-        </div>
         
 
         
+        <div id="article-nav-older" class="article-nav-title">
+            <a href="/post/%E6%B5%85%E6%9E%90vue%E4%BF%AE%E9%A5%B0%E7%AC%A6sync/">
+                浅析vue修饰符.sync
+            </a>
+        </div>
         
 
     </nav>
@@ -270,7 +369,19 @@
     <ol class="toc">
         <nav id="TableOfContents">
 <ul>
-<li><a href="#大家好">大家好</a></li>
+<li><a href="#入门react组件">入门react组件</a>
+<ul>
+<li><a href="#元素与组件">元素与组件</a></li>
+<li><a href="#函数组件与类组件">函数组件与类组件</a>
+<ul>
+<li><a href="#一-类组件">一、类组件</a></li>
+<li><a href="#react-createelement的逻辑">React.createElement的逻辑</a></li>
+<li><a href="#二-函数组件">二、函数组件</a></li>
+</ul></li>
+<li><a href="#添加数据">添加数据</a></li>
+<li><a href="#注意事项">注意事项</a></li>
+<li><a href="#类组件的事件绑定">类组件的事件绑定</a></li>
+</ul></li>
 </ul>
 </nav>
     </ol>
@@ -357,9 +468,7 @@
 <div class="scroll" id="post-nav-button">
 
     
-    <a href="/post/html%E5%85%A5%E5%AD%A6%E7%AC%94%E8%AE%B01/" title="上一篇: HTML入学笔记1">
-        <i class="fa fa-angle-left"></i>
-    </a>
+    <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
     
 
 
@@ -367,6 +476,9 @@
 
 
     
+    <a href="/post/%E6%B5%85%E6%9E%90vue%E4%BF%AE%E9%A5%B0%E7%AC%A6sync/" title="下一篇: 浅析vue修饰符.sync">
+        <i class="fa fa-angle-right"></i>
+    </a>
     
 
 </div>

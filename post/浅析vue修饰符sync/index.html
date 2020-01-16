@@ -18,7 +18,7 @@
         };
     </script>
 
-    <title>开博大吉</title>
+    <title>浅析vue修饰符.sync</title>
     <link rel="icon" href="/favicon.png">
 
     <link rel="stylesheet" href="/css/style.css">
@@ -202,8 +202,8 @@
             <article id="post-js-android" class="article article-type-post" itemscope="" itemprop="blogPost">
 
     <div class="article-meta">
-        <a href="http://zhouhaomin.top/post/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/" class="article-date">
-            <time datetime="2019-11-13 15:39:33 &#43;0800 CST" itemprop="datePublished">2019-11-13</time>
+        <a href="http://zhouhaomin.top/post/%E6%B5%85%E6%9E%90vue%E4%BF%AE%E9%A5%B0%E7%AC%A6sync/" class="article-date">
+            <time datetime="2020-01-05 09:56:37 &#43;0800 CST" itemprop="datePublished">2020-01-05</time>
         </a>
     </div>
 
@@ -216,7 +216,7 @@
 
 
             <h1 class="article-title" itemprop="name">
-                <a class="article-title" href="http://zhouhaomin.top/post/%E5%BC%80%E5%8D%9A%E5%A4%A7%E5%90%89/">开博大吉</a>
+                <a class="article-title" href="http://zhouhaomin.top/post/%E6%B5%85%E6%9E%90vue%E4%BF%AE%E9%A5%B0%E7%AC%A6sync/">浅析vue修饰符.sync</a>
             </h1>
 
 
@@ -236,9 +236,66 @@
 
             
 
-<h1 id="大家好">大家好</h1>
+<h1 id="sync修饰符是一个语法糖存在">.sync修饰符是一个语法糖存在</h1>
 
-<p>我的博客开通了，希望我能写出好文章给大家看</p>
+<h2 id="简单理解">简单理解</h2>
+
+<p>在有些情况下，我们可能需要对一个 prop 进行“双向绑定”。但是真正的双向绑定会带来维护上的问题，因为子组件可以修改父组件，且在父组件和子组件都没有明显的改动来源。</p>
+
+<p>.sync修饰符为一个编译时的语法糖存在。它会被扩展为一个自动更新父组件属性的 v-on 监听器。
+示例代码如下:</p>
+
+<pre><code>&lt;comp :foo.sync=&quot;bar&quot;&gt;&lt;/comp&gt;
+</code></pre>
+
+<p>扩展为:</p>
+
+<pre><code>&lt;comp :foo=&quot;bar&quot; @update:foo=&quot;val =&gt; bar = val&quot;&gt;&lt;/comp&gt;
+</code></pre>
+
+<p>当子组件需要更新 foo 的值时，它需要显式地触发一个更新事件：</p>
+
+<pre><code>this.$emit('update:foo', newValue)
+</code></pre>
+
+<h2 id="示例">示例</h2>
+
+<pre><code class="language-JS">&lt;div id=&quot;app&quot;&gt;
+    &lt;div&gt;{{bar}}&lt;/div&gt;
+    &lt;my-comp :foo.sync=&quot;bar&quot;&gt;&lt;/my-comp&gt;
+    &lt;!-- &lt;my-comp :foo=&quot;bar&quot; @update:foo=&quot;val =&gt; bar = val&quot;&gt;&lt;/my-comp&gt; --&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    Vue.component('my-comp', {
+        template: '&lt;div @click=&quot;increment&quot;&gt;点我+1&lt;/div&gt;',
+        data: function() {
+            return {copyFoo: this.foo}
+        },
+        props: ['foo'],
+        methods: {
+            increment: function() {
+                this.$emit('update:foo', ++this.copyFoo);
+            }
+        }
+    });
+    new Vue({
+        el: '#app',
+        data: {bar: 0}
+    });
+&lt;/script&gt;
+</code></pre>
+
+<p>说明：</p>
+
+<pre><code>&lt;my-comp :foo.sync=&quot;bar&quot;&gt;&lt;/my-comp&gt;
+</code></pre>
+
+<p>会被扩展成</p>
+
+<pre><code>&lt;my-comp :foo=&quot;bar&quot; @update:foo=&quot;val =&gt; bar = val&quot;&gt;&lt;/my-comp&gt;
+</code></pre>
+
+<p>.sync修饰符就是一个语法糖。</p>
 
 
         </div>
@@ -250,13 +307,18 @@
 
         
         <div id="article-nav-newer" class="article-nav-title">
-            <a href="/post/html%E5%85%A5%E5%AD%A6%E7%AC%94%E8%AE%B01/">
-                HTML入学笔记1
+            <a href="/post/%E6%B5%85%E6%9E%90react%E7%BB%84%E4%BB%B6/">
+                浅析react组件
             </a>
         </div>
         
 
         
+        <div id="article-nav-older" class="article-nav-title">
+            <a href="/post/js%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E6%96%B9%E6%B3%95/">
+                JS数组去重方法
+            </a>
+        </div>
         
 
     </nav>
@@ -270,7 +332,11 @@
     <ol class="toc">
         <nav id="TableOfContents">
 <ul>
-<li><a href="#大家好">大家好</a></li>
+<li><a href="#sync修饰符是一个语法糖存在">.sync修饰符是一个语法糖存在</a>
+<ul>
+<li><a href="#简单理解">简单理解</a></li>
+<li><a href="#示例">示例</a></li>
+</ul></li>
 </ul>
 </nav>
     </ol>
@@ -357,7 +423,7 @@
 <div class="scroll" id="post-nav-button">
 
     
-    <a href="/post/html%E5%85%A5%E5%AD%A6%E7%AC%94%E8%AE%B01/" title="上一篇: HTML入学笔记1">
+    <a href="/post/%E6%B5%85%E6%9E%90react%E7%BB%84%E4%BB%B6/" title="上一篇: 浅析react组件">
         <i class="fa fa-angle-left"></i>
     </a>
     
@@ -367,6 +433,9 @@
 
 
     
+    <a href="/post/js%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E6%96%B9%E6%B3%95/" title="下一篇: JS数组去重方法">
+        <i class="fa fa-angle-right"></i>
+    </a>
     
 
 </div>

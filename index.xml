@@ -6,10 +6,37 @@
     <description>Recent content on 周昊旻的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-ch</language>
-    <lastBuildDate>Sun, 05 Jan 2020 08:35:17 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 14 Jan 2020 08:29:13 +0800</lastBuildDate>
     
 	<atom:link href="http://zhouhaomin.top/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>浅析react组件</title>
+      <link>http://zhouhaomin.top/post/%E6%B5%85%E6%9E%90react%E7%BB%84%E4%BB%B6/</link>
+      <pubDate>Tue, 14 Jan 2020 08:29:13 +0800</pubDate>
+      
+      <guid>http://zhouhaomin.top/post/%E6%B5%85%E6%9E%90react%E7%BB%84%E4%BB%B6/</guid>
+      <description>入门react组件 元素与组件 目前可以简单理解为一个返回React元素的函数就是组件
+const div = React.createElement(&#39;div&#39;,...) //这个是一个React元素(d小写) const Div = React.createElement(&#39;div&#39;,...) //这个是一个React组件(D大写)  函数组件与类组件 一、类组件 class Welcome extends React.Component{ return(){ return &amp;lt;h1&amp;gt;Hello,{this.props.name}&amp;lt;/h1&amp;gt; } } &amp;lt;Welcome name=&amp;quot;xxx&amp;quot;/&amp;gt;  代码中的会被翻译为React.createElement(Welcome) 即会被翻译为React.createElement(&amp;lsquo;div&amp;rsquo;)
+React.createElement的逻辑  如果传入一个字符串&amp;rsquo;div&amp;rsquo;，会创建一个div 如果传入一个函数，则会调用该函数，获取其返回值 如果传入一个类，则在类前面加上一个new(这会导致执行constructor)，获取一个组件对象，然后调用对象的render方法，获取其返回值  二、函数组件 function Welcome(props){ return &amp;lt;hi&amp;gt;Hello,{props.name}&amp;lt;/h1&amp;gt;; } &amp;lt;Welcome name=&amp;quot;xxx&amp;quot;/&amp;gt;  添加数据 添加props(外部数据)
+ 类组件直接读取属性 this.props.xxx 函数组件直接读取参数 props.xxx  添加state(内部数据)
+ 类组件用this.state读，this.setState写 函数组件用useState返回数组，第一项读，第二项写  注意事项  类组件的setState会异步更新UI,state 不会马上改变，立刻读state会失败，推荐state(函数) 类组件不推荐使用this.setState(this.state)，react希望我们不要修改旧的state(不可变数据) 函数组件和类组件相似也要通过setX(新值)来更新UI 函数组件没有this，一律用参数和变量  类组件的事件绑定 以简单的加一按钮为例
+&amp;lt;button conClick={()=&amp;gt;this.</description>
+    </item>
+    
+    <item>
+      <title>浅析vue修饰符.sync</title>
+      <link>http://zhouhaomin.top/post/%E6%B5%85%E6%9E%90vue%E4%BF%AE%E9%A5%B0%E7%AC%A6sync/</link>
+      <pubDate>Sun, 05 Jan 2020 09:56:37 +0800</pubDate>
+      
+      <guid>http://zhouhaomin.top/post/%E6%B5%85%E6%9E%90vue%E4%BF%AE%E9%A5%B0%E7%AC%A6sync/</guid>
+      <description>.sync修饰符是一个语法糖存在 简单理解 在有些情况下，我们可能需要对一个 prop 进行“双向绑定”。但是真正的双向绑定会带来维护上的问题，因为子组件可以修改父组件，且在父组件和子组件都没有明显的改动来源。
+.sync修饰符为一个编译时的语法糖存在。它会被扩展为一个自动更新父组件属性的 v-on 监听器。 示例代码如下:
+&amp;lt;comp :foo.sync=&amp;quot;bar&amp;quot;&amp;gt;&amp;lt;/comp&amp;gt;  扩展为:
+&amp;lt;comp :foo=&amp;quot;bar&amp;quot; @update:foo=&amp;quot;val =&amp;gt; bar = val&amp;quot;&amp;gt;&amp;lt;/comp&amp;gt;  当子组件需要更新 foo 的值时，它需要显式地触发一个更新事件：
+this.$emit(&#39;update:foo&#39;, newValue)  示例 &amp;lt;div id=&amp;quot;app&amp;quot;&amp;gt; &amp;lt;div&amp;gt;{{bar}}&amp;lt;/div&amp;gt; &amp;lt;my-comp :foo.sync=&amp;quot;bar&amp;quot;&amp;gt;&amp;lt;/my-comp&amp;gt; &amp;lt;!-- &amp;lt;my-comp :foo=&amp;quot;bar&amp;quot; @update:foo=&amp;quot;val =&amp;gt; bar = val&amp;quot;&amp;gt;&amp;lt;/my-comp&amp;gt; --&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;script&amp;gt; Vue.component(&#39;my-comp&#39;, { template: &#39;&amp;lt;div @click=&amp;quot;increment&amp;quot;&amp;gt;点我+1&amp;lt;/div&amp;gt;&#39;, data: function() { return {copyFoo: this.foo} }, props: [&#39;foo&#39;], methods: { increment: function() { this.$emit(&#39;update:foo&#39;, ++this.copyFoo); } } }); new Vue({ el: &#39;#app&#39;, data: {bar: 0} }); &amp;lt;/script&amp;gt;  说明：</description>
+    </item>
     
     <item>
       <title>JS数组去重方法</title>

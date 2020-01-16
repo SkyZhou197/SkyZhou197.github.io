@@ -206,6 +206,107 @@
                     <article id="post-Recycler-pbl" class="article article-type-post" itemscope="" itemprop="blogPost">
 
     <div class="article-meta">
+        <a href="http://zhouhaomin.top/post/%E6%B5%85%E6%9E%90react%E7%BB%84%E4%BB%B6/" class="article-date">
+            <time datetime="2020-01-14 08:29:13 &#43;0800 CST" itemprop="datePublished">2020-01-14</time>
+        </a>
+    </div>
+
+    <div class="article-inner">
+        
+        <input type="hidden" class="isFancy">
+        
+
+        <header class="article-header">
+
+
+            <h1 itemprop="name">
+                <a class="article-title" href="http://zhouhaomin.top/post/%E6%B5%85%E6%9E%90react%E7%BB%84%E4%BB%B6/">浅析react组件</a>
+            </h1>
+
+
+        </header>
+
+
+        <div class="article-entry" itemprop="articleBody">
+            入门react组件 元素与组件 目前可以简单理解为一个返回React元素的函数就是组件
+const div = React.createElement('div',...) //这个是一个React元素(d小写) const Div = React.createElement('div',...) //这个是一个React组件(D大写)  函数组件与类组件 一、类组件 class Welcome extends React.Component{ return(){ return &lt;h1&gt;Hello,{this.props.name}&lt;/h1&gt; } } &lt;Welcome name=&quot;xxx&quot;/&gt;  代码中的会被翻译为React.createElement(Welcome) 即会被翻译为React.createElement(&lsquo;div&rsquo;)
+React.createElement的逻辑  如果传入一个字符串&rsquo;div&rsquo;，会创建一个div 如果传入一个函数，则会调用该函数，获取其返回值 如果传入一个类，则在类前面加上一个new(这会导致执行constructor)，获取一个组件对象，然后调用对象的render方法，获取其返回值  二、函数组件 function Welcome(props){ return &lt;hi&gt;Hello,{props.name}&lt;/h1&gt;; } &lt;Welcome name=&quot;xxx&quot;/&gt;  添加数据 添加props(外部数据)
+ 类组件直接读取属性 this.props.xxx 函数组件直接读取参数 props.xxx  添加state(内部数据)
+ 类组件用this.state读，this.setState写 函数组件用useState返回数组，第一项读，第二项写  注意事项  类组件的setState会异步更新UI,state 不会马上改变，立刻读state会失败，推荐state(函数) 类组件不推荐使用this.setState(this.state)，react希望我们不要修改旧的state(不可变数据) 函数组件和类组件相似也要通过setX(新值)来更新UI 函数组件没有this，一律用参数和变量  类组件的事件绑定 以简单的加一按钮为例
+&lt;button conClick={()=&gt;this.
+        </div>
+
+        <div class="article-info article-info-index">
+
+            
+
+            
+
+            <p class="article-more-link">
+                <a href="http://zhouhaomin.top/post/%E6%B5%85%E6%9E%90react%E7%BB%84%E4%BB%B6/">more &gt;&gt;</a>
+            </p>
+
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+
+</article>
+
+                
+                    <article id="post-Recycler-pbl" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+    <div class="article-meta">
+        <a href="http://zhouhaomin.top/post/%E6%B5%85%E6%9E%90vue%E4%BF%AE%E9%A5%B0%E7%AC%A6sync/" class="article-date">
+            <time datetime="2020-01-05 09:56:37 &#43;0800 CST" itemprop="datePublished">2020-01-05</time>
+        </a>
+    </div>
+
+    <div class="article-inner">
+        
+        <input type="hidden" class="isFancy">
+        
+
+        <header class="article-header">
+
+
+            <h1 itemprop="name">
+                <a class="article-title" href="http://zhouhaomin.top/post/%E6%B5%85%E6%9E%90vue%E4%BF%AE%E9%A5%B0%E7%AC%A6sync/">浅析vue修饰符.sync</a>
+            </h1>
+
+
+        </header>
+
+
+        <div class="article-entry" itemprop="articleBody">
+            .sync修饰符是一个语法糖存在 简单理解 在有些情况下，我们可能需要对一个 prop 进行“双向绑定”。但是真正的双向绑定会带来维护上的问题，因为子组件可以修改父组件，且在父组件和子组件都没有明显的改动来源。
+.sync修饰符为一个编译时的语法糖存在。它会被扩展为一个自动更新父组件属性的 v-on 监听器。 示例代码如下:
+&lt;comp :foo.sync=&quot;bar&quot;&gt;&lt;/comp&gt;  扩展为:
+&lt;comp :foo=&quot;bar&quot; @update:foo=&quot;val =&gt; bar = val&quot;&gt;&lt;/comp&gt;  当子组件需要更新 foo 的值时，它需要显式地触发一个更新事件：
+this.$emit('update:foo', newValue)  示例 &lt;div id=&quot;app&quot;&gt; &lt;div&gt;{{bar}}&lt;/div&gt; &lt;my-comp :foo.sync=&quot;bar&quot;&gt;&lt;/my-comp&gt; &lt;!-- &lt;my-comp :foo=&quot;bar&quot; @update:foo=&quot;val =&gt; bar = val&quot;&gt;&lt;/my-comp&gt; --&gt; &lt;/div&gt; &lt;script&gt; Vue.component('my-comp', { template: '&lt;div @click=&quot;increment&quot;&gt;点我+1&lt;/div&gt;', data: function() { return {copyFoo: this.foo} }, props: ['foo'], methods: { increment: function() { this.$emit('update:foo', ++this.copyFoo); } } }); new Vue({ el: '#app', data: {bar: 0} }); &lt;/script&gt;  说明：
+        </div>
+
+        <div class="article-info article-info-index">
+
+            
+
+            
+
+            <p class="article-more-link">
+                <a href="http://zhouhaomin.top/post/%E6%B5%85%E6%9E%90vue%E4%BF%AE%E9%A5%B0%E7%AC%A6sync/">more &gt;&gt;</a>
+            </p>
+
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+
+</article>
+
+                
+                    <article id="post-Recycler-pbl" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+    <div class="article-meta">
         <a href="http://zhouhaomin.top/post/js%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E6%96%B9%E6%B3%95/" class="article-date">
             <time datetime="2020-01-05 08:35:17 &#43;0800 CST" itemprop="datePublished">2020-01-05</time>
         </a>
@@ -610,113 +711,6 @@ let i = 0 for(i = 0; i&lt;6; i++){ setTimeout(()=&gt;{ console.log(i) },0) }  �
 
             <p class="article-more-link">
                 <a href="http://zhouhaomin.top/post/js%E5%AF%B9%E8%B1%A1%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/">more &gt;&gt;</a>
-            </p>
-
-            <div class="clearfix"></div>
-        </div>
-
-    </div>
-
-</article>
-
-                
-                    <article id="post-Recycler-pbl" class="article article-type-post" itemscope="" itemprop="blogPost">
-
-    <div class="article-meta">
-        <a href="http://zhouhaomin.top/post/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" class="article-date">
-            <time datetime="2019-11-29 15:13:23 &#43;0800 CST" itemprop="datePublished">2019-11-29</time>
-        </a>
-    </div>
-
-    <div class="article-inner">
-        
-        <input type="hidden" class="isFancy">
-        
-
-        <header class="article-header">
-
-
-            <h1 itemprop="name">
-                <a class="article-title" href="http://zhouhaomin.top/post/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">JavaScript基本语法</a>
-            </h1>
-
-
-        </header>
-
-
-        <div class="article-entry" itemprop="articleBody">
-            今天学习一下 JavaScript 的基本语法 首先了解什么是语句和表达式 JavaScript 程序的执行单位为行（line），也就是一行一行地执行。一般情况下，每一行就是一个语句。
-语句（statement）是为了完成某种任务而进行的操作，比如下面就是一行赋值语句。
-var a = 1 + 3  这条语句先用 var 命令，声明了变量 a，然后将 1 + 3 的运算结果赋值给变量 a。 1 + 3 叫做表达式（expression），指一个为了得到返回值的计算式。语句和表达式的区别在于，前者主要为了进行某种操作，一般情况下不需要返回值；后者则是为了得到返回值，一定会返回一个值。凡是 JavaScript 语言中预期为值的地方，都可以使用表达式。比如，赋值语句的等号右边，预期是一个值，因此可以放置各种表达式。语句以分号结尾，一个分号就表示一个语句结束。多个语句可以写在一行内。
-标识符的规则 标识符（identifier）指的是用来识别各种值的合法名称。最常见的标识符就是变量名，以及后面要提到的函数名。JavaScript 语言的标识符对大小写敏感，所以 a 和 A 是两个不同的标识符。JavaScript 有一些保留字，不能用作标识符。
-标识符有一套命名规则，不符合规则的就是非法标识符。JavaScript 引擎遇到非法标识符，就会报错。第一个字符，可以是任意 Unicode 字母（包括英文字母和其他语言的字母），以及美元符号（\$）和下划线（_）。第二个字符及后面的字符，除了 Unicode 字母、美元符号和下划线，还可以用数字 0-9。
-下面这些都是合法的标识符:
-arg0 _tmp $elem π  下面这些则是不合法的标识符:
-1a // 第一个字符不能是数字 23 // 同上 *** // 标识符不能包含星号 a+b // 标识符不能包含加号 -d // 标识符不能包含减号或连词线  介绍 if else 语句 if 结构先判断一个表达式的布尔值，然后根据布尔值的真伪，执行不同的语句。所谓布尔值，指的是 JavaScript 的两个特殊值，true 表示真，false 表示伪。 布尔值往往由一个条件表达式产生的，必须放在圆括号中，表示对表达式求值。如果表达式的求值结果为 true，就执行紧跟在后面的语句；如果结果为 false，则跳过紧跟在后面的语句。 if 代码块后面，还可以跟一个 else 代码块，表示不满足条件时，所要执行的代码。对同一个变量进行多次判断时，多个 if&hellip;else 语句可以连写在一起。 下面代码判断变量 m 是否等于 3，如果等于就执行 if 代码块，否则执行 else 代码块。
-        </div>
-
-        <div class="article-info article-info-index">
-
-            
-
-            
-
-            <p class="article-more-link">
-                <a href="http://zhouhaomin.top/post/javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/">more &gt;&gt;</a>
-            </p>
-
-            <div class="clearfix"></div>
-        </div>
-
-    </div>
-
-</article>
-
-                
-                    <article id="post-Recycler-pbl" class="article article-type-post" itemscope="" itemprop="blogPost">
-
-    <div class="article-meta">
-        <a href="http://zhouhaomin.top/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/" class="article-date">
-            <time datetime="2019-11-25 17:11:45 &#43;0800 CST" itemprop="datePublished">2019-11-25</time>
-        </a>
-    </div>
-
-    <div class="article-inner">
-        
-        <input type="hidden" class="isFancy">
-        
-
-        <header class="article-header">
-
-
-            <h1 itemprop="name">
-                <a class="article-title" href="http://zhouhaomin.top/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/">JavaScript的诞生</a>
-            </h1>
-
-
-        </header>
-
-
-        <div class="article-entry" itemprop="articleBody">
-            今天我们终于开始学习 JavaScript 了，在正式学习之前我们先了解一下它的历史 首先我们简单介绍一下 JavaScript： JavaScript（通常缩写为JS）是一种高级的、解释型的编程语言。JavaScript是一门基于原型、函数先行的语言，是一门多范式的语言，它支持面向对象编程，命令式编程，以及函数式编程。它提供语法来操控文本、数组、日期以及正则表达式等，不支持I/O，比如网络、存储和图形等，但这些都可以由它的宿主环境提供支持。它已经由ECMA（欧洲电脑制造商协会）通过ECMAScript实现语言的标准化。它被世界上的绝大多数网站所使用，也被世界主流浏览器支持。
-虽然JavaScript与Java这门语言不管是在名字上，或是在语法上都有很多相似性，但这两门编程语言从设计之初就有很大的不同，JavaScript的语言设计主要受到了Self（一种基于原型的编程语言）和Scheme（一门函数式编程语言）的影响。在语法结构上它又与C语言有很多相似（例如if条件语句、switch语句、while循环、do-while循环等）。
-在客户端，JavaScript在传统意义上被实现为一种解释语言，但在最近，它已经可以被即时编译（JIT）执行。随着最新的HTML5和CSS3语言标准的推行它还可用于游戏、桌面和移动应用程序的开发和在服务器端网络环境运行，如Node.js。
-接下来介绍一下 JavaScript 的发展历史： 1994年，网景公司（Netscape）发布了Navigator浏览器0.9版。这是历史上第一个比较成熟的网络浏览器，轰动一时。但是，这个版本的浏览器只能用来浏览，不具备与访问者互动的能力。比如，如果网页上有一栏&rdquo;用户名&rdquo;要求填写，浏览器就无法判断访问者是否真的填写了，只有让服务器端判断。如果没有填写，服务器端就返回错误，要求用户重新填写，这太浪费时间和服务器资源了。
-因此，网景公司急需一种网页脚本语言，使得浏览器可以与网页互动。工程师布兰登·艾克负责开发这种新语言。他觉得，没必要设计得很复杂，这种语言只要能够完成一些简单操作就够了，比如判断用户有没有填写表单。而为了应付公司安排的任务，他只用10天时间就把Javascript设计出来了。
-最初该语言被命名为Mocha，1995年9月在Netscape Navigator 2.0的Beta版中改名为LiveScript，同年12月，Netscape Navigator 2.0 Beta 3中部署时被重命名为JavaScript，当时网景公司与昇阳电脑公司组成的开发联盟为了让这门语言搭上Java这个编程语言“热词”，因此将其临时改名为JavaScript，日后这成为大众对这门语言有诸多误解的原因之一。
-JavaScript推出后在浏览器上大获成功，微软公司在不久后就为Internet Explorer 3浏览器推出了JScript，以与处于市场领导地位的网景产品同台竞争。JScript也是一种JavaScript实现，这两个JavaScript语言版本在浏览器端共存意味着语言标准化的缺失，发展初期，JavaScript的标准并未确定，同期有网景的JavaScript，微软的JScript双峰并峙。除此之外，微软也在网页技术上加入了不少专属对象，使不少网页使用非微软平台及浏览器无法正常显示，导致在浏览器大战期间网页设计者通常会把“用Netscape可达到最佳效果”或“用IE可达到最佳效果”的标志放在主页。随着Internet Explorer 4的发布，微软引入了动态HTML的概念，但语言实现和不同专有化的文档对象模型的差异仍然存在，成为网络上普及使用JavaScript的阻碍。
-1996年11月，网景正式向ECMA（欧洲计算机制造商协会）提交语言标准。1997年6月，ECMA以JavaScript语言为基础制定了ECMAScript标准规范ECMA-262。JavaScript成为了ECMAScript最著名的实现之一。
-介绍一下JS存在设计缺陷的原因:  设计阶段过于仓促，只用了十天时间，本意只是为了解决简单的网页互动 Javascript同时结合了函数式编程和面向对象编程的特点，直到今天为止，Javascript仍然是世界上唯一使用Prototype继承模型的主要语言。这使得它没有设计先例可以参考。 Javascript的发展非常快，而在Javascript推出一年半之后，国际标准就问世了。设计缺陷还没有充分暴露就成了标准。  说到这里就要了解一下ECMAScript 标准的制定：  1997年6月，第一版ECMAScript 发布 1999年12月，第三版发布，这个版本使用最广 第四版流产 2009年12月，第五版发布，增加了一些功能 2015年6月，第六版发布，新浏览器都支持这一版本 之后每年发布一版，版本号以年份命名  JS是历史的选择，一开始浏览器支持很多东西：Java、Flash、VBScript,但是只有JS活到了最后。 在第六版ECMAScript发布之后，JS的缺陷也有很多可以避免了，这门语言变得越来越好用。
-        </div>
-
-        <div class="article-info article-info-index">
-
-            
-
-            
-
-            <p class="article-more-link">
-                <a href="http://zhouhaomin.top/post/javascript%E7%9A%84%E8%AF%9E%E7%94%9F/">more &gt;&gt;</a>
             </p>
 
             <div class="clearfix"></div>
