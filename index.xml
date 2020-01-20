@@ -6,10 +6,20 @@
     <description>Recent content on 周昊旻的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-ch</language>
-    <lastBuildDate>Tue, 14 Jan 2020 08:29:13 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jan 2020 16:12:45 +0800</lastBuildDate>
     
 	<atom:link href="http://zhouhaomin.top/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue进阶属性</title>
+      <link>http://zhouhaomin.top/post/vue%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7/</link>
+      <pubDate>Mon, 20 Jan 2020 16:12:45 +0800</pubDate>
+      
+      <guid>http://zhouhaomin.top/post/vue%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7/</guid>
+      <description>开始Vue进阶属性的学习 Direvtives指令 一、声明一个全局指令 Vue.directive(&#39;x&#39;,directivesOptions) //即可在任何组件中使用v-x  二、声明一个局部指令 new vue({ ..., directives:{ &amp;quot;x&amp;quot;:directiveOptions } }) //v-x只能在该实例中  directiveOptions的属性  bind(el,info,vnode,oldVnode)-类似created inserted(参数同上)-类似mounted update(参数同上)-类似updated componentUpdated(参数同上)-指令所在组件的 VNode 及其子 VNode 全部更新后调用 unbind(参数同上)-类似destroyed  指令的作用  主要用于DOM操作，Vue实例/组件用于数据绑定、事件监听、DOM更新，Vue指令主要目标是原生DOM操作 减少重复，如果某个DOM操作你经常使用，就可以封装为指令。  mixins混入 directives的作用是减少DOM操作的重复，mixins的作用是减少data、methods、钩子的重复
+技巧  选项智能合并详情见文档 Vue.mixin 不推荐使用  extends继承  同样是减少重复，不想每次都写mixins，可以使用Vue.extends或options.extends 是比mixins更抽象的封装，实际工作中用的比较少  provide提供和inject注入 作用是大范围的data和method等共用 provide是祖先提供东西，inject是后代注入东西</description>
+    </item>
     
     <item>
       <title>浅析react组件</title>

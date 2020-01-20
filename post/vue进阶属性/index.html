@@ -18,7 +18,7 @@
         };
     </script>
 
-    <title>CSS知识总结</title>
+    <title>Vue进阶属性</title>
     <link rel="icon" href="/favicon.png">
 
     <link rel="stylesheet" href="/css/style.css">
@@ -202,8 +202,8 @@
             <article id="post-js-android" class="article article-type-post" itemscope="" itemprop="blogPost">
 
     <div class="article-meta">
-        <a href="http://zhouhaomin.top/post/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="article-date">
-            <time datetime="2019-11-25 07:41:34 &#43;0800 CST" itemprop="datePublished">2019-11-25</time>
+        <a href="http://zhouhaomin.top/post/vue%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7/" class="article-date">
+            <time datetime="2020-01-20 16:12:45 &#43;0800 CST" itemprop="datePublished">2020-01-20</time>
         </a>
     </div>
 
@@ -216,7 +216,7 @@
 
 
             <h1 class="article-title" itemprop="name">
-                <a class="article-title" href="http://zhouhaomin.top/post/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">CSS知识总结</a>
+                <a class="article-title" href="http://zhouhaomin.top/post/vue%E8%BF%9B%E9%98%B6%E5%B1%9E%E6%80%A7/">Vue进阶属性</a>
             </h1>
 
 
@@ -236,61 +236,66 @@
 
             
 
-<h1 id="大家好-今天我们来进行-css-知识总结-主要介绍了-css-动画的知识">大家好，今天我们来进行 CSS 知识总结，主要介绍了 CSS 动画的知识</h1>
+<h1 id="开始vue进阶属性的学习">开始Vue进阶属性的学习</h1>
 
-<h2 id="首先介绍一下浏览器渲染原理-其步骤如下">首先介绍一下浏览器渲染原理，其步骤如下：</h2>
+<h2 id="direvtives指令">Direvtives指令</h2>
+
+<h3 id="一-声明一个全局指令">一、声明一个全局指令</h3>
+
+<pre><code>Vue.directive('x',directivesOptions)
+//即可在任何组件中使用v-x
+</code></pre>
+
+<h3 id="二-声明一个局部指令">二、声明一个局部指令</h3>
+
+<pre><code>new vue({
+    ...,
+    directives:{
+        &quot;x&quot;:directiveOptions
+    }
+})
+//v-x只能在该实例中
+</code></pre>
+
+<h3 id="directiveoptions的属性">directiveOptions的属性</h3>
+
+<ul>
+<li>bind(el,info,vnode,oldVnode)-类似created</li>
+<li>inserted(参数同上)-类似mounted</li>
+<li>update(参数同上)-类似updated</li>
+<li>componentUpdated(参数同上)-指令所在组件的 VNode 及其子 VNode 全部更新后调用</li>
+<li>unbind(参数同上)-类似destroyed</li>
+</ul>
+
+<h3 id="指令的作用">指令的作用</h3>
 
 <ol>
-<li>根据 HTML 构建 HTMl 树(DOM)</li>
-<li>根据 CSS 构建 CSS 树(CSSOM)</li>
-<li>将两棵树合并成一棵渲染树(render tree)</li>
-<li>Layout 布局(文档流、盒模型、计算大小和位置)</li>
-<li>Paint 绘制(把边框颜色、文字颜色、阴影等画出来)</li>
-<li>Compose 合成(根据层叠关系展示画面)</li>
+<li>主要用于DOM操作，Vue实例/组件用于数据绑定、事件监听、DOM更新，Vue指令主要目标是原生DOM操作</li>
+<li>减少重复，如果某个DOM操作你经常使用，就可以封装为指令。</li>
 </ol>
 
-<h2 id="其次介绍一下-css-动画的两种做法-transition-和-animation">其次介绍一下 CSS 动画的两种做法(transition 和 animation)。</h2>
+<h2 id="mixins混入">mixins混入</h2>
 
-<p>transition 过渡，作用是补充关键帧，语法如下：</p>
+<p>directives的作用是减少DOM操作的重复，mixins的作用是减少data、methods、钩子的重复</p>
 
-<ul>
-<li>transition:属性名 时长 过渡方式 延迟 如 transition:left 200ms linear</li>
-<li>可以用逗号分隔两个不同属性 如 transition:left 200ms,top 400ms</li>
-<li>可以用 all 代表所有属性 如 transition:all 200ms</li>
-<li>过渡方式有:linear | ease | ease-in | ease-out | ease-in-out 等</li>
-</ul>
+<h3 id="技巧">技巧</h3>
 
-<p>过渡必须要有起始，一般只有一次或两次动画(如 hover 和非 hover 状态的过渡)
-而对于中间点，我们有两种办法:</p>
+<ol>
+<li>选项智能合并<a href="https://cn.vuejs.org/v2/guide/mixins.html#%E9%80%89%E9%A1%B9%E5%90%88%E5%B9%B6">详情见文档</a></li>
+<li>Vue.mixin  不推荐使用</li>
+</ol>
 
-<ul>
-<li>使用两次 transform</li>
-<li>使用 animation</li>
-</ul>
-
-<p>我们着重介绍一下 animation 的用法，它的作用是声明关键帧和添加动画。
-使用 animation 要用到 @keyframes ，它的标准写法如下：</p>
+<h2 id="extends继承">extends继承</h2>
 
 <ul>
-<li>一种写法是 from to</li>
-<li>另一种写法是百分数</li>
-<li>搜索 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes">keyframes MDn</a>详细了解</li>
+<li>同样是减少重复，不想每次都写mixins，可以使用Vue.extends或options.extends</li>
+<li>是比mixins更抽象的封装，实际工作中用的比较少</li>
 </ul>
 
-<p>另外我们介绍一下 animation 的缩写语法：
-animation:时长|过渡方式|延迟|次数|方向|填充模式|是否暂停|动画名;</p>
+<h2 id="provide提供和inject注入">provide提供和inject注入</h2>
 
-<ul>
-<li>时长:1s 或 1000ms</li>
-<li>过渡方式:和 transition 取值一致</li>
-<li>次数:3 或 2.4 或 infinite</li>
-<li>方向:reverse | alternate | alternate-reverse</li>
-<li>填充模式：none | forwards | backwards | both</li>
-<li>是否暂停:paused | running</li>
-<li>以上所有属性都有对应的单独属性</li>
-</ul>
-
-<p>CSS 动画的知识之前没有学习过，反复看了两遍才感觉好点，还是要多上 MDN 看看，自己动手敲敲才行。</p>
+<p>作用是大范围的data和method等共用
+provide是祖先提供东西，inject是后代注入东西</p>
 
 
         </div>
@@ -301,17 +306,12 @@ animation:时长|过渡方式|延迟|次数|方向|填充模式|是否暂停|动
     <nav id="article-nav">
 
         
-        <div id="article-nav-newer" class="article-nav-title">
-            <a href="/post/%E6%B5%85%E6%9E%90url/">
-                浅析URL
-            </a>
-        </div>
         
 
         
         <div id="article-nav-older" class="article-nav-title">
-            <a href="/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/">
-                HTMl常用标签
+            <a href="/post/%E6%B5%85%E6%9E%90react%E7%BB%84%E4%BB%B6/">
+                浅析react组件
             </a>
         </div>
         
@@ -327,10 +327,21 @@ animation:时长|过渡方式|延迟|次数|方向|填充模式|是否暂停|动
     <ol class="toc">
         <nav id="TableOfContents">
 <ul>
-<li><a href="#大家好-今天我们来进行-css-知识总结-主要介绍了-css-动画的知识">大家好，今天我们来进行 CSS 知识总结，主要介绍了 CSS 动画的知识</a>
+<li><a href="#开始vue进阶属性的学习">开始Vue进阶属性的学习</a>
 <ul>
-<li><a href="#首先介绍一下浏览器渲染原理-其步骤如下">首先介绍一下浏览器渲染原理，其步骤如下：</a></li>
-<li><a href="#其次介绍一下-css-动画的两种做法-transition-和-animation">其次介绍一下 CSS 动画的两种做法(transition 和 animation)。</a></li>
+<li><a href="#direvtives指令">Direvtives指令</a>
+<ul>
+<li><a href="#一-声明一个全局指令">一、声明一个全局指令</a></li>
+<li><a href="#二-声明一个局部指令">二、声明一个局部指令</a></li>
+<li><a href="#directiveoptions的属性">directiveOptions的属性</a></li>
+<li><a href="#指令的作用">指令的作用</a></li>
+</ul></li>
+<li><a href="#mixins混入">mixins混入</a>
+<ul>
+<li><a href="#技巧">技巧</a></li>
+</ul></li>
+<li><a href="#extends继承">extends继承</a></li>
+<li><a href="#provide提供和inject注入">provide提供和inject注入</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -418,9 +429,7 @@ animation:时长|过渡方式|延迟|次数|方向|填充模式|是否暂停|动
 <div class="scroll" id="post-nav-button">
 
     
-    <a href="/post/%E6%B5%85%E6%9E%90url/" title="上一篇: 浅析URL">
-        <i class="fa fa-angle-left"></i>
-    </a>
+    <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
     
 
 
@@ -428,7 +437,7 @@ animation:时长|过渡方式|延迟|次数|方向|填充模式|是否暂停|动
 
 
     
-    <a href="/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" title="下一篇: HTMl常用标签">
+    <a href="/post/%E6%B5%85%E6%9E%90react%E7%BB%84%E4%BB%B6/" title="下一篇: 浅析react组件">
         <i class="fa fa-angle-right"></i>
     </a>
     
