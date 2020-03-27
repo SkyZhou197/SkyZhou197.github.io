@@ -6,10 +6,23 @@
     <description>Recent content in Posts on 周昊旻的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-ch</language>
-    <lastBuildDate>Thu, 12 Mar 2020 18:02:51 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 20 Mar 2020 15:54:48 +0800</lastBuildDate>
     
 	<atom:link href="http://zhouhaomin.top/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>排序算法总结</title>
+      <link>http://zhouhaomin.top/post/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Fri, 20 Mar 2020 15:54:48 +0800</pubDate>
+      
+      <guid>http://zhouhaomin.top/post/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/</guid>
+      <description>对常见的六种排序算法进行总结 冒泡排序（Bubble Sort） 冒泡算法重复地走访过要排序的元素列，依次比较两个相邻的元素，如果顺序（如从大到小、首字母从Z到A）错误就把他们交换过来。走访元素的工作是重复地进行直到没有相邻元素需要交换，也就是说该元素列已经排序完成。
+代码实现：
+function bubbleSort(arr) { var len = arr.length; for (var i = 0; i &amp;lt; len; i++) { for (var j = 0; j &amp;lt; len - 1 - i; j++) { if (arr[j] &amp;gt; arr[j+1]) { //相邻元素两两对比 var temp = arr[j+1]; //元素交换 arr[j+1] = arr[j]; arr[j] = temp; } } } return arr; }  选择排序(Selection sort) 选择排序是一种简单直观的排序算法。它的工作原理是：第一次从待排序的数据元素中选出最小（或最大）的一个元素，存放在序列的起始位置，然后再从剩余的未排序元素中寻找到最小（大）元素，然后放到已排序的序列的末尾。以此类推，直到全部待排序的数据元素的个数为零。选择排序是不稳定的排序方法。
+代码实现：
+function selectionSort(arr) { var len = arr.</description>
+    </item>
     
     <item>
       <title>认识并使用Promise</title>

@@ -18,7 +18,7 @@
         };
     </script>
 
-    <title>CSS知识总结</title>
+    <title>排序算法总结</title>
     <link rel="icon" href="/favicon.png">
 
     <link rel="stylesheet" href="/css/style.css">
@@ -202,8 +202,8 @@
             <article id="post-js-android" class="article article-type-post" itemscope="" itemprop="blogPost">
 
     <div class="article-meta">
-        <a href="http://zhouhaomin.top/post/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="article-date">
-            <time datetime="2019-11-25 07:41:34 &#43;0800 CST" itemprop="datePublished">2019-11-25</time>
+        <a href="http://zhouhaomin.top/post/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" class="article-date">
+            <time datetime="2020-03-20 15:54:48 &#43;0800 CST" itemprop="datePublished">2020-03-20</time>
         </a>
     </div>
 
@@ -216,7 +216,7 @@
 
 
             <h1 class="article-title" itemprop="name">
-                <a class="article-title" href="http://zhouhaomin.top/post/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">CSS知识总结</a>
+                <a class="article-title" href="http://zhouhaomin.top/post/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/">排序算法总结</a>
             </h1>
 
 
@@ -236,61 +236,188 @@
 
             
 
-<h1 id="大家好-今天我们来进行-css-知识总结-主要介绍了-css-动画的知识">大家好，今天我们来进行 CSS 知识总结，主要介绍了 CSS 动画的知识</h1>
+<h1 id="对常见的六种排序算法进行总结">对常见的六种排序算法进行总结</h1>
 
-<h2 id="首先介绍一下浏览器渲染原理-其步骤如下">首先介绍一下浏览器渲染原理，其步骤如下：</h2>
+<h2 id="冒泡排序-bubble-sort">冒泡排序（Bubble Sort）</h2>
+
+<p>冒泡算法重复地走访过要排序的元素列，依次比较两个相邻的元素，如果顺序（如从大到小、首字母从Z到A）错误就把他们交换过来。走访元素的工作是重复地进行直到没有相邻元素需要交换，也就是说该元素列已经排序完成。</p>
+
+<p>代码实现：</p>
+
+<pre><code class="language-js">function bubbleSort(arr) {
+    var len = arr.length;
+    for (var i = 0; i &lt; len; i++) {
+        for (var j = 0; j &lt; len - 1 - i; j++) {
+            if (arr[j] &gt; arr[j+1]) {        //相邻元素两两对比
+                var temp = arr[j+1];        //元素交换
+                arr[j+1] = arr[j];
+                arr[j] = temp;
+            }
+        }
+    }
+    return arr;
+}
+</code></pre>
+
+<h2 id="选择排序-selection-sort">选择排序(Selection sort)</h2>
+
+<p>选择排序是一种简单直观的排序算法。它的工作原理是：第一次从待排序的数据元素中选出最小（或最大）的一个元素，存放在序列的起始位置，然后再从剩余的未排序元素中寻找到最小（大）元素，然后放到已排序的序列的末尾。以此类推，直到全部待排序的数据元素的个数为零。选择排序是不稳定的排序方法。</p>
+
+<p>代码实现：</p>
+
+<pre><code class="language-js">function selectionSort(arr) {
+    var len = arr.length;
+    var minIndex, temp;
+    for (var i = 0; i &lt; len - 1; i++) {
+        minIndex = i;
+        for (var j = i + 1; j &lt; len; j++) {
+            if (arr[j] &lt; arr[minIndex]) {     //寻找最小的数
+                minIndex = j;                 //将最小数的索引保存
+            }
+        }
+        temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
+    return arr;
+}
+</code></pre>
+
+<h2 id="插入排序-insertion-sort">插入排序(Insertion Sort)</h2>
+
+<p>插入排序的基本思想是：每步将一个待排序的记录，按其关键码值的大小插入前面已经排序的文件中适当位置上，直到全部插入完为止。</p>
+
+<p>代码实现:</p>
+
+<pre><code class="language-js">function insertionSort(arr) {
+    var len = arr.length;
+    var preIndex, current;
+    for (var i = 1; i &lt; len; i++) {
+        preIndex = i - 1;
+        current = arr[i];
+        while(preIndex &gt;= 0 &amp;&amp; arr[preIndex] &gt; current) {
+            arr[preIndex+1] = arr[preIndex];
+            preIndex--;
+        }
+        arr[preIndex+1] = current;
+    }
+    return arr;
+}
+</code></pre>
+
+<h2 id="归并排序-merge-sort">归并排序(Merge Sort)</h2>
+
+<p>作为一种典型的分而治之思想的算法应用，归并排序的实现由两种方法：</p>
 
 <ol>
-<li>根据 HTML 构建 HTMl 树(DOM)</li>
-<li>根据 CSS 构建 CSS 树(CSSOM)</li>
-<li>将两棵树合并成一棵渲染树(render tree)</li>
-<li>Layout 布局(文档流、盒模型、计算大小和位置)</li>
-<li>Paint 绘制(把边框颜色、文字颜色、阴影等画出来)</li>
-<li>Compose 合成(根据层叠关系展示画面)</li>
+<li>自上而下的递归（所有递归的方法都可以用迭代重写，所以就有了第2种方法）</li>
+<li>自下而上的迭代</li>
 </ol>
 
-<h2 id="其次介绍一下-css-动画的两种做法-transition-和-animation">其次介绍一下 CSS 动画的两种做法(transition 和 animation)。</h2>
+<p>代码实现:</p>
 
-<p>transition 过渡，作用是补充关键帧，语法如下：</p>
+<pre><code class="language-js">function mergeSort(arr) {  //采用自上而下的递归方法
+    var len = arr.length;
+    if(len &lt; 2) {
+        return arr;
+    }
+    var middle = Math.floor(len / 2),
+        left = arr.slice(0, middle),
+        right = arr.slice(middle);
+    return merge(mergeSort(left), mergeSort(right));
+}
 
-<ul>
-<li>transition:属性名 时长 过渡方式 延迟 如 transition:left 200ms linear</li>
-<li>可以用逗号分隔两个不同属性 如 transition:left 200ms,top 400ms</li>
-<li>可以用 all 代表所有属性 如 transition:all 200ms</li>
-<li>过渡方式有:linear | ease | ease-in | ease-out | ease-in-out 等</li>
-</ul>
+function merge(left, right)
+{
+    var result = [];
 
-<p>过渡必须要有起始，一般只有一次或两次动画(如 hover 和非 hover 状态的过渡)
-而对于中间点，我们有两种办法:</p>
+    while (left.length &amp;&amp; right.length) {
+        if (left[0] &lt;= right[0]) {
+            result.push(left.shift());
+        } else {
+            result.push(right.shift());
+        }
+    }
 
-<ul>
-<li>使用两次 transform</li>
-<li>使用 animation</li>
-</ul>
+    while (left.length)
+        result.push(left.shift());
 
-<p>我们着重介绍一下 animation 的用法，它的作用是声明关键帧和添加动画。
-使用 animation 要用到 @keyframes ，它的标准写法如下：</p>
+    while (right.length)
+        result.push(right.shift());
 
-<ul>
-<li>一种写法是 from to</li>
-<li>另一种写法是百分数</li>
-<li>搜索 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes">keyframes MDn</a>详细了解</li>
-</ul>
+    return result;
+}
+</code></pre>
 
-<p>另外我们介绍一下 animation 的缩写语法：
-animation:时长|过渡方式|延迟|次数|方向|填充模式|是否暂停|动画名;</p>
+<h2 id="快速排序-quick-sort">快速排序(Quick Sort)</h2>
 
-<ul>
-<li>时长:1s 或 1000ms</li>
-<li>过渡方式:和 transition 取值一致</li>
-<li>次数:3 或 2.4 或 infinite</li>
-<li>方向:reverse | alternate | alternate-reverse</li>
-<li>填充模式：none | forwards | backwards | both</li>
-<li>是否暂停:paused | running</li>
-<li>以上所有属性都有对应的单独属性</li>
-</ul>
+<p>快速排序的基本思想是：通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。</p>
 
-<p>CSS 动画的知识之前没有学习过，反复看了两遍才感觉好点，还是要多上 MDN 看看，自己动手敲敲才行。</p>
+<p>代码实现:</p>
+
+<pre><code class="language-js">function quickSort(arr, left, right) {
+    var len = arr.length,
+        partitionIndex,
+        left = typeof left != 'number' ? 0 : left,
+        right = typeof right != 'number' ? len - 1 : right;
+
+    if (left &lt; right) {
+        partitionIndex = partition(arr, left, right);
+        quickSort(arr, left, partitionIndex-1);
+        quickSort(arr, partitionIndex+1, right);
+    }
+    return arr;
+}
+
+function partition(arr, left ,right) {     //分区操作
+    var pivot = left,                      //设定基准值（pivot）
+        index = pivot + 1;
+    for (var i = index; i &lt;= right; i++) {
+        if (arr[i] &lt; arr[pivot]) {
+            swap(arr, i, index);
+            index++;
+        }        
+    }
+    swap(arr, pivot, index - 1);
+    return index-1;
+}
+
+function swap(arr, i, j) {
+    var temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+}
+</code></pre>
+
+<h2 id="计数排序-counting-sort">计数排序(Counting Sort)</h2>
+
+<p>计数排序的核心在于将输入的数据值转化为键存储在额外开辟的数组空间中。作为一种线性时间复杂度的排序，计数排序要求输入的数据必须是有确定范围的整数。</p>
+
+<p>代码实现：</p>
+
+<pre><code class="language-js">function countingSort(arr, maxValue) {
+    var bucket = new Array(maxValue+1),
+        sortedIndex = 0;
+        arrLen = arr.length,
+        bucketLen = maxValue + 1;
+
+    for (var i = 0; i &lt; arrLen; i++) {
+        if (!bucket[arr[i]]) {
+            bucket[arr[i]] = 0;
+        }
+        bucket[arr[i]]++;
+    }
+
+    for (var j = 0; j &lt; bucketLen; j++) {
+        while(bucket[j] &gt; 0) {
+            arr[sortedIndex++] = j;
+            bucket[j]--;
+        }
+    }
+
+    return arr;
+}
+</code></pre>
 
 
         </div>
@@ -301,17 +428,12 @@ animation:时长|过渡方式|延迟|次数|方向|填充模式|是否暂停|动
     <nav id="article-nav">
 
         
-        <div id="article-nav-newer" class="article-nav-title">
-            <a href="/post/%E6%B5%85%E6%9E%90url/">
-                浅析URL
-            </a>
-        </div>
         
 
         
         <div id="article-nav-older" class="article-nav-title">
-            <a href="/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/">
-                HTMl常用标签
+            <a href="/post/%E8%AE%A4%E8%AF%86%E5%B9%B6%E4%BD%BF%E7%94%A8promise/">
+                认识并使用Promise
             </a>
         </div>
         
@@ -327,10 +449,14 @@ animation:时长|过渡方式|延迟|次数|方向|填充模式|是否暂停|动
     <ol class="toc">
         <nav id="TableOfContents">
 <ul>
-<li><a href="#大家好-今天我们来进行-css-知识总结-主要介绍了-css-动画的知识">大家好，今天我们来进行 CSS 知识总结，主要介绍了 CSS 动画的知识</a>
+<li><a href="#对常见的六种排序算法进行总结">对常见的六种排序算法进行总结</a>
 <ul>
-<li><a href="#首先介绍一下浏览器渲染原理-其步骤如下">首先介绍一下浏览器渲染原理，其步骤如下：</a></li>
-<li><a href="#其次介绍一下-css-动画的两种做法-transition-和-animation">其次介绍一下 CSS 动画的两种做法(transition 和 animation)。</a></li>
+<li><a href="#冒泡排序-bubble-sort">冒泡排序（Bubble Sort）</a></li>
+<li><a href="#选择排序-selection-sort">选择排序(Selection sort)</a></li>
+<li><a href="#插入排序-insertion-sort">插入排序(Insertion Sort)</a></li>
+<li><a href="#归并排序-merge-sort">归并排序(Merge Sort)</a></li>
+<li><a href="#快速排序-quick-sort">快速排序(Quick Sort)</a></li>
+<li><a href="#计数排序-counting-sort">计数排序(Counting Sort)</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -418,9 +544,7 @@ animation:时长|过渡方式|延迟|次数|方向|填充模式|是否暂停|动
 <div class="scroll" id="post-nav-button">
 
     
-    <a href="/post/%E6%B5%85%E6%9E%90url/" title="上一篇: 浅析URL">
-        <i class="fa fa-angle-left"></i>
-    </a>
+    <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
     
 
 
@@ -428,7 +552,7 @@ animation:时长|过渡方式|延迟|次数|方向|填充模式|是否暂停|动
 
 
     
-    <a href="/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" title="下一篇: HTMl常用标签">
+    <a href="/post/%E8%AE%A4%E8%AF%86%E5%B9%B6%E4%BD%BF%E7%94%A8promise/" title="下一篇: 认识并使用Promise">
         <i class="fa fa-angle-right"></i>
     </a>
     
