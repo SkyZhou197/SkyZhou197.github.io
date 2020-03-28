@@ -206,6 +206,58 @@
                     <article id="post-Recycler-pbl" class="article article-type-post" itemscope="" itemprop="blogPost">
 
     <div class="article-meta">
+        <a href="http://zhouhaomin.top/post/%E5%88%9D%E8%AF%86vue/" class="article-date">
+            <time datetime="2019-12-24 15:44:41 &#43;0800 CST" itemprop="datePublished">2019-12-24</time>
+        </a>
+    </div>
+
+    <div class="article-inner">
+        
+        <input type="hidden" class="isFancy">
+        
+
+        <header class="article-header">
+
+
+            <h1 itemprop="name">
+                <a class="article-title" href="http://zhouhaomin.top/post/%E5%88%9D%E8%AF%86vue/">初识Vue</a>
+            </h1>
+
+
+        </header>
+
+
+        <div class="article-entry" itemprop="articleBody">
+             初识Vue Vue实例的作用  封装了对DOM和data的所有操作 操作DOM，即监听事件，改变DOM等 操作data，即增删改查 注意没有封装ajax，应当使用axios的ajax功能  Vue完整版和运行时版的区别 Vue完整版和运行时版的本质区别就在于有无编译器compiler，有就是完整版，又称为vue.js，没有就是运行时版，称为vue.runtime.js。编译器约占40%的体积，所以传输给用户都是不用编译器的。
+使用cdn引入时，使用对应的名称即可，生成环境的后缀为 .min.js
+有关视图方面，完整版是写在HTML里或者写在template选项中 ，非完整版则是写在render函数里用h来创建标签的，h是vue创建者尤雨溪写好传给render的。
+在webpack和@vue/cil引入的时候，完整版需要额外配置，非完整版默认使用即可。
+最佳实践：总是使用非完整版，然后配合vue-loader和vue文件：
+ 保证用户体验，用户下载的JS文件体积更小，但只支持h函数。
+ 保证开发体验，开发者可以直接在vue文件中写HTML标签，而不写h函数。 vue-loader可以把vue文件里的HTML转为h函数。 vue.js错用成vue.runtime.js会无法将HTML编辑成视图，反过来错用会使代码体积变大。  
+        </div>
+
+        <div class="article-info article-info-index">
+
+            
+
+            
+
+            <p class="article-more-link">
+                <a href="http://zhouhaomin.top/post/%E5%88%9D%E8%AF%86vue/">more &gt;&gt;</a>
+            </p>
+
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+
+</article>
+
+                
+                    <article id="post-Recycler-pbl" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+    <div class="article-meta">
         <a href="http://zhouhaomin.top/post/%E6%B5%85%E6%9E%90mvc/" class="article-date">
             <time datetime="2019-12-20 19:19:55 &#43;0800 CST" itemprop="datePublished">2019-12-20</time>
         </a>
@@ -659,57 +711,6 @@ JavaScript推出后在浏览器上大获成功，微软公司在不久后就为I
 
             <p class="article-more-link">
                 <a href="http://zhouhaomin.top/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/">more &gt;&gt;</a>
-            </p>
-
-            <div class="clearfix"></div>
-        </div>
-
-    </div>
-
-</article>
-
-                
-                    <article id="post-Recycler-pbl" class="article article-type-post" itemscope="" itemprop="blogPost">
-
-    <div class="article-meta">
-        <a href="http://zhouhaomin.top/post/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="article-date">
-            <time datetime="2019-11-14 20:27:49 &#43;0800 CST" itemprop="datePublished">2019-11-14</time>
-        </a>
-    </div>
-
-    <div class="article-inner">
-        
-        <input type="hidden" class="isFancy">
-        
-
-        <header class="article-header">
-
-
-            <h1 itemprop="name">
-                <a class="article-title" href="http://zhouhaomin.top/post/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">如何用hugo搭建个人博客</a>
-            </h1>
-
-
-        </header>
-
-
-        <div class="article-entry" itemprop="articleBody">
-            大家好!今天我来介绍一下如何使用 hugo 搭建个人博客 首先我们来介绍一下搭建博客需要用到的生成器 hugo：
- GO 语言实现的一个博客生成器 世界上最快的博客生成器  了解了 hugo 是什么之后我们学习一下如何安装它：
- Mac 安装方式：
- brew install hugo hugo version  Windows 安装方式：
- 去 Hugo releases 页面下载 64 位压缩包 解压，把 hugo.exe 放到 D:\Software\hugo\hugo.exe 把 D:\Software\hugo\加到 PATH 重启终端，运行 hugo version 查看版本   安装了 hugo 之后我们就可以快速搭建出一个属于我们自己的个人博客啦：
- 进入 Hugo 官网，点击 Quick Stark 快速开始 从 Step2 开始抄代码，直到 Step7 得到一个 public 目录，这就是我们的博客站点 hugo server -D 可以预览草稿 hugo server 可以预览非草稿  预览网站可能遇见的问题：
-        </div>
-
-        <div class="article-info article-info-index">
-
-            
-
-            
-
-            <p class="article-more-link">
-                <a href="http://zhouhaomin.top/post/%E5%A6%82%E4%BD%95%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">more &gt;&gt;</a>
             </p>
 
             <div class="clearfix"></div>

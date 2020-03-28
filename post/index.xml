@@ -6,10 +6,26 @@
     <description>Recent content in Posts on 周昊旻的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-ch</language>
-    <lastBuildDate>Fri, 20 Mar 2020 15:54:48 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 25 Mar 2020 16:13:22 +0800</lastBuildDate>
     
 	<atom:link href="http://zhouhaomin.top/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Webpack常见问题</title>
+      <link>http://zhouhaomin.top/post/webpack%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Wed, 25 Mar 2020 16:13:22 +0800</pubDate>
+      
+      <guid>http://zhouhaomin.top/post/webpack%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</guid>
+      <description>在众多前端工程化工具中，webpack脱颖而出成为了当今最流行的前端构建工具。 然而大多数的使用者都只是单纯的会使用，而并不知道其深层的原理。接下来通过下面的几个问题来查缺补漏一下。
+一、有哪些常见的 Loader 和 Plugin？ Loader：  file-loader：把文件输出到一个文件夹中，在代码中通过相对 URL 去引用输出的文件 url-loader：和 file-loader 类似，但是能在文件很小的情况下以 base64 的方式把文件内容注入到代码中去 babel-loader：把 ES6 转换成 ES5 style-loader：把 CSS 代码注入到 JavaScript 中，通过 DOM 操作去加载 CSS。 eslint-loader：通过 ESLint 检查 JavaScript 代码 image-loader：加载并且压缩图片文件  Plugin：  define-plugin：定义环境变量 commons-chunk-plugin：提取公共代码 uglifyjs-webpack-plugin：通过 UglifyES 压缩 ES6 代码  二、Loader和Plugin有何区别？ Loader是&amp;rdquo;加载器&amp;rdquo; Webpack将一切文件视为模块，但是webpack原生是只能解析js文件，如果想将其他文件也打包的话，就会用到loader。 所以Loader的作用是让webpack拥有了加载和解析非JavaScript文件的能力。
+Loader在module.rules中配置，也就是说他作为模块的解析规则而存在。 类型为数组，每一项都是一个Object，里面描述了对于什么类型的文件（test），使用什么加载(loader)和使用的参数（options）
+Plugin是&amp;rdquo;插件 Plugin可以扩展webpack的功能，让webpack具有更多的灵活性。 在 Webpack 运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在合适的时机通过 Webpack 提供的 API 改变输出结果。
+Plugin在plugins中单独配置。 类型为数组，每一项是一个plugin的实例，参数都通过构造函数传入。
+三、如何在vue项目中实现按需加载？ 为了快速开发前端项目，经常会引入现成的UI组件库如ElementUI、antDesign等，但是他们的体积和他们所提供的功能一样，是很庞大的。 而通常情况下，我们仅仅需要少量的几个组件就足够了，但是我们却将庞大的组件库打包到我们的源码中，造成了不必要的开销。
+不过很多组件库已经提供了现成的解决方案，如Element出品的babel-plugin-component和AntDesign出品的babel-plugin-import 安装以上插件后，在.babelrc配置中或babel-loader的参数中进行设置，即可实现组件按需加载了。
+{ &amp;quot;presets&amp;quot;: [[&amp;quot;es2015&amp;quot;, { &amp;quot;modules&amp;quot;: false }]], &amp;quot;plugins&amp;quot;: [ [ &amp;quot;component&amp;quot;, { &amp;quot;libraryName&amp;quot;: &amp;quot;element-ui&amp;quot;, &amp;quot;styleLibraryName&amp;quot;: &amp;quot;theme-chalk&amp;quot; } ] ] }  四、如何提高webpack的构建速度？  多入口情况下，使用 CommonsChunkPlugin 来提取公共代码 通过 externals 配置来提取常用库 利用 DllPlugin 和 DllReferencePlugin 预编译资源模块 通过 DllPlugin 来对那些我们引用但是绝对不会修改的 npm 包来进行预编译，再通过 DllReferencePlugin 将预编译的模块加载进来。 使用 Happypack 实现多线程加速编译 使用 webpack-uglify-parallel 来提升 uglifyPlugin 的压缩速度。 原理上 webpack-uglify-parallel 采用了多核并行压缩来提升压缩速度 使用 Tree-shaking和Scope Hoisting 来剔除多余代码  五、如何配置单页应用和多页应用？ 单页应用可以理解为 webpack 的标准模式，直接在 entry 中指定单页应用的入口即可。</description>
+    </item>
     
     <item>
       <title>排序算法总结</title>
