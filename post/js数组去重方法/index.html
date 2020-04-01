@@ -301,20 +301,21 @@ console.log(unique(arr))
 
 <pre><code class="language-javascript">function unique(arr) {
     if (!Array.isArray(arr)) {
-    console.log('type error!')
-    return
-}
-var array = [];
-for (var i = 0; i &lt; arr.length; i++) {
-    if (array.indexOf(arr[i]) === -1) {
-        array.push(arr[i])
+        console.log('type error!')
+        return;
     }
+    arr = arr.sort()
+    var arrry= [arr[0]];
+    for (var i = 1; i &lt; arr.length; i++) {
+        if (arr[i] !== arr[i-1]) {
+            arrry.push(arr[i]);
+        }
+    }
+    return arrry;
 }
-return array;
-}
-var arr = [1,1,'true','true',true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,'NaN', 0, 0, 'a', 'a',{},{}];
-console.log(unique(arr))
-// [0, 1, 15, &quot;NaN&quot;, NaN, NaN, {…}, {…}, &quot;a&quot;, false, null, true, &quot;true&quot;, undefined] NaN、{}没有去重
+     var arr = [1,1,'true','true',true,true,15,15,false,false, undefined,undefined, null,null, NaN, NaN,'NaN', 0, 0, 'a', 'a',{},{}];
+        console.log(unique(arr))
+// [0, 1, 15, &quot;NaN&quot;, NaN, NaN, {…}, {…}, &quot;a&quot;, false, null, true, &quot;true&quot;, undefined]      //NaN、{}没有去重
 
 </code></pre>
 
@@ -510,6 +511,8 @@ console.log(unique(arr))
 
 <ul class="post-list toc-article">
     
+    
+    <li class="post-list-item"><a class="post-list-link" href="/post/js%E7%9A%84%E4%BA%8B%E4%BB%B6%E8%8A%82%E6%B5%81%E5%92%8C%E4%BA%8B%E4%BB%B6%E9%98%B2%E6%8A%96/" target="_blank">JS的事件节流和事件防抖</a></li>
     
     <li class="post-list-item"><a class="post-list-link" href="/post/webpack%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" target="_blank">Webpack常见问题</a></li>
     

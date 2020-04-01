@@ -18,7 +18,7 @@
         };
     </script>
 
-    <title>CSS知识总结</title>
+    <title>JS的事件节流和事件防抖</title>
     <link rel="icon" href="/favicon.png">
 
     <link rel="stylesheet" href="/css/style.css">
@@ -202,8 +202,8 @@
             <article id="post-js-android" class="article article-type-post" itemscope="" itemprop="blogPost">
 
     <div class="article-meta">
-        <a href="http://zhouhaomin.top/post/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="article-date">
-            <time datetime="2019-11-25 07:41:34 &#43;0800 CST" itemprop="datePublished">2019-11-25</time>
+        <a href="http://zhouhaomin.top/post/js%E7%9A%84%E4%BA%8B%E4%BB%B6%E8%8A%82%E6%B5%81%E5%92%8C%E4%BA%8B%E4%BB%B6%E9%98%B2%E6%8A%96/" class="article-date">
+            <time datetime="2020-04-01 09:41:41 &#43;0800 CST" itemprop="datePublished">2020-04-01</time>
         </a>
     </div>
 
@@ -216,7 +216,7 @@
 
 
             <h1 class="article-title" itemprop="name">
-                <a class="article-title" href="http://zhouhaomin.top/post/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">CSS知识总结</a>
+                <a class="article-title" href="http://zhouhaomin.top/post/js%E7%9A%84%E4%BA%8B%E4%BB%B6%E8%8A%82%E6%B5%81%E5%92%8C%E4%BA%8B%E4%BB%B6%E9%98%B2%E6%8A%96/">JS的事件节流和事件防抖</a>
             </h1>
 
 
@@ -236,61 +236,72 @@
 
             
 
-<h1 id="大家好-今天我们来进行-css-知识总结-主要介绍了-css-动画的知识">大家好，今天我们来进行 CSS 知识总结，主要介绍了 CSS 动画的知识</h1>
-
-<h2 id="首先介绍一下浏览器渲染原理-其步骤如下">首先介绍一下浏览器渲染原理，其步骤如下：</h2>
-
-<ol>
-<li>根据 HTML 构建 HTMl 树(DOM)</li>
-<li>根据 CSS 构建 CSS 树(CSSOM)</li>
-<li>将两棵树合并成一棵渲染树(render tree)</li>
-<li>Layout 布局(文档流、盒模型、计算大小和位置)</li>
-<li>Paint 绘制(把边框颜色、文字颜色、阴影等画出来)</li>
-<li>Compose 合成(根据层叠关系展示画面)</li>
-</ol>
-
-<h2 id="其次介绍一下-css-动画的两种做法-transition-和-animation">其次介绍一下 CSS 动画的两种做法(transition 和 animation)。</h2>
-
-<p>transition 过渡，作用是补充关键帧，语法如下：</p>
+<h2 id="概念">概念</h2>
 
 <ul>
-<li>transition:属性名 时长 过渡方式 延迟 如 transition:left 200ms linear</li>
-<li>可以用逗号分隔两个不同属性 如 transition:left 200ms,top 400ms</li>
-<li>可以用 all 代表所有属性 如 transition:all 200ms</li>
-<li>过渡方式有:linear | ease | ease-in | ease-out | ease-in-out 等</li>
+<li>事件节流：规定一个单位时间，在这个单位时间内，只能有一次触发事件的回调函数执行，如果在同一个单位时间内某事件被触发多次，只有一次能生效。</li>
+<li>事件防抖：在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。</li>
 </ul>
 
-<p>过渡必须要有起始，一般只有一次或两次动画(如 hover 和非 hover 状态的过渡)
-而对于中间点，我们有两种办法:</p>
+<h2 id="示例代码">示例代码</h2>
+
+<h3 id="事件节流">事件节流</h3>
+
+<pre><code class="language-js">function throttle(fn, gapTime) {
+  let _lastTime = null;
+
+  return function () {
+    let _nowTime = + new Date()
+    if (_nowTime - _lastTime &gt; gapTime || !_lastTime) {
+      fn();
+      _lastTime = _nowTime
+    }
+  }
+}
+
+let fn = ()=&gt;{
+  console.log('boom')
+}
+
+setInterval(throttle(fn,1000),10)
+</code></pre>
+
+<p>结果为每一秒钟打出一次 boom</p>
+
+<h3 id="事件防抖">事件防抖</h3>
+
+<pre><code class="language-js">function debounce(fn, wait) {
+  var timer = null;
+  return function () {
+      var context = this
+      var args = arguments
+      if (timer) {
+          clearTimeout(timer);
+          timer = null;
+      }
+      timer = setTimeout(function () {
+          fn.apply(context, args)
+      }, wait)
+  }
+}
+
+var fn = function () {
+  console.log('boom')
+}
+
+setInterval(debounce(fn,500),1000) // 第一次在1500ms后触发，之后每1000ms触发一次
+
+setInterval(debounce(fn,2000),1000) // 不会触发一次
+</code></pre>
+
+<h2 id="小结">小结</h2>
+
+<p>事件防抖和事件节流是在时间轴上控制函数的执行次数，可以用生活中的例子来理解</p>
 
 <ul>
-<li>使用两次 transform</li>
-<li>使用 animation</li>
+<li>事件节流像是班车：只会在一段时间内执行，不会等乘客（事件），到点发车，错过只能等下一次</li>
+<li>事件防抖像是拼车：本来是说五分钟就走，但是如果又有人上车了（在5分钟内再次触发事件），那你又得等5分钟才能再出发（重新计时）</li>
 </ul>
-
-<p>我们着重介绍一下 animation 的用法，它的作用是声明关键帧和添加动画。
-使用 animation 要用到 @keyframes ，它的标准写法如下：</p>
-
-<ul>
-<li>一种写法是 from to</li>
-<li>另一种写法是百分数</li>
-<li>搜索 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes">keyframes MDn</a>详细了解</li>
-</ul>
-
-<p>另外我们介绍一下 animation 的缩写语法：
-animation:时长|过渡方式|延迟|次数|方向|填充模式|是否暂停|动画名;</p>
-
-<ul>
-<li>时长:1s 或 1000ms</li>
-<li>过渡方式:和 transition 取值一致</li>
-<li>次数:3 或 2.4 或 infinite</li>
-<li>方向:reverse | alternate | alternate-reverse</li>
-<li>填充模式：none | forwards | backwards | both</li>
-<li>是否暂停:paused | running</li>
-<li>以上所有属性都有对应的单独属性</li>
-</ul>
-
-<p>CSS 动画的知识之前没有学习过，反复看了两遍才感觉好点，还是要多上 MDN 看看，自己动手敲敲才行。</p>
 
 
         </div>
@@ -301,17 +312,12 @@ animation:时长|过渡方式|延迟|次数|方向|填充模式|是否暂停|动
     <nav id="article-nav">
 
         
-        <div id="article-nav-newer" class="article-nav-title">
-            <a href="/post/%E6%B5%85%E6%9E%90url/">
-                浅析URL
-            </a>
-        </div>
         
 
         
         <div id="article-nav-older" class="article-nav-title">
-            <a href="/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/">
-                HTMl常用标签
+            <a href="/post/webpack%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
+                Webpack常见问题
             </a>
         </div>
         
@@ -327,10 +333,15 @@ animation:时长|过渡方式|延迟|次数|方向|填充模式|是否暂停|动
     <ol class="toc">
         <nav id="TableOfContents">
 <ul>
-<li><a href="#大家好-今天我们来进行-css-知识总结-主要介绍了-css-动画的知识">大家好，今天我们来进行 CSS 知识总结，主要介绍了 CSS 动画的知识</a>
+<li>
 <ul>
-<li><a href="#首先介绍一下浏览器渲染原理-其步骤如下">首先介绍一下浏览器渲染原理，其步骤如下：</a></li>
-<li><a href="#其次介绍一下-css-动画的两种做法-transition-和-animation">其次介绍一下 CSS 动画的两种做法(transition 和 animation)。</a></li>
+<li><a href="#概念">概念</a></li>
+<li><a href="#示例代码">示例代码</a>
+<ul>
+<li><a href="#事件节流">事件节流</a></li>
+<li><a href="#事件防抖">事件防抖</a></li>
+</ul></li>
+<li><a href="#小结">小结</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -418,9 +429,7 @@ animation:时长|过渡方式|延迟|次数|方向|填充模式|是否暂停|动
 <div class="scroll" id="post-nav-button">
 
     
-    <a href="/post/%E6%B5%85%E6%9E%90url/" title="上一篇: 浅析URL">
-        <i class="fa fa-angle-left"></i>
-    </a>
+    <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
     
 
 
@@ -428,7 +437,7 @@ animation:时长|过渡方式|延迟|次数|方向|填充模式|是否暂停|动
 
 
     
-    <a href="/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" title="下一篇: HTMl常用标签">
+    <a href="/post/webpack%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" title="下一篇: Webpack常见问题">
         <i class="fa fa-angle-right"></i>
     </a>
     

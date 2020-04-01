@@ -6,10 +6,20 @@
     <description>Recent content on 周昊旻的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-ch</language>
-    <lastBuildDate>Wed, 25 Mar 2020 16:13:22 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 01 Apr 2020 09:41:41 +0800</lastBuildDate>
     
 	<atom:link href="http://zhouhaomin.top/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JS的事件节流和事件防抖</title>
+      <link>http://zhouhaomin.top/post/js%E7%9A%84%E4%BA%8B%E4%BB%B6%E8%8A%82%E6%B5%81%E5%92%8C%E4%BA%8B%E4%BB%B6%E9%98%B2%E6%8A%96/</link>
+      <pubDate>Wed, 01 Apr 2020 09:41:41 +0800</pubDate>
+      
+      <guid>http://zhouhaomin.top/post/js%E7%9A%84%E4%BA%8B%E4%BB%B6%E8%8A%82%E6%B5%81%E5%92%8C%E4%BA%8B%E4%BB%B6%E9%98%B2%E6%8A%96/</guid>
+      <description>概念  事件节流：规定一个单位时间，在这个单位时间内，只能有一次触发事件的回调函数执行，如果在同一个单位时间内某事件被触发多次，只有一次能生效。 事件防抖：在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。  示例代码 事件节流 function throttle(fn, gapTime) { let _lastTime = null; return function () { let _nowTime = + new Date() if (_nowTime - _lastTime &amp;gt; gapTime || !_lastTime) { fn(); _lastTime = _nowTime } } } let fn = ()=&amp;gt;{ console.log(&#39;boom&#39;) } setInterval(throttle(fn,1000),10)  结果为每一秒钟打出一次 boom
+事件防抖 function debounce(fn, wait) { var timer = null; return function () { var context = this var args = arguments if (timer) { clearTimeout(timer); timer = null; } timer = setTimeout(function () { fn.</description>
+    </item>
     
     <item>
       <title>Webpack常见问题</title>

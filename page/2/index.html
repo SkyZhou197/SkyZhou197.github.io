@@ -206,6 +206,58 @@
                     <article id="post-Recycler-pbl" class="article article-type-post" itemscope="" itemprop="blogPost">
 
     <div class="article-meta">
+        <a href="http://zhouhaomin.top/post/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/" class="article-date">
+            <time datetime="2019-12-27 14:48:00 &#43;0800 CST" itemprop="datePublished">2019-12-27</time>
+        </a>
+    </div>
+
+    <div class="article-inner">
+        
+        <input type="hidden" class="isFancy">
+        
+
+        <header class="article-header">
+
+
+            <h1 itemprop="name">
+                <a class="article-title" href="http://zhouhaomin.top/post/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/">Vue数据响应式</a>
+            </h1>
+
+
+        </header>
+
+
+        <div class="article-entry" itemprop="articleBody">
+             Vue 数据响应式 Vue 最独特的特性之一，是其非侵入性的响应式系统。数据模型仅仅是普通的 JavaScript 对象。而当你修改它们时，视图 会进行更新。
+当一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对象所有的属性，并使用 Object.defineProperty,其作用如下:
+ 可以给对象添加属性 value 可以给对象添加 getter/setter getter/setter 用于对属性的读写进行监控。  vm = new Vue({data:myData}) 的作用:
+ 会让 vm 成为 myData 的代理(proxy) 会让 myData 的所有属性收到监控，在属性变化后会重新渲染。  当我们使用 Object.defineProperty 时，若未给出初始数据，可以使用和下列相类似的两种方法
+Vue.set(this.object,'m',100) this.$set(this.object,'m',100)  作用如下：
+ 新增 key 自动创建代理和监听(如果还没有创建) 触发 UI 更新(不是立刻)  data 中有数组存在时，可以使用 vue 已经改变如下七个 API，可以自动监听和处理，调用之后更新 UI：
+ push() pop() shift() unshift() splice() sort() reverse()  
+        </div>
+
+        <div class="article-info article-info-index">
+
+            
+
+            
+
+            <p class="article-more-link">
+                <a href="http://zhouhaomin.top/post/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/">more &gt;&gt;</a>
+            </p>
+
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+
+</article>
+
+                
+                    <article id="post-Recycler-pbl" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+    <div class="article-meta">
         <a href="http://zhouhaomin.top/post/%E5%88%9D%E8%AF%86vue/" class="article-date">
             <time datetime="2019-12-24 15:44:41 &#43;0800 CST" itemprop="datePublished">2019-12-24</time>
         </a>
@@ -662,55 +714,6 @@ JavaScript推出后在浏览器上大获成功，微软公司在不久后就为I
 
             <p class="article-more-link">
                 <a href="http://zhouhaomin.top/post/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">more &gt;&gt;</a>
-            </p>
-
-            <div class="clearfix"></div>
-        </div>
-
-    </div>
-
-</article>
-
-                
-                    <article id="post-Recycler-pbl" class="article article-type-post" itemscope="" itemprop="blogPost">
-
-    <div class="article-meta">
-        <a href="http://zhouhaomin.top/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/" class="article-date">
-            <time datetime="2019-11-15 10:06:00 &#43;0800 CST" itemprop="datePublished">2019-11-15</time>
-        </a>
-    </div>
-
-    <div class="article-inner">
-        
-        <input type="hidden" class="isFancy">
-        
-
-        <header class="article-header">
-
-
-            <h1 itemprop="name">
-                <a class="article-title" href="http://zhouhaomin.top/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/">HTMl常用标签</a>
-            </h1>
-
-
-        </header>
-
-
-        <div class="article-entry" itemprop="articleBody">
-            大家好，今天我们学习了HTML常用的几个标签 1. a 标签的用法 首先我们了解下 a 标签：链接通过 a 标签表示，用户点击后，浏览器会跳转到指定的网址。 今天主要学习了它的三个属性： 1. href属性:给出链接指向的网址。它的值应该是一个 URL 或者锚点。 2. target属性:指定如何展示打开的链接。它可以是在指定的窗口打开，也可以在iframe标签里面打开。 3. download属性:表明当前链接用于下载，而不是跳转到另一个 URL。
-其次是 a 的 href 的取值：
- 网址 : 建议使用//google.com 路径 : /a/b/c以及a/b/c 伪协议 : javascript:代码; 或 mailto:邮箱 或 tel：手机号 id : href=#xxx  2. img 标签的用法 今天我们学习的 img 标签用法如下：img 标签用于插入图片。它是单独使用的，没有闭合标签。
- 作用 : 发出get请求，展示一张图片。 属性 : alt(设定图片的文字说明)/height(指定图片显示时的高度)/ width(指定图片显示时的宽度和高度)/src(图片的来源) 事件 : onload/onerror 响应式 : max-width:100%  3. table 标签的用法 我们再来回顾一下 table 标签的用法，相关的标签有：
-        </div>
-
-        <div class="article-info article-info-index">
-
-            
-
-            
-
-            <p class="article-more-link">
-                <a href="http://zhouhaomin.top/post/html%E5%B8%B8%E7%94%A8%E6%A0%87%E7%AD%BE/">more &gt;&gt;</a>
             </p>
 
             <div class="clearfix"></div>

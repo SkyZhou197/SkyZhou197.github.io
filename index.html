@@ -206,6 +206,53 @@
                     <article id="post-Recycler-pbl" class="article article-type-post" itemscope="" itemprop="blogPost">
 
     <div class="article-meta">
+        <a href="http://zhouhaomin.top/post/js%E7%9A%84%E4%BA%8B%E4%BB%B6%E8%8A%82%E6%B5%81%E5%92%8C%E4%BA%8B%E4%BB%B6%E9%98%B2%E6%8A%96/" class="article-date">
+            <time datetime="2020-04-01 09:41:41 &#43;0800 CST" itemprop="datePublished">2020-04-01</time>
+        </a>
+    </div>
+
+    <div class="article-inner">
+        
+        <input type="hidden" class="isFancy">
+        
+
+        <header class="article-header">
+
+
+            <h1 itemprop="name">
+                <a class="article-title" href="http://zhouhaomin.top/post/js%E7%9A%84%E4%BA%8B%E4%BB%B6%E8%8A%82%E6%B5%81%E5%92%8C%E4%BA%8B%E4%BB%B6%E9%98%B2%E6%8A%96/">JS的事件节流和事件防抖</a>
+            </h1>
+
+
+        </header>
+
+
+        <div class="article-entry" itemprop="articleBody">
+            概念  事件节流：规定一个单位时间，在这个单位时间内，只能有一次触发事件的回调函数执行，如果在同一个单位时间内某事件被触发多次，只有一次能生效。 事件防抖：在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时。  示例代码 事件节流 function throttle(fn, gapTime) { let _lastTime = null; return function () { let _nowTime = + new Date() if (_nowTime - _lastTime &gt; gapTime || !_lastTime) { fn(); _lastTime = _nowTime } } } let fn = ()=&gt;{ console.log('boom') } setInterval(throttle(fn,1000),10)  结果为每一秒钟打出一次 boom
+事件防抖 function debounce(fn, wait) { var timer = null; return function () { var context = this var args = arguments if (timer) { clearTimeout(timer); timer = null; } timer = setTimeout(function () { fn.
+        </div>
+
+        <div class="article-info article-info-index">
+
+            
+
+            
+
+            <p class="article-more-link">
+                <a href="http://zhouhaomin.top/post/js%E7%9A%84%E4%BA%8B%E4%BB%B6%E8%8A%82%E6%B5%81%E5%92%8C%E4%BA%8B%E4%BB%B6%E9%98%B2%E6%8A%96/">more &gt;&gt;</a>
+            </p>
+
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+
+</article>
+
+                
+                    <article id="post-Recycler-pbl" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+    <div class="article-meta">
         <a href="http://zhouhaomin.top/post/webpack%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="article-date">
             <time datetime="2020-03-25 16:13:22 &#43;0800 CST" itemprop="datePublished">2020-03-25</time>
         </a>
@@ -650,58 +697,6 @@ vm.$watch('xxx', fn, {deep: .., immediate: ..} //其中'xxx'可以改为一个�
 
             <p class="article-more-link">
                 <a href="http://zhouhaomin.top/post/vue%E4%B8%AD%E7%9A%84computed%E5%92%8Cwatch/">more &gt;&gt;</a>
-            </p>
-
-            <div class="clearfix"></div>
-        </div>
-
-    </div>
-
-</article>
-
-                
-                    <article id="post-Recycler-pbl" class="article article-type-post" itemscope="" itemprop="blogPost">
-
-    <div class="article-meta">
-        <a href="http://zhouhaomin.top/post/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/" class="article-date">
-            <time datetime="2019-12-27 14:48:00 &#43;0800 CST" itemprop="datePublished">2019-12-27</time>
-        </a>
-    </div>
-
-    <div class="article-inner">
-        
-        <input type="hidden" class="isFancy">
-        
-
-        <header class="article-header">
-
-
-            <h1 itemprop="name">
-                <a class="article-title" href="http://zhouhaomin.top/post/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/">Vue数据响应式</a>
-            </h1>
-
-
-        </header>
-
-
-        <div class="article-entry" itemprop="articleBody">
-             Vue 数据响应式 Vue 最独特的特性之一，是其非侵入性的响应式系统。数据模型仅仅是普通的 JavaScript 对象。而当你修改它们时，视图 会进行更新。
-当一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对象所有的属性，并使用 Object.defineProperty,其作用如下:
- 可以给对象添加属性 value 可以给对象添加 getter/setter getter/setter 用于对属性的读写进行监控。  vm = new Vue({data:myData}) 的作用:
- 会让 vm 成为 myData 的代理(proxy) 会让 myData 的所有属性收到监控，在属性变化后会重新渲染。  当我们使用 Object.defineProperty 时，若未给出初始数据，可以使用和下列相类似的两种方法
-Vue.set(this.object,'m',100) this.$set(this.object,'m',100)  作用如下：
- 新增 key 自动创建代理和监听(如果还没有创建) 触发 UI 更新(不是立刻)  data 中有数组存在时，可以使用 vue 已经改变如下七个 API，可以自动监听和处理，调用之后更新 UI：
- push() pop() shift() unshift() splice() sort() reverse()  
-        </div>
-
-        <div class="article-info article-info-index">
-
-            
-
-            
-
-            <p class="article-more-link">
-                <a href="http://zhouhaomin.top/post/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/">more &gt;&gt;</a>
             </p>
 
             <div class="clearfix"></div>
