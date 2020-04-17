@@ -206,6 +206,58 @@
                     <article id="post-Recycler-pbl" class="article article-type-post" itemscope="" itemprop="blogPost">
 
     <div class="article-meta">
+        <a href="http://zhouhaomin.top/post/vue%E4%B8%AD%E7%9A%84computed%E5%92%8Cwatch/" class="article-date">
+            <time datetime="2019-12-27 17:09:05 &#43;0800 CST" itemprop="datePublished">2019-12-27</time>
+        </a>
+    </div>
+
+    <div class="article-inner">
+        
+        <input type="hidden" class="isFancy">
+        
+
+        <header class="article-header">
+
+
+            <h1 itemprop="name">
+                <a class="article-title" href="http://zhouhaomin.top/post/vue%E4%B8%AD%E7%9A%84computed%E5%92%8Cwatch/">Vue中的computed和watch</a>
+            </h1>
+
+
+        </header>
+
+
+        <div class="article-entry" itemprop="articleBody">
+             computed - 计算属性 用途：被计算出来的属性就是计算属性，使用时可以不加括号。
+缓存：如果依赖的属性没有变化，就不会重新计算。getter/setter默认不会做缓存，Vue做了特殊的处理。
+watch - 侦听 用途：当数据变化时，执行一个函数。
+注意：
+ watch 不能在箭头函数中使用 this immediate 表示第一次渲染的时候是否要执行这个函数 deep 表示在监听 object 的时候是否要看 object 里面东西的变化  语法1
+watch:{ o1: () =&gt; {}, //o1此处不要使用this，这里的this是全局对象 o2: function(value, oldValue){}, o3(){}, o4: [f1, f2], o5: 'methodName', o6: {handler:fn, deep:true, immediate:true},'object.a': function(){} }  语法2
+vm.$watch('xxx', fn, {deep: .., immediate: ..} //其中'xxx'可以改为一个返回字符串的函数  
+        </div>
+
+        <div class="article-info article-info-index">
+
+            
+
+            
+
+            <p class="article-more-link">
+                <a href="http://zhouhaomin.top/post/vue%E4%B8%AD%E7%9A%84computed%E5%92%8Cwatch/">more &gt;&gt;</a>
+            </p>
+
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+
+</article>
+
+                
+                    <article id="post-Recycler-pbl" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+    <div class="article-meta">
         <a href="http://zhouhaomin.top/post/vue%E6%95%B0%E6%8D%AE%E5%93%8D%E5%BA%94%E5%BC%8F/" class="article-date">
             <time datetime="2019-12-27 14:48:00 &#43;0800 CST" itemprop="datePublished">2019-12-27</time>
         </a>
@@ -667,53 +719,6 @@ JavaScript推出后在浏览器上大获成功，微软公司在不久后就为I
 
             <p class="article-more-link">
                 <a href="http://zhouhaomin.top/post/%E6%B5%85%E6%9E%90url/">more &gt;&gt;</a>
-            </p>
-
-            <div class="clearfix"></div>
-        </div>
-
-    </div>
-
-</article>
-
-                
-                    <article id="post-Recycler-pbl" class="article article-type-post" itemscope="" itemprop="blogPost">
-
-    <div class="article-meta">
-        <a href="http://zhouhaomin.top/post/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="article-date">
-            <time datetime="2019-11-25 07:41:34 &#43;0800 CST" itemprop="datePublished">2019-11-25</time>
-        </a>
-    </div>
-
-    <div class="article-inner">
-        
-        <input type="hidden" class="isFancy">
-        
-
-        <header class="article-header">
-
-
-            <h1 itemprop="name">
-                <a class="article-title" href="http://zhouhaomin.top/post/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">CSS知识总结</a>
-            </h1>
-
-
-        </header>
-
-
-        <div class="article-entry" itemprop="articleBody">
-            大家好，今天我们来进行 CSS 知识总结，主要介绍了 CSS 动画的知识 首先介绍一下浏览器渲染原理，其步骤如下：  根据 HTML 构建 HTMl 树(DOM) 根据 CSS 构建 CSS 树(CSSOM) 将两棵树合并成一棵渲染树(render tree) Layout 布局(文档流、盒模型、计算大小和位置) Paint 绘制(把边框颜色、文字颜色、阴影等画出来) Compose 合成(根据层叠关系展示画面)  其次介绍一下 CSS 动画的两种做法(transition 和 animation)。 transition 过渡，作用是补充关键帧，语法如下：
- transition:属性名 时长 过渡方式 延迟 如 transition:left 200ms linear 可以用逗号分隔两个不同属性 如 transition:left 200ms,top 400ms 可以用 all 代表所有属性 如 transition:all 200ms 过渡方式有:linear | ease | ease-in | ease-out | ease-in-out 等  过渡必须要有起始，一般只有一次或两次动画(如 hover 和非 hover 状态的过渡) 而对于中间点，我们有两种办法:
-        </div>
-
-        <div class="article-info article-info-index">
-
-            
-
-            
-
-            <p class="article-more-link">
-                <a href="http://zhouhaomin.top/post/css%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">more &gt;&gt;</a>
             </p>
 
             <div class="clearfix"></div>

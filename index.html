@@ -206,6 +206,54 @@
                     <article id="post-Recycler-pbl" class="article article-type-post" itemscope="" itemprop="blogPost">
 
     <div class="article-meta">
+        <a href="http://zhouhaomin.top/post/vue%E5%AE%9E%E7%8E%B0%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD/" class="article-date">
+            <time datetime="2020-04-17 08:14:24 &#43;0800 CST" itemprop="datePublished">2020-04-17</time>
+        </a>
+    </div>
+
+    <div class="article-inner">
+        
+        <input type="hidden" class="isFancy">
+        
+
+        <header class="article-header">
+
+
+            <h1 itemprop="name">
+                <a class="article-title" href="http://zhouhaomin.top/post/vue%E5%AE%9E%E7%8E%B0%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD/">Vue实现路由懒加载</a>
+            </h1>
+
+
+        </header>
+
+
+        <div class="article-entry" itemprop="articleBody">
+            懒加载的两种方式 Vue异步组件方式 有时候我们想把某个路由下的所有组件都打包在同个异步块 (chunk) 中。只需要使用 命名 chunk，一个特殊的注释语法来提供 chunk name (需要 Webpack &gt; 2.4)。打包后，每个组件生成一个js文件
+{ path: '/Demo', name: 'Demo', //打包后，每个组件单独生成一个chunk文件 component: reslove =&gt; require(['../views/Demo'], resolve) }  动态import语法 在 Webpack 2 中，我们可以使用动态 import语法来定义代码分块点 (split point)：
+//默认将每个组件，单独打包成一个js文件 const Demo1 = () =&gt; import('../views/Demo1') const Demo2 = () =&gt; import('../views/Demo2')  如果使用的是 Babel，还需要添加 syntax-dynamic-import 插件，才能使 Babel 可以正确地解析语法。
+        </div>
+
+        <div class="article-info article-info-index">
+
+            
+
+            
+
+            <p class="article-more-link">
+                <a href="http://zhouhaomin.top/post/vue%E5%AE%9E%E7%8E%B0%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD/">more &gt;&gt;</a>
+            </p>
+
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+
+</article>
+
+                
+                    <article id="post-Recycler-pbl" class="article article-type-post" itemscope="" itemprop="blogPost">
+
+    <div class="article-meta">
         <a href="http://zhouhaomin.top/post/js%E7%9A%84%E4%BA%8B%E4%BB%B6%E8%8A%82%E6%B5%81%E5%92%8C%E4%BA%8B%E4%BB%B6%E9%98%B2%E6%8A%96/" class="article-date">
             <time datetime="2020-04-01 09:41:41 &#43;0800 CST" itemprop="datePublished">2020-04-01</time>
         </a>
@@ -645,58 +693,6 @@ this.$emit('update:foo', newValue)  示例 &lt;div id=&quot;app&quot;&gt; &lt;di
 
             <p class="article-more-link">
                 <a href="http://zhouhaomin.top/post/js%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D%E6%96%B9%E6%B3%95/">more &gt;&gt;</a>
-            </p>
-
-            <div class="clearfix"></div>
-        </div>
-
-    </div>
-
-</article>
-
-                
-                    <article id="post-Recycler-pbl" class="article article-type-post" itemscope="" itemprop="blogPost">
-
-    <div class="article-meta">
-        <a href="http://zhouhaomin.top/post/vue%E4%B8%AD%E7%9A%84computed%E5%92%8Cwatch/" class="article-date">
-            <time datetime="2019-12-27 17:09:05 &#43;0800 CST" itemprop="datePublished">2019-12-27</time>
-        </a>
-    </div>
-
-    <div class="article-inner">
-        
-        <input type="hidden" class="isFancy">
-        
-
-        <header class="article-header">
-
-
-            <h1 itemprop="name">
-                <a class="article-title" href="http://zhouhaomin.top/post/vue%E4%B8%AD%E7%9A%84computed%E5%92%8Cwatch/">Vue中的computed和watch</a>
-            </h1>
-
-
-        </header>
-
-
-        <div class="article-entry" itemprop="articleBody">
-             computed - 计算属性 用途：被计算出来的属性就是计算属性，使用时可以不加括号。
-缓存：如果依赖的属性没有变化，就不会重新计算。getter/setter默认不会做缓存，Vue做了特殊的处理。
-watch - 侦听 用途：当数据变化时，执行一个函数。
-注意：
- watch 不能在箭头函数中使用 this immediate 表示第一次渲染的时候是否要执行这个函数 deep 表示在监听 object 的时候是否要看 object 里面东西的变化  语法1
-watch:{ o1: () =&gt; {}, //o1此处不要使用this，这里的this是全局对象 o2: function(value, oldValue){}, o3(){}, o4: [f1, f2], o5: 'methodName', o6: {handler:fn, deep:true, immediate:true},'object.a': function(){} }  语法2
-vm.$watch('xxx', fn, {deep: .., immediate: ..} //其中'xxx'可以改为一个返回字符串的函数  
-        </div>
-
-        <div class="article-info article-info-index">
-
-            
-
-            
-
-            <p class="article-more-link">
-                <a href="http://zhouhaomin.top/post/vue%E4%B8%AD%E7%9A%84computed%E5%92%8Cwatch/">more &gt;&gt;</a>
             </p>
 
             <div class="clearfix"></div>

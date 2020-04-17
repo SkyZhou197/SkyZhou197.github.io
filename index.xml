@@ -6,10 +6,21 @@
     <description>Recent content on 周昊旻的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-ch</language>
-    <lastBuildDate>Wed, 01 Apr 2020 09:41:41 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 17 Apr 2020 08:14:24 +0800</lastBuildDate>
     
 	<atom:link href="http://zhouhaomin.top/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Vue实现路由懒加载</title>
+      <link>http://zhouhaomin.top/post/vue%E5%AE%9E%E7%8E%B0%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD/</link>
+      <pubDate>Fri, 17 Apr 2020 08:14:24 +0800</pubDate>
+      
+      <guid>http://zhouhaomin.top/post/vue%E5%AE%9E%E7%8E%B0%E8%B7%AF%E7%94%B1%E6%87%92%E5%8A%A0%E8%BD%BD/</guid>
+      <description>懒加载的两种方式 Vue异步组件方式 有时候我们想把某个路由下的所有组件都打包在同个异步块 (chunk) 中。只需要使用 命名 chunk，一个特殊的注释语法来提供 chunk name (需要 Webpack &amp;gt; 2.4)。打包后，每个组件生成一个js文件
+{ path: &#39;/Demo&#39;, name: &#39;Demo&#39;, //打包后，每个组件单独生成一个chunk文件 component: reslove =&amp;gt; require([&#39;../views/Demo&#39;], resolve) }  动态import语法 在 Webpack 2 中，我们可以使用动态 import语法来定义代码分块点 (split point)：
+//默认将每个组件，单独打包成一个js文件 const Demo1 = () =&amp;gt; import(&#39;../views/Demo1&#39;) const Demo2 = () =&amp;gt; import(&#39;../views/Demo2&#39;)  如果使用的是 Babel，还需要添加 syntax-dynamic-import 插件，才能使 Babel 可以正确地解析语法。</description>
+    </item>
     
     <item>
       <title>JS的事件节流和事件防抖</title>
